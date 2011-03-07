@@ -33,9 +33,9 @@ package org.ilrt.mca.rest.resource;
 
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.test.framework.WebAppDescriptor;
-import org.ilrt.mca.rest.providers.FreemarkerTemplateProvider;
 import org.ilrt.mca.rest.providers.JenaModelRdfProvider;
 import org.ilrt.mca.rest.resources.AbstractResourceTest;
+import org.ilrt.mca.rest.providers.FreeMarkerTemplateProcessor;
 import org.junit.Test;
 
 import javax.ws.rs.core.Response;
@@ -57,7 +57,7 @@ public class SparqlEndpointResourceDisabledTest extends AbstractResourceTest {
 
         List supportedClasses = new ArrayList();
         supportedClasses.add(JenaModelRdfProvider.class);
-        supportedClasses.add(FreemarkerTemplateProvider.class);
+        supportedClasses.add(FreeMarkerTemplateProcessor.class);
 
         this.setSupportedClasses(supportedClasses);
 

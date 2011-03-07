@@ -42,7 +42,7 @@ import com.sun.jersey.test.framework.WebAppDescriptor;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.ilrt.mca.RdfMediaType;
-import org.ilrt.mca.rest.providers.FreemarkerTemplateProvider;
+import org.ilrt.mca.rest.providers.FreeMarkerTemplateProcessor;
 import org.ilrt.mca.rest.providers.JenaModelRdfProvider;
 import org.ilrt.mca.rest.resources.AbstractResourceTest;
 import org.junit.Test;
@@ -74,7 +74,7 @@ public class SparqlEndpointResourceEnabledTest extends AbstractResourceTest {
 
         List supportedClasses = new ArrayList();
         supportedClasses.add(JenaModelRdfProvider.class);
-        supportedClasses.add(FreemarkerTemplateProvider.class);
+        supportedClasses.add(FreeMarkerTemplateProcessor.class);
 
         this.setSupportedClasses(supportedClasses);
 
