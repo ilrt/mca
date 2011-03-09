@@ -106,6 +106,7 @@
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.26</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/</contextPath>
@@ -114,7 +115,9 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
                 <configuration>
                     <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
@@ -163,11 +166,6 @@
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-services-geo</artifactId>
             <version>0.7-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
