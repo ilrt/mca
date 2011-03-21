@@ -107,8 +107,12 @@ var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, ma
         // hiding as necessary
         for (var j = 0; j < markers.length; ++j) {
             if (sub_bounds.contains(markers[j].getPosition())) {
-                if (!markers[j].getVisible()) { // only show if not already visible
+
+                if (markers[j].getMap(map) == null) {
                     markers[j].setMap(map);
+                }
+
+                if (!markers[j].getVisible()) { // only show if not already visible
                     markers[j].setVisible(true);
                 }
             } else {
