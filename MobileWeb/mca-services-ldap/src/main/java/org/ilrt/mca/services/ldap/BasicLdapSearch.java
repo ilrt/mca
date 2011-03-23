@@ -22,6 +22,7 @@ import javax.naming.directory.SearchResult;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Hashtable;
+import java.util.regex.Pattern;
 
 public class BasicLdapSearch implements SearchService {
 
@@ -40,30 +41,31 @@ public class BasicLdapSearch implements SearchService {
 
         this.env = env;
 
-        // get the limit of results
-        try {
-            RESULT_LIMIT = Integer.valueOf((String) cfg.get("resultLimit"));
-        } catch (NumberFormatException ex) {
-            RESULT_LIMIT = 10;
+        if (cfg != null) {
+
+            // get the limit of results
+            try {
+                RESULT_LIMIT = Integer.valueOf((String) cfg.get("resultLimit"));
+            } catch (NumberFormatException ex) {
+                RESULT_LIMIT = 10;
+            }
+
+            // get the attribute mapping values
+            uidMapping = (String) cfg.get("uid");
+            displayNameMapping = (String) cfg.get("displayName");
+            titleMapping = (String) cfg.get("title");
+            ouMapping = (String) cfg.get("ou");
+            postalAddressMapping = (String) cfg.get("postalAddress");
+            postCodeMapping = (String) cfg.get("postCode");
+            mailMapping = (String) cfg.get("mail");
+            telephoneNumberMapping = (String) cfg.get("telephoneNumber");
+
+            // person URI prefix
+            personUriPrefix = (String) cfg.get("personUriPrefix");
+
+            // base DN for searches
+            baseDN = (String) cfg.get("baseDN");
         }
-
-        // get the attribute mapping values
-        uidMapping = (String) cfg.get("uid");
-        displayNameMapping = (String) cfg.get("displayName");
-        titleMapping = (String) cfg.get("title");
-        ouMapping = (String) cfg.get("ou");
-        postalAddressMapping = (String) cfg.get("postalAddress");
-        postCodeMapping = (String) cfg.get("postCode");
-        mailMapping = (String) cfg.get("mail");
-        telephoneNumberMapping = (String) cfg.get("telephoneNumber");
-
-        // person URI prefix
-        personUriPrefix = (String) cfg.get("personUriPrefix");
-
-        // base DN for searches
-        baseDN = (String) cfg.get("baseDN");
-
-
     }
 
     @Override
@@ -183,13 +185,26 @@ public class BasicLdapSearch implements SearchService {
     private Resource handleTelephone(Model m, String telNumber) {
 
         // create format that can be used by phones
-        String telNumberUri = "tel:" + telNumber.replace(" ", "");
-        telNumberUri = telNumberUri.replace("(0)", "");
+        String telNumberUri = "tel:" + extractNumber(telNumber);
 
         Resource r = m.createResource(telNumberUri);
         r.addProperty(RDFS.label, telNumber);
 
         return r;
+    }
+
+    protected String extractNumber(final String number) {
+
+        String temp = number;
+
+        if (number.contains("or")) {
+            String[] tempArray = temp.split("or");
+            temp = tempArray[0];
+        }
+
+        temp = temp.replace(" ", "");
+
+        return temp;
     }
 
     /**
