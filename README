@@ -4,19 +4,22 @@ MOBILE CAMPUS ASSISTANT - README
 INTRODUCTION
 ------------
 
-Mobile Campus Assistant is a JISC funded rapid innovation project
-undertaken by the Institute for Learning and Research Technology (ILRT)
-at the University of Bristol.
+"Mobile Campus Assistant" is software that was developed during a 
+JISC funded rapid innovation project of the same name. The software
+has continued to be developed through the JISC funded  MyMobileBristol
+(http://mymobilebristol.com) project. The work was undertaken by the 
+Institute for Learning and Research Technology (ILRT) at the University
+of Bristol.
 
 COMPILING
 ---------
 
-This is a Java project that uses maven as the build tool:
+This is a Java project that uses maven as the build tool. The project 
+is modular and organised into a number of modules. To compile and 
+install the modules:
 
-compile         compile the source code
-test            compile the source code and run tests
-install         compile the source code, run tests and create
-                the application WAR file
+cd MobileWeb/
+mvn install
 
 RUNNING
 -------
@@ -38,6 +41,7 @@ distributed with the source code.
 
 To run the application via maven you can run:
 
+cd mca-webapp/
 mvn jetty:run-war
 
 
@@ -45,14 +49,14 @@ FURTHER INFORMATION
 -------------------
 
 Project Website:
-<http://mobilecampus.ilrt.bris.ac.uk/>
+<http://mymobilebristol.com/>
 
 Demonstrator
-<http://mca.ilrt.bristol.ac.uk/>
+<http://m.bristol.ac.uk/>
 
 
-For general queries about the project please contact Nikki
-Rogers (nikki.rogers@bristol.ac.uk). For technical queries please
-contact Mike Jones (mike.a.jones@bristol.ac.uk).
+For general queries about the project please contact Simon Price
+(s.price@bristol.ac.uk). For technical queries please contact 
+Mike Jones (mike.a.jones@bristol.ac.uk).
 
-(c) 2009 University of Bristol
+(c) 2009-2011 University of Bristol
