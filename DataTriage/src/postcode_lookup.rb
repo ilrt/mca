@@ -1,3 +1,14 @@
+# postcode_lookup.rb
+#
+# Script to take a postcode and resolve it to a latitude and longitude. The script queries
+# a SPARQL Endpoint (from Talis) that queries the Ordinance Survey data.
+#
+# If you are calling thus script YOU MUST throttle requests to the server.
+#
+# Author: Mike Jones (mike.a.jones@bristol.ac.uk)
+#
+# (c)2011 University of Bristol
+
 require 'net/http'
 require 'CGI'
 require 'java'
@@ -13,6 +24,8 @@ require 'mvn:log4j:log4j'
 require 'mvn:org.slf4j:slf4j-log4j12'
 require 'mvn:com.hp.hpl.jena:jena'
 
+require 'namespaces.rb'
+
 include_class 'com.hp.hpl.jena.rdf.model.ModelFactory'
 include_class 'java.lang.System'
 include_class 'java.io.StringReader'
@@ -24,7 +37,6 @@ class PostCodeLookup
     @@sparql_domain = 'api.talis.com'
     @@sparl_port = 80
     @@sparql_query = "/stores/ordnance-survey/services/sparql?query="
-    @@wgs84_ns = 'http://www.w3.org/2003/01/geo/wgs84_pos'
 
     def initialize(postcode)
         @postcode = postcode;
@@ -50,14 +62,19 @@ class PostCodeLookup
         response = response.get("#@@sparql_query#{query}", headers)
 
         if response.message == "OK"
+
+            #load the data into a model
             m = ModelFactory.createDefaultModel()
             m.read(StringReader.new(response.body), nil)
 
-            r = m.getResource(self.uri)
-            lat = r.getProperty(m.createProperty("#@@wgs84_ns#lat")).getLiteral().getLexicalForm()
-            long = r.getProperty(m.createProperty("#@@wgs84_ns#long")).getLiteral().getLexicalForm()
-
-            PostCodePoint.new(self.uri, lat, long)
+            if (m.size > 0)
+                r = m.getResource(self.uri)
+                lat = r.getProperty(m.createProperty($wgs84_ns + "lat")).literal.lexicalForm
+                long = r.getProperty(m.createProperty($wgs84_ns + "long")).literal.lexicalForm
+                PostCodePoint.new(self.uri, lat, long)
+            else
+                nil
+            end
         end
 
     end
