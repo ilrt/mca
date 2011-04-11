@@ -108,10 +108,11 @@ class ParseFile
                 r.addProperty(m.createProperty($wgs84_ns + "long"),
                               m.createTypedLiteral(item.point.longitude, XSDDatatype::XSDdouble));
             end
+            r.addProperty(RDF.type, m.createProperty($wgs84_ns + "Point"))
             r.addProperty(VCARD::ADR, item.address)
             r.addProperty(RDF.type, m.createResource($mcageo_ns + "amenity"))
             r.addProperty(RDF.type, m.createResource($mcageo_ns + "bopen_wireless"))
-            r.addProperty(m.createProperty($mcageo_ns + "hasTag"), "bopen_wireless");
+            r.addProperty(m.createProperty($mcageo_ns + "hasTag"), "bopen_wireless")
         end
 
         m.write(PrintStream.new(System.out, true, "UTF-8"))
