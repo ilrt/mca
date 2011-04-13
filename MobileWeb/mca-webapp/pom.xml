@@ -101,6 +101,14 @@
                 <filtering>true</filtering>
                 <targetPath>${project.build.directory}</targetPath>
             </resource>
+            <resource>
+                <directory>${basedir}/src/main/webapp/META-INF/</directory>
+                <includes>
+                    <include>context.xml</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
         </resources>
         <plugins>
             <plugin>
@@ -120,6 +128,7 @@
                 <version>2.1.1</version>
                 <configuration>
                     <webXml>${project.build.directory}/web.xml</webXml>
+                    <containerConfigXML>${project.build.directory}/context.xml</containerConfigXML>
                 </configuration>
             </plugin>
         </plugins>
