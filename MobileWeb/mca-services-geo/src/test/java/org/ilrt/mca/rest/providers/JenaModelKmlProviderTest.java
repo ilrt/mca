@@ -37,7 +37,6 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import org.ilrt.mca.vocab.WGS84;
 import org.junit.Test;
 import org.xml.sax.InputSource;
@@ -46,6 +45,7 @@ import javax.xml.namespace.NamespaceContext;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Iterator;
@@ -91,7 +91,7 @@ public class JenaModelKmlProviderTest {
 
         // ---------- get a stream and send it to the provider to convert to kml
 
-        ByteOutputStream bos = new ByteOutputStream();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
         provider.writeTo(m, null, null, null, null, null, bos);
 
 
