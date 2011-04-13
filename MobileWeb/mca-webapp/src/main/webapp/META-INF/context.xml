@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
-<Context path="" docBase="MobileWeb" debug="0" reloadable="true">
-    <Resource name="${jniName}" auth="Container" type="javax.sql.DataSource"
+<Context path="" docBase="${docBase}" debug="0" reloadable="true">
+    <Resource name="${jniName}"
+              auth="Container"
+              type="javax.sql.DataSource"
               driverClassName="${jdbcDriver}"
-              url="${jdbcUrl}"/>
+              url="${jdbcUrl}"
+              initialSize="10"
+              maxActive="25"
+              removeAbandoned="true"
+              logAbandoned="true"/>
 </Context>
