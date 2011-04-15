@@ -33,7 +33,9 @@ package org.ilrt.mca.harvester.feeds;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
@@ -76,6 +78,23 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                     entry.setUri(entry.getLink());
                 }
 
+
+                HtmlProcessor processor = new HtmlProcessor();
+
+//                System.out.println("********************* BEFORE ************************");
+//                System.out.println(entry.getDescription().getValue());
+
+            
+
+                String content = processor.process(syndFeed.getLink(), entry.getDescription().getValue());
+
+//                System.out.println("********************* AFTER ************************");
+//                System.out.println(content);
+
+                SyndContent e = entry.getDescription();
+                e.setValue(content);
+                
+
             }
 
             // remove foreign elements that cause icky RDF
@@ -89,7 +108,8 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                 Element element = (Element) i.next();
 
                 if (element.getNamespaceURI().equals("http://webns.net/mvcb/") ||
-                        element.getNamespaceURI().equals("http://www.w3.org/2005/Atom")) {
+                        element.getNamespaceURI().equals("http://www.w3.org/2005/Atom") ||
+                        element.getNamespaceURI().equals("http://rssnamespace.org/feedburner/ext/1.0")) {
                     i.remove();
                 }
 
@@ -104,6 +124,8 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
             output.output(syndFeed, writer);
             String feed = writer.getBuffer().toString();
 
+            //
+            //
             //System.out.println(feed);
 
             // read into a model
