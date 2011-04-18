@@ -57,9 +57,6 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
     public ItemDaoImpl(final QueryManager queryManager) throws Exception {
         this.queryManager = queryManager;
         findItemsSparql = loadSparql("/sparql/findItems.rql");
-
-        System.out.println(findItemsSparql);
-
     }
 
     // ---------- PUBLIC METHODS
