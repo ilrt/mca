@@ -4,6 +4,7 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX mca:     <http://vocab.bris.ac.uk/mca/registry#>
 PREFIX dc:      <http://purl.org/dc/elements/1.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rss:     <http://purl.org/rss/1.0/>
 CONSTRUCT {
     $id mca:template $template .
     $id rdfs:label $label .
@@ -14,18 +15,26 @@ CONSTRUCT {
     $itemId rdfs:label $itemLabel .
     $itemId mca:order $itemOrder .
     $itemId mca:style $style .
+    $itemId rdfs:seeAlso $itemSeeAlso .
+    $itemSeeAlso mca:hasItem $itemSubItem .
 } WHERE {
     $id mca:template $template .
     $id rdfs:label $label .
-    OPTIONAL { $id dc:description $description . } .
     $id rdf:type $type .
-    OPTIONAL { $id rdfs:seeAlso $seeAlso . } .
-    OPTIONAL {
-        $id mca:hasItem $itemId .
-        $itemId rdfs:label $itemLabel .
-        $itemId mca:order $itemOrder .
+    OPTIONAL { $id rdfs:seeAlso $seeAlso } .
+    OPTIONAL { $id dc:description $description } .
+    OPTIONAL { $id mca:hasItem $itemId  .
+        OPTIONAL { $itemId rdfs:label $itemLabel } .
+        OPTIONAL { $itemId mca:order $itemOrder } .
+        OPTIONAL { $itemId mca:style $style } .
         OPTIONAL {
-            $itemId mca:style $style .
-        } .
-    } .
+            $itemId rdfs:seeAlso $itemSeeAlso .
+            OPTIONAL {
+                GRAPH $itemSeeAlso {
+                    $itemSeeAlso rss:items $seq .
+                    $seq ?li $itemSubItem .
+                }
+            }
+        }
+    }
 }

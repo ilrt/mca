@@ -52,3 +52,10 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('E, d MMM yyyy')}&nbsp;<#if t
 <a href="${value}"><#if value['rdfs:label']??>${value['rdfs:label']?first}<#else>${value}</#if></a>
 </#compress>
 </#macro>
+
+<#-- count items -->
+<#macro CountItems resource>
+<#compress>
+<#if resource['rdfs:seeAlso']??>(${resource['rdfs:seeAlso']?first?size-1})</#if>
+</#compress>
+</#macro>
