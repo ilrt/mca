@@ -61,6 +61,8 @@ public class MCA_REGISTRY {
 
     public static final Resource FeedSource = model.createProperty(NS + "FeedSource");
 
+    public static final Resource Podcasts = model.createProperty(NS + "Podcasts");
+
     public static final Resource News = model.createProperty(NS + "News");
 
     public static final Resource FeedItem = model.createProperty(NS + "NewsItem");

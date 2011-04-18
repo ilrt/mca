@@ -58,6 +58,8 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         this.queryManager = queryManager;
         findItemsSparql = loadSparql("/sparql/findItems.rql");
 
+        System.out.println(findItemsSparql);
+
     }
 
     // ---------- PUBLIC METHODS
@@ -93,7 +95,8 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
             if (type.equals(MCA_REGISTRY.KmlMapSource.getURI())) {
                 return new KmlMapDelegateImpl(queryManager);
             } else if (type.equals(MCA_REGISTRY.News.getURI()) ||
-                    type.equals(MCA_REGISTRY.FeedItem.getURI())) {
+                    type.equals(MCA_REGISTRY.FeedItem.getURI()) ||
+                    type.equals(MCA_REGISTRY.Podcasts.getURI())) {
                 return new FeedDelegateImpl(queryManager);
             } else if (type.equals(MCA_REGISTRY.HtmlFragment.getURI())) {
                 return new HtmlFragmentDelegateImpl(queryManager);

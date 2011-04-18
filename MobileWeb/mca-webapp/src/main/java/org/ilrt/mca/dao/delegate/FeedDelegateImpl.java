@@ -35,6 +35,7 @@ import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import org.apache.log4j.Logger;
 import org.ilrt.mca.Common;
@@ -71,6 +72,7 @@ public class FeedDelegateImpl extends AbstractDao implements Delegate {
 
     @Override
     public Resource createResource(Resource resource, MultivaluedMap<String, String> parameters) {
+
 
         // we have a parameter so we are interested in a single item
         if (parameters.containsKey("item")) {
@@ -135,7 +137,7 @@ public class FeedDelegateImpl extends AbstractDao implements Delegate {
 
         // we want to use a special template for an individual news item
         Resource r = model.getResource(newsItemUri);
-        Resource template = ResourceFactory.createResource("template://newsItem.ftl");
+        Resource template = template(resource);
 
         if (r.hasProperty(MCA_REGISTRY.template)) {
             r.getProperty(MCA_REGISTRY.template).changeObject(template);
@@ -144,6 +146,16 @@ public class FeedDelegateImpl extends AbstractDao implements Delegate {
         }
 
         return model.getResource(newsItemUri);
+    }
+
+    private Resource template(Resource resource) {
+        if (resource.hasProperty(RDF.type)) {
+            if (resource.getProperty(RDF.type).getResource().getURI()
+                    .equals(MCA_REGISTRY.Podcasts.getURI())) {
+                return ResourceFactory.createResource("template://podcastItem.ftl");
+            }
+        }
+        return ResourceFactory.createResource("template://newsItem.ftl");
     }
 
     private String findNewsItems = null;
