@@ -35,7 +35,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
@@ -67,7 +66,6 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
             syndFeed.setFeedType("rss_1.0");
             syndFeed.setUri(sourceUrl);
 
-
             // The student union feeds GUID is not a valid URI - we check that the value of
             // getUri (which the ROME API populated with the RSS GUID) starts with "http:, if not
             // use the link as the URI.
@@ -78,13 +76,14 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                     entry.setUri(entry.getLink());
                 }
 
+                List elements = clearForeignMarkup((List)entry.getForeignMarkup());
+                entry.setForeignMarkup(elements);
+
 
                 HtmlProcessor processor = new HtmlProcessor();
 
 //                System.out.println("********************* BEFORE ************************");
 //                System.out.println(entry.getDescription().getValue());
-
-            
 
                 String content = processor.process(syndFeed.getLink(), entry.getDescription().getValue());
 
@@ -93,28 +92,12 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
 
                 SyndContent e = entry.getDescription();
                 e.setValue(content);
-                
 
             }
 
             // remove foreign elements that cause icky RDF
             // TODO: create a data wrangling class for this type of stuff that can be institutional specific
-            List elements = (List) syndFeed.getForeignMarkup();
-
-            Iterator i = elements.iterator();
-
-            while (i.hasNext()) {
-
-                Element element = (Element) i.next();
-
-                if (element.getNamespaceURI().equals("http://webns.net/mvcb/") ||
-                        element.getNamespaceURI().equals("http://www.w3.org/2005/Atom") ||
-                        element.getNamespaceURI().equals("http://rssnamespace.org/feedburner/ext/1.0")) {
-                    i.remove();
-                }
-
-            }
-
+            List elements = clearForeignMarkup((List) syndFeed.getForeignMarkup());
             syndFeed.setForeignMarkup(elements);
 
 
@@ -124,13 +107,13 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
             output.output(syndFeed, writer);
             String feed = writer.getBuffer().toString();
 
-            //
-            //
-            //System.out.println(feed);
+//            System.out.println(feed);
 
             // read into a model
             Model model = ModelFactory.createDefaultModel();
             model.read(new StringReader(feed), syndFeed.getLink());
+
+            //model.write(System.out);
 
             return model;
 
@@ -152,5 +135,25 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
 
     }
 
+
+    public List clearForeignMarkup(final List list) {
+
+        Iterator i = list.iterator();
+
+        while (i.hasNext()) {
+
+            Element element = (Element) i.next();
+
+            if (element.getNamespaceURI().equals("http://webns.net/mvcb/") ||
+                    element.getNamespaceURI().equals("http://www.w3.org/2005/Atom") ||
+                    element.getNamespaceURI().equals("http://rssnamespace.org/feedburner/ext/1.0") ||
+                    element.getNamespaceURI().equals("http://www.itunes.com/dtds/podcast-1.0.dtd") ||
+                    element.getNamespaceURI().equals("http://search.yahoo.com/mrss/")) {
+                i.remove();
+            }
+
+        }
+        return list;
+    }
 
 }
