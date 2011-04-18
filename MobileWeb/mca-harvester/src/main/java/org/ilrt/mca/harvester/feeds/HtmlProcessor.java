@@ -9,6 +9,9 @@ import org.htmlcleaner.TagNode;
 import org.htmlcleaner.TagNodeVisitor;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class HtmlProcessor {
 
@@ -40,11 +43,10 @@ public class HtmlProcessor {
                     TagNode tag = (TagNode) htmlNode;
                     String tagName = tag.getName();
 
-                    removeClass(tag);
-                    removeStyle(tag);
+                    removeAttributes(tag);
 
-                    if (tagName.equals("p")) {
-                        removeEmptyTags(tagNode, tag);
+                    if (isHeaderTag(tagName) || tagName.equals("p")) {
+                        removeTagIfEmpty(tagNode, tag);
                     }
 
                     if (tagName.equals("b")) {
@@ -62,10 +64,11 @@ public class HtmlProcessor {
                         }
 
                         String href = tag.getAttributeByName("href");
-                        if (!href.startsWith("http")) {
-                            tag.setAttribute("href", url + "/" + href);
+                        if (href != null) {
+                            if (!href.startsWith("http")) {
+                                tag.setAttribute("href", url + "/" + href);
+                            }
                         }
-
                     }
 
                 }
@@ -86,7 +89,7 @@ public class HtmlProcessor {
 
     }
 
-    void removeEmptyTags(TagNode parent, TagNode tag) {
+    void removeTagIfEmpty(TagNode parent, TagNode tag) {
 
         // change non breaking space character to a space
         String temp = tag.getText().toString().replaceAll("\\u00a0", " ");
@@ -97,16 +100,35 @@ public class HtmlProcessor {
         }
     }
 
-    void removeStyle(TagNode tag) {
-        if (tag.getAttributeByName("style") != null) {
-            tag.removeAttribute("style");
+    void removeAttributes(TagNode tag) {
+
+        // add attributes we want to remove to a list to avoid concurrency exceptions
+        Set<String> removeList = new HashSet<String>();
+
+        // get the attribute keys
+        Map<String, String> attributes = tag.getAttributes();
+        Set<String> keys = attributes.keySet();
+
+        // retain some attributes for certain tags
+        for (String key : keys) {
+            if (!((tag.getName().equals("a") && key.equals("href")) ||
+                    (tag.getName().equals("a") && key.equals("name")) ||
+                            (tag.getName().equals("acronym") && key.equals("title")) ||
+                            (tag.getName().equals("div") && key.equals("id") && attributes.get(key).equals("harvested-content")))) {
+                removeList.add(key);
+            }
+        }
+
+        // remove what we don't want
+        for (String remove : removeList) {
+            tag.removeAttribute(remove);
         }
     }
 
-    void removeClass(TagNode tag) {
-        if (tag.getAttributeByName("class") != null) {
-            tag.removeAttribute("class");
-        }
+    boolean isHeaderTag(String name) {
+        return name.equals("h1") || name.equals("h2") || name.equals("h3") || name.equals("h4")
+                || name.equals("h5") || name.equals("h6");
     }
+
 
 }
