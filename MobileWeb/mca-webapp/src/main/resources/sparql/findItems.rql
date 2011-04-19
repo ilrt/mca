@@ -17,6 +17,8 @@ CONSTRUCT {
     $itemId mca:style $style .
     $itemId rdfs:seeAlso $itemSeeAlso .
     $itemSeeAlso mca:hasItem $itemSubItem .
+    $id mca:hasParent $parentId .
+    $parentId rdfs:Label $parentLabel .
 } WHERE {
     $id mca:template $template .
     $id rdfs:label $label .
@@ -37,4 +39,8 @@ CONSTRUCT {
             }
         }
     }
+    OPTIONAL {
+        $parentId mca:hasItem $id .
+        $parentId rdfs:label $parentLabel
+    } .
 }

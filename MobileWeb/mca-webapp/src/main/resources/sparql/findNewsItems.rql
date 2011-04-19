@@ -16,6 +16,8 @@ CONSTRUCT {
     $itemId rss:link $link .
     $itemId rss:title $title .
     $itemId mca:hasSource $graph .
+    $id mca:hasParent $parentId .
+    $parentId rdfs:Label $parentLabel .
 }
 WHERE {
     GRAPH $graph {
@@ -25,4 +27,8 @@ WHERE {
         $itemId rss:link $link .
         $itemId rss:title $title .
     }
+    OPTIONAL {
+        $parentId mca:hasItem $id .
+        $parentId rdfs:label $parentLabel
+    } .
 }
