@@ -56,6 +56,9 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('E, d MMM yyyy')}&nbsp;<#if t
 <#-- count items -->
 <#macro CountItems resource>
 <#compress>
-<#if resource['rdfs:seeAlso']??>(${resource['rdfs:seeAlso']?first?size-1})</#if>
+<#if resource['rdfs:seeAlso']??>
+<#assign count>${resource['rdfs:seeAlso']?first?size-1}</#assign>
+<#if count?number <= 0>(0)<#else>(${count})</#if>
+</#if>
 </#compress>
 </#macro>
