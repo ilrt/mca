@@ -67,99 +67,174 @@ public class SdbManagerImpl implements DataManager {
     @Override
     public Model find(QuerySolutionMap bindings, String sparql) {
 
-        // get a store
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
+        StoreWrapper storeWrapper = null;
+        Dataset dataset = null;
+        Model results = null;
+        QueryExecution qe = null;
 
-        // dataset to query
-        Dataset dataset = SDBFactory.connectDataset(storeWrapper.getStore());
+        try {
 
-        // query
-        QueryExecution qe;
-        if (bindings != null) {
-            qe = QueryExecutionFactory.create(sparql, dataset, bindings);
-        } else {
-            qe = QueryExecutionFactory.create(sparql, dataset);
+            // get a store
+            storeWrapper = manager.getStoreWrapper();
+
+            // dataset to query
+            dataset = SDBFactory.connectDataset(storeWrapper.getStore());
+
+            if (bindings != null) {
+                qe = QueryExecutionFactory.create(sparql, dataset, bindings);
+            } else {
+                qe = QueryExecutionFactory.create(sparql, dataset);
+            }
+
+            results = qe.execConstruct();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            // clean up and return
+            if (qe != null) {
+                qe.close();
+            }
+            if (dataset != null) {
+                dataset.close();
+            }
+            if (storeWrapper != null) {
+                storeWrapper.close();
+            }
+
         }
 
-        Model results = qe.execConstruct();
-
-        // clean up and return
-        qe.close();
-        dataset.close();
-        storeWrapper.close();
         return results;
     }
 
     @Override
     public void add(Model model) {
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
-        Model sdbModel = SDBFactory.connectDefaultModel(storeWrapper.getStore());
-        sdbModel.add(model);
-        sdbModel.close();
-        storeWrapper.close();
+
+        StoreWrapper storeWrapper = null;
+        Model sdbModel = null;
+
+        try {
+            storeWrapper = manager.getStoreWrapper();
+            sdbModel = SDBFactory.connectDefaultModel(storeWrapper.getStore());
+            sdbModel.add(model);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(sdbModel, storeWrapper);
+        }
     }
 
     @Override
     public void add(String graphUri, Model model) {
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
-        Model sdbModel = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
-        sdbModel.add(model);
-        sdbModel.close();
-        storeWrapper.close();
+
+        StoreWrapper storeWrapper = null;
+        Model sdbModel = null;
+
+        try {
+            storeWrapper = manager.getStoreWrapper();
+            sdbModel = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
+            sdbModel.add(model);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(sdbModel, storeWrapper);
+        }
     }
 
     @Override
     public void delete(String graphUri, Model model) {
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
-        Model sdbModel = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
-        sdbModel.remove(model);
-        sdbModel.close();
-        storeWrapper.close();
+
+        StoreWrapper storeWrapper = null;
+        Model sdbModel = null;
+
+        try {
+            storeWrapper = manager.getStoreWrapper();
+            sdbModel = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
+            sdbModel.remove(model);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(sdbModel, storeWrapper);
+        }
     }
 
     @Override
     public void delete(Model model) {
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
-        Model sdbModel = SDBFactory.connectDefaultModel(storeWrapper.getStore());
-        sdbModel.remove(model);
-        sdbModel.close();
-        storeWrapper.close();
+
+        StoreWrapper storeWrapper = null;
+        Model sdbModel = null;
+
+        try {
+            storeWrapper = manager.getStoreWrapper();
+            sdbModel = SDBFactory.connectDefaultModel(storeWrapper.getStore());
+            sdbModel.remove(model);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(sdbModel, storeWrapper);
+        }
     }
 
     @Override
     public void updatePropertyInGraph(String graphUri, String uri, Property property,
                                       RDFNode value) {
 
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
-        Model sdbModel = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
-        Resource resource = sdbModel.getResource(uri);
+        StoreWrapper storeWrapper = null;
+        Model model = null;
 
-        if (resource.hasProperty(property)) {
-            resource.getProperty(property).changeObject(value);
-        } else {
-            resource.addProperty(property, value);
+        try {
+            storeWrapper = manager.getStoreWrapper();
+            model = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
+            Resource resource = model.getResource(uri);
+
+            if (resource.hasProperty(property)) {
+                resource.getProperty(property).changeObject(value);
+            } else {
+                resource.addProperty(property, value);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(model, storeWrapper);
         }
-
-        sdbModel.close();
-        storeWrapper.close();
     }
 
     @Override
     public void deleteAllInGraph(String graphUri) {
 
-        StoreWrapper storeWrapper = manager.getStoreWrapper();
+        StoreWrapper storeWrapper = null;
+        Model model = null;
 
-        Model model;
+        try {
 
-        if (graphUri != null) {
-            model = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
-        } else {
-            model = SDBFactory.connectDefaultModel(storeWrapper.getStore());
+            storeWrapper = manager.getStoreWrapper();
+
+            if (graphUri != null) {
+                model = SDBFactory.connectNamedModel(storeWrapper.getStore(), graphUri);
+            } else {
+                model = SDBFactory.connectDefaultModel(storeWrapper.getStore());
+            }
+
+            model.removeAll();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            cleanUp(model, storeWrapper);
+        }
+    }
+
+    private void cleanUp(Model m, StoreWrapper wrapper) {
+
+        if (m != null) {
+            m.close();
         }
 
-        model.removeAll();
-        model.close();
-        storeWrapper.close();
+        if (wrapper != null) {
+            wrapper.close();
+        }
     }
 
     private final StoreWrapperManager manager;
