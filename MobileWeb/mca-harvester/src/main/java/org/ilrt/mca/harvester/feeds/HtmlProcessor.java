@@ -9,7 +9,9 @@ import org.htmlcleaner.TagNode;
 import org.htmlcleaner.TagNodeVisitor;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -65,20 +67,22 @@ public class HtmlProcessor {
 
                         String href = tag.getAttributeByName("href");
                         if (href != null) {
-                            if (!href.startsWith("http")) {
+                            if (!(href.startsWith("http") || (href.startsWith("#")))) {
                                 tag.setAttribute("href", url + "/" + href);
                             }
                         }
+                    }
+
+                    if (tagName.equals("table")) {
+                        TagNode node = handleTable(tag);
+                        tagNode.replaceChild(tag, node);
                     }
 
                 }
 
                 return true;
             }
-        }
-
-        );
-
+        });
 
         try {
             return new SimpleXmlSerializer(properties).getAsString(tagNode);
@@ -113,8 +117,8 @@ public class HtmlProcessor {
         for (String key : keys) {
             if (!((tag.getName().equals("a") && key.equals("href")) ||
                     (tag.getName().equals("a") && key.equals("name")) ||
-                            (tag.getName().equals("acronym") && key.equals("title")) ||
-                            (tag.getName().equals("div") && key.equals("id") && attributes.get(key).equals("harvested-content")))) {
+                    (tag.getName().equals("acronym") && key.equals("title")) ||
+                    (tag.getName().equals("div") && key.equals("id") && attributes.get(key).equals("harvested-content")))) {
                 removeList.add(key);
             }
         }
@@ -131,4 +135,45 @@ public class HtmlProcessor {
     }
 
 
+    private TagNode handleTable(TagNode tagNode) {
+
+        final TagNode dl = new TagNode("dl");
+
+        tagNode.traverse(new TagNodeVisitor() {
+
+            @Override
+            public boolean visit(TagNode tagNode, HtmlNode htmlNode) {
+
+                if (htmlNode instanceof TagNode) {
+
+                    TagNode tag = (TagNode) htmlNode;
+
+                    if (tag.getName().equals("tr")) {
+                        tag.setName("dt");
+
+                        List children = tag.getChildren();
+
+                        List childrenCopy = new ArrayList();
+
+                        for (Object o : children) {
+                            if (o instanceof TagNode) {
+                                TagNode t = (TagNode) o;
+                                if (t.getName().equals("td")) {
+                                    t.setName("dd");
+                                    childrenCopy.add(t);
+                                }
+                            }
+                        }
+                        tag.removeAllChildren();
+                        tag.addChildren(childrenCopy);
+                        dl.addChild(tag);
+                    }
+
+                }
+
+                return true;
+            }
+        });
+        return dl;
+    }
 }
