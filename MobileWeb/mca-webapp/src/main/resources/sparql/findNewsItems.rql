@@ -8,18 +8,22 @@ PREFIX content: <http://purl.org/rss/1.0/modules/content/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX mca:     <http://vocab.bris.ac.uk/mca/registry#>
 CONSTRUCT {
+    $id rdfs:label $label .
     $id mca:hasNewsItem $itemId .
     ?id rdf:type <http://vocab.bris.ac.uk/mca/registry#NewsItem> .
     $id rdfs:seeAlso $graph .
+    $id mca:archive ?archive .
     $itemId dc:date $date .
     $itemId rss:description $description.
     $itemId rss:link $link .
     $itemId rss:title $title .
     $itemId mca:hasSource $graph .
+    $itemId mca:hasParent $id .
     $id mca:hasParent $parentId .
     $parentId rdfs:Label $parentLabel .
 }
 WHERE {
+    $id rdfs:label $label .
     GRAPH $graph {
         $itemId rdf:type rss:item .
         OPTIONAL { $itemId dc:date $date } .
@@ -31,4 +35,7 @@ WHERE {
         $parentId mca:hasItem $id .
         $parentId rdfs:label $parentLabel
     } .
+    OPTIONAL {
+        $id mca:archive ?archive .
+    }
 }
