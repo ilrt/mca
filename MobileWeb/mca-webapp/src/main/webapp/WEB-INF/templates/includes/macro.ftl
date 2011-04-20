@@ -62,3 +62,7 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('E, d MMM yyyy')}&nbsp;<#if t
 </#if>
 </#compress>
 </#macro>
+
+<#macro Description resource><#if resource['dc:description']??>${resource['dc:description']?first}</#if></#macro>
+
+<#macro Ellipses value number><#if value?length &gt;= number>${value?substring(0,20)}...<#else>${value}</#if></#macro>
