@@ -79,7 +79,6 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                 List elements = clearForeignMarkup((List)entry.getForeignMarkup());
                 entry.setForeignMarkup(elements);
 
-
                 HtmlProcessor processor = new HtmlProcessor();
 
 //                System.out.println("********************* BEFORE ************************");
@@ -92,7 +91,6 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
 
                 SyndContent e = entry.getDescription();
                 e.setValue(content);
-
             }
 
             // remove foreign elements that cause icky RDF

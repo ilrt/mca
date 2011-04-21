@@ -46,25 +46,22 @@ public class FeedResponseHandlerImplTest extends AbstractTest {
         assertNotNull("The model should not be null", model);
         assertFalse("The model should not be empty", model.isEmpty());
     }
-
+/**
     @Test
     public void lazy() throws IOException {
-
-
+    
         // having an oldish last visited date
         GregorianCalendar lastVisited = new GregorianCalendar(2008, Calendar.SEPTEMBER, 24);
 
         // resolve!
         Resolver resolver = new HttpResolverImpl();
-        Source source = new Source("http://feeds2.feedburner.com/ac/uabG", lastVisited.getTime());
+        Source source = new Source("http://feeds2.feedburner.com/ac/KDtk", lastVisited.getTime());
         Model model = resolver.resolve(source, new FeedResponseHandlerImpl());
 
         assertNotNull("The model should not be null", model);
         assertFalse("The model should not be empty", model.isEmpty());
-
-//        model.write(System.out);
     }
-
+**/
 
     private final String resourcePath = "/feed.xml";
     private final String mediaType = "application/xml";
