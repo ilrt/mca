@@ -132,8 +132,8 @@ public class FreeMarkerTemplateProcessor implements ViewProcessor<Template> {
             try {
                 freemarkerConfig.setSettings(fmProps);
                 log.info("Loaded freemarker properties from " + FREEMARKER_PROPERTIES_PATH);
-                return;
             } catch (Exception ex) {
+                ex.printStackTrace();
                 log.warn("Failed to load freemarker properties from " + FREEMARKER_PROPERTIES_PATH
                         + "; " + ex.getMessage());
             }
