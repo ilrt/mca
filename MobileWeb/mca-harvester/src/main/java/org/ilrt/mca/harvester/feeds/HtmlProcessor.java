@@ -25,6 +25,8 @@ public class HtmlProcessor {
 
         String dirtyContent = "<div id='harvested-content'>" + content + "</div>";
 
+        dirtyContent = dirtyContent.replace("<i>JISC EMBEDDED OBJECT</i>", "");
+
         HtmlCleaner cleaner = new HtmlCleaner();
 
         CleanerProperties properties = cleaner.getProperties();
@@ -55,6 +57,10 @@ public class HtmlProcessor {
                         tag.setName("strong");
                     }
 
+                    if (tagName.equals("i")) {
+                        tag.setName("em");
+                    }
+
                     // remove <br> tag found in <a> tags
                     if (tagName.equals("a")) {
                         TagNode[] children = tag.getChildTags();
@@ -76,6 +82,10 @@ public class HtmlProcessor {
                     if (tagName.equals("table")) {
                         TagNode node = handleTable(tag);
                         tagNode.replaceChild(tag, node);
+                    }
+
+                    if (tagName.equals("acronym")) {
+                        tag.setName("abbr");
                     }
 
                 }
