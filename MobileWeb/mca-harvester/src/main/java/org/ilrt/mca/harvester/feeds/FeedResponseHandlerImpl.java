@@ -96,7 +96,6 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                     if (obj instanceof SyndContentImpl) {
                         SyndContentImpl c = (SyndContentImpl) obj;
                         String clean = processor.process(syndFeed.getLink(), c.getValue());
-                        System.out.println(clean);
                         c.setValue(clean);
                     }
                 }
@@ -185,12 +184,6 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
         }
 
         syndFeed.setEntries(accepted);
-    }
-
-    protected void processContent(String baseURL, String content) {
-
-        HtmlProcessor processor = new HtmlProcessor();
-
     }
 
 }
