@@ -2,14 +2,16 @@
 
 <#include "includes/logoSameLevelNav.ftl"/>
 
-<@Title label="News Item" />
-
     <div class="newsItem">
         <#if resource['rss:title']??><h2>${resource['rss:title']?first}</h2></#if>
         <#if resource['dc:date']??>
             <p class="publishDate">${resource['dc:date']?first?datetime("yyyy-MM-dd\'T\'HH:mm:ss'Z'")?string('dd MMMM yyyy')}</p>
         </#if>
-        <#if resource['rss:description']??><p>${resource['rss:description']?first}</p></#if>
+        <#if resource['content:encoded']??>
+            ${resource['content:encoded']?first}
+        <#else>
+            <#if resource['rss:description']??>${resource['rss:description']?first}</#if>
+        </#if>
         <#if resource['rss:link']??>
             <p><a href="${resource['rss:link']?first}">Read more...</a>
             <span class="contentWarning">(content not optimized for mobile devices)</span></p>

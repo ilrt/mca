@@ -34,6 +34,7 @@ package org.ilrt.mca.harvester.feeds;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.sun.syndication.feed.synd.SyndContent;
+import com.sun.syndication.feed.synd.SyndContentImpl;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -41,6 +42,7 @@ import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.SyndFeedOutput;
 import org.ilrt.mca.harvester.ResponseHandler;
 import org.jdom.Element;
+import org.joda.time.DateTime;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,7 +50,9 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 /**
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
@@ -76,21 +80,27 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
                     entry.setUri(entry.getLink());
                 }
 
-                List elements = clearForeignMarkup((List)entry.getForeignMarkup());
+                // clear any unsupported content (via name spaces)
+                List elements = clearForeignMarkup((List) entry.getForeignMarkup());
                 entry.setForeignMarkup(elements);
 
                 HtmlProcessor processor = new HtmlProcessor();
 
-//                System.out.println("********************* BEFORE ************************");
-//                System.out.println(entry.getDescription().getValue());
-
+                // clean the description element
                 String content = processor.process(syndFeed.getLink(), entry.getDescription().getValue());
-
-//                System.out.println("********************* AFTER ************************");
-//                System.out.println(content);
-
                 SyndContent e = entry.getDescription();
                 e.setValue(content);
+
+                // check additional content types (like rss:encoded which might have HTML)
+                for (Object obj : entry.getContents()) {
+                    if (obj instanceof SyndContentImpl) {
+                        SyndContentImpl c = (SyndContentImpl) obj;
+                        String clean = processor.process(syndFeed.getLink(), c.getValue());
+                        System.out.println(clean);
+                        c.setValue(clean);
+                    }
+                }
+
             }
 
             // remove foreign elements that cause icky RDF
@@ -152,6 +162,35 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
 
         }
         return list;
+    }
+
+    public void removeOldEntries(SyndFeed syndFeed, int periodInDays) {
+
+        List accepted = new ArrayList();
+
+        for (Object o : syndFeed.getEntries()) {
+
+            SyndEntry entry = (SyndEntry) o;
+
+            // current date
+            DateTime current = new DateTime();
+            DateTime past = current.minusDays(periodInDays);
+
+            Date pubDate = entry.getPublishedDate();
+            DateTime pubDateTime = new DateTime(pubDate);
+
+            if (pubDateTime.isAfter(past)) {
+                accepted.add(entry);
+            }
+        }
+
+        syndFeed.setEntries(accepted);
+    }
+
+    protected void processContent(String baseURL, String content) {
+
+        HtmlProcessor processor = new HtmlProcessor();
+
     }
 
 }

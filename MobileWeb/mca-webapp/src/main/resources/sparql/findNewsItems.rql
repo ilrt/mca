@@ -14,7 +14,8 @@ CONSTRUCT {
     $id rdfs:seeAlso $graph .
     $id mca:archive ?archive .
     $itemId dc:date $date .
-    $itemId rss:description $description.
+    $itemId rss:description $description .
+    $itemId content:encoded $encoded .
     $itemId rss:link $link .
     $itemId rss:title $title .
     $itemId mca:hasSource $graph .
@@ -28,6 +29,7 @@ WHERE {
         $itemId rdf:type rss:item .
         OPTIONAL { $itemId dc:date $date } .
         $itemId rss:description $description .
+        OPTIONAL { $itemId content:encoded $encoded } .
         $itemId rss:link $link .
         $itemId rss:title $title .
     }
