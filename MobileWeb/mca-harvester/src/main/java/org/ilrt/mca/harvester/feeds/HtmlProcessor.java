@@ -147,7 +147,9 @@ public class HtmlProcessor {
 
     private TagNode handleTable(TagNode tagNode) {
 
-        final TagNode dl = new TagNode("dl");
+        final TagNode div = new TagNode("div");
+        div.setAttribute("class", "converted-table");
+        //final TagNode dl = new TagNode("ul");
 
         tagNode.traverse(new TagNodeVisitor() {
 
@@ -159,7 +161,7 @@ public class HtmlProcessor {
                     TagNode tag = (TagNode) htmlNode;
 
                     if (tag.getName().equals("tr")) {
-                        tag.setName("dt");
+                        tag.setName("ul");
 
                         List children = tag.getChildren();
 
@@ -168,15 +170,16 @@ public class HtmlProcessor {
                         for (Object o : children) {
                             if (o instanceof TagNode) {
                                 TagNode t = (TagNode) o;
-                                if (t.getName().equals("td")) {
-                                    t.setName("dd");
+                                if (t.getName().equals("td") || t.getName().equals("th")) {
+                                    t.setName("li");
                                     childrenCopy.add(t);
+
                                 }
                             }
                         }
                         tag.removeAllChildren();
                         tag.addChildren(childrenCopy);
-                        dl.addChild(tag);
+                        div.addChild(tag);
                     }
 
                 }
@@ -184,6 +187,7 @@ public class HtmlProcessor {
                 return true;
             }
         });
-        return dl;
+
+        return div;
     }
 }
