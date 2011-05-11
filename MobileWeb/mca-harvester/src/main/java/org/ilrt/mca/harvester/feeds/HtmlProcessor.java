@@ -78,12 +78,12 @@ public class HtmlProcessor {
                             }
                         }
                     }
-
+/**
                     if (tagName.equals("table")) {
                         TagNode node = handleTable(tag);
                         tagNode.replaceChild(tag, node);
                     }
-
+**/
                     if (tagName.equals("acronym")) {
                         tag.setName("abbr");
                     }
