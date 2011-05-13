@@ -78,12 +78,11 @@ public class HtmlProcessor {
                             }
                         }
                     }
-/**
+
                     if (tagName.equals("table")) {
                         TagNode node = handleTable(tag);
                         tagNode.replaceChild(tag, node);
                     }
-**/
                     if (tagName.equals("acronym")) {
                         tag.setName("abbr");
                     }
@@ -169,12 +168,21 @@ public class HtmlProcessor {
 
                         for (Object o : children) {
                             if (o instanceof TagNode) {
+
                                 TagNode t = (TagNode) o;
-                                if (t.getName().equals("td") || t.getName().equals("th")) {
+
+                                if (t.getName().equals("td")) {
+
                                     t.setName("li");
                                     childrenCopy.add(t);
 
+                                } else if (t.getName().equals("th")) {
+                                    TagNode li = new TagNode("li");
+                                    t.setName("strong");
+                                    li.addChild(t);
+                                    childrenCopy.add(t);
                                 }
+
                             }
                         }
                         tag.removeAllChildren();
