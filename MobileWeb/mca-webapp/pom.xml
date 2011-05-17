@@ -5,7 +5,7 @@
     <parent>
         <artifactId>mca</artifactId>
         <groupId>org.ilrt.mca</groupId>
-        <version>0.7-SNAPSHOT</version>
+        <version>0.7</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -138,43 +138,43 @@
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-test-support</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-common</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-harvester</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-jena-freemarker</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-services-sparqlendpoint</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-services-ldap</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-services-feedback</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ilrt.mca</groupId>
             <artifactId>mca-services-geo</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
