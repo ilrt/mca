@@ -39,9 +39,9 @@
             <param-value>/sdb.ttl</param-value>
         </init-param>
         <init-param>
-            <description>Location of the registry file.</description>
-            <param-name>registryLocation</param-name>
-            <param-value>data/registry.ttl</param-value>
+            <description>Location of config file of local data sources.</description>
+            <param-name>dataLocation</param-name>
+            <param-value>/data.txt</param-value>
         </init-param>
         <load-on-startup>0</load-on-startup>
     </servlet>
