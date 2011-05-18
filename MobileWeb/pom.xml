@@ -14,6 +14,7 @@
     <modules>
         <module>mca-test-support</module>
         <module>mca-common</module>
+        <module>mca-maven-plugins</module>
         <module>mca-harvester</module>
         <module>mca-services-ldap</module>
         <module>mca-services-sparqlendpoint</module>
