@@ -33,7 +33,6 @@ package org.ilrt.mca.servlet;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileManager;
 import org.apache.log4j.Logger;
 import org.ilrt.mca.rdf.ConnPoolStoreWrapperManagerImpl;
 import org.ilrt.mca.rdf.DataManager;
@@ -47,7 +46,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -55,21 +59,86 @@ import java.io.IOException;
  */
 public class RegistryInitServlet extends HttpServlet {
 
+    public RegistryInitServlet() {
+    }
+
     @Override
     public void init(ServletConfig config) throws ServletException {
 
-        log.info("RegistryInitServlet started.");
 
         super.init(config);
 
-        // find the configuration files
-        String configLocation = config.getInitParameter("configLocation");
-        String registryLocation = config.getInitParameter("registryLocation");
+        log.info("RegistryInitServlet started.");
+
+        // file that helps to locate data files
+        dataLocation = config.getInitParameter("dataLocation");
+
+        // database configuration
+        configLocation = config.getInitParameter("configLocation");
+        // find the data sources
+        findDataSources();
+
+        // load the data and save it to the RDF store
+        loadData();
+
+    }
+
+    @Override
+    public void destroy() {
+        log.info("RegistryInitServlet shutdown.");
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        response.sendError(HttpServletResponse.SC_FORBIDDEN);
+    }
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        response.sendError(HttpServletResponse.SC_FORBIDDEN);
+    }
+
+    private void findDataSources() throws ServletException {
+        InputStream is = getClass().getResourceAsStream(dataLocation);
+
+        if (is != null) {
+
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    if (!line.startsWith("#")) {
+                        String[] temp = line.split(":");
+                        if (temp[0].equals("registry")) {
+                            registryFiles.add(temp[1]);
+                        } else {
+                            dataFiles.add(temp[1]);
+                        }
+                    }
+                }
+
+            } catch (IOException e) {
+                throw new ServletException("Unable to process " + dataLocation + ": "
+                        + e.getMessage());
+            }
+
+        } else {
+            throw new ServletException("Unable to locate configuration file with location of "
+                    + "registry or data files.");
+        }
+    }
+
+    private void loadData() {
 
         // create the dataManager
         DataSourceManager dataSourceManager = new DataSourceManager();
         StoreWrapperManager manager =
-                new ConnPoolStoreWrapperManagerImpl(configLocation, dataSourceManager.getDataSource());
+                new ConnPoolStoreWrapperManagerImpl(configLocation,
+                        dataSourceManager.getDataSource());
 
         // log the database being used
         StoreWrapper wrapper = manager.getStoreWrapper();
@@ -83,52 +152,53 @@ public class RegistryInitServlet extends HttpServlet {
         repository.deleteAllInGraph(null);
 
         // load configuration files
+        log.info("Loading registry details");
         Model model = ModelFactory.createDefaultModel();
 
         // load the registry and add it to the database
-        log.info("Loading registry details");
 
-        String[] locations = registryLocation.split(",");
-
-        for (String location : locations) {
-            log.info("Adding ... " + location);
-            model.add(FileManager.get().loadModel(location));
+        for (String file : registryFiles) {
+            log.info("Loading ... " + file);
+            model.read(getClass().getResourceAsStream(file), null, langType(file));
         }
-
         repository.add(model);
 
-        log.info("Loading OSM amenities data ...");
-        Model amenities = ModelFactory.createDefaultModel();
-        amenities.read(getClass().getResourceAsStream("/data/osm-amenities.rdf"), null);
-        repository.deleteAllInGraph("mca://osm-amenities");
-        repository.add("mca://osm-amenities", amenities);
-        log.info("added " + amenities.size() + " triples");
+        log.info("Loading local data into named graphs");
 
-        log.info("Loading OSM shop data ...");
-        Model shops = ModelFactory.createDefaultModel();
-        shops.read(getClass().getResourceAsStream("/data/osm-shops.rdf"), null);
-        repository.deleteAllInGraph("mca://osm-shops");
-        repository.add("mca://osm-shops", shops);
-        log.info("added " + shops.size() + " triples");
+        for (String file : dataFiles) {
+
+            String graph = "mca://graph" + file;
+
+            log.info("Loading ... " + file + " into graph: " + graph);
+            repository.deleteAllInGraph(graph);
+            Model m = ModelFactory.createDefaultModel();
+            m.read(getClass().getResourceAsStream(file), null, langType(file));
+            repository.add(graph, m);
+            log.info("Added " + m.size() + " triples");
+        }
 
         log.info("Registry servlet finished loading data");
 
+
     }
 
-    @Override
-    public void destroy() {
-        log.info("RegistryInitServlet shutdown.");
+    private String langType(String fileName) {
+
+        if (fileName.endsWith("ttl") || fileName.endsWith("TTL")) {
+            return "TTL";
+        } else if (fileName.endsWith("n3") || fileName.endsWith("N3")) {
+            return "N3";
+        } else {
+            return null;
+        }
+
     }
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendError(HttpServletResponse.SC_FORBIDDEN);
-    }
+    // hold the location of files for processing
+    private final List<String> registryFiles = new ArrayList<String>();
+    private final List<String> dataFiles = new ArrayList<String>();
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendError(HttpServletResponse.SC_FORBIDDEN);
-    }
-
+    private String dataLocation = null;
+    private String configLocation = null;
     private final Logger log = Logger.getLogger(RegistryInitServlet.class);
 }
