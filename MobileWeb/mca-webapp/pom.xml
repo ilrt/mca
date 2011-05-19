@@ -59,7 +59,7 @@
                             <execution>
                                 <phase>compile</phase>
                                 <goals>
-                                    <goal>hiya</goal>
+                                    <goal>find-data</goal>
                                 </goals>
                             </execution>
                         </executions>
