@@ -41,7 +41,7 @@
         <init-param>
             <description>Location of config file of local data sources.</description>
             <param-name>dataLocation</param-name>
-            <param-value>/data.txt</param-value>
+            <param-value>/data-manifest.txt</param-value>
         </init-param>
         <load-on-startup>0</load-on-startup>
     </servlet>
