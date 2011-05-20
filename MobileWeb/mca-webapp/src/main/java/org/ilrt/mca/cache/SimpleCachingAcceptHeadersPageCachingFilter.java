@@ -36,6 +36,15 @@ import net.sf.ehcache.constructs.web.filter.SimpleCachingHeadersPageCachingFilte
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * To create a key to cache a request we take into account:
+ *
+ * 1) The request URI and any query
+ * 2) THE HTTP method, e.g. GET or HEAD
+ * 3) The "Accept" header
+ *
+ * We need these modification because otherwise a HEAD request could cache a blank page. Also, a
+ * request for RDF could result in all further requests, including HTML, returning RDF.
+ *
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
  */
 public class SimpleCachingAcceptHeadersPageCachingFilter extends SimpleCachingHeadersPageCachingFilter {
@@ -44,7 +53,8 @@ public class SimpleCachingAcceptHeadersPageCachingFilter extends SimpleCachingHe
     protected String calculateKey(HttpServletRequest httpRequest) {
 
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(httpRequest.getRequestURI()).append(httpRequest.getQueryString());
+        stringBuffer.append(httpRequest.getRequestURI()).append(httpRequest.getQueryString())
+                .append(httpRequest.getMethod());
 
         if (httpRequest.getHeader("accept") != null) {
 
