@@ -1,0 +1,33 @@
+Name;Address;Phone;Fax;Email
+Avonmouth Library;Avonmouth Road, Bristol, BS11 9EN.;0117 9038580;;avonmouth.library@bristol.gov.uk
+Bedminster Library;4 St Peter's Court, Bedminster Parade, Bristol, BS3 4AQ.;0117 9038529;;bedminster.library@bristol.gov.uk
+Bishopsworth Library;Bishopsworth Road, Bristol, BS13 7LN.;0117 9038566;;bishopsworth.library@bristol.gov.uk
+Bristol Central Library;College Green, Bristol, BS1 5TL.;0117 9037200 Textphone: 0117 357 4444;0117 9221081;bristol.library.service@bristol.gov.uk
+Cheltenham Road Library;Cheltenham Rd, Bristol, BS6 5QX.;0117 9038562;;cheltenhamrd.library@bristol.gov.uk
+Clifton Library;Princess Victoria Street, Clifton, Bristol, BS8 4BX.;0117 9038572;;clifton.library@bristol.gov.uk
+Eastville Library;Muller Road, Eastville, Bristol, BS5 6XP.;0117 9038578;;eastville.library@bristol.gov.uk
+Filwood Library;Filwood Broadway, Bristol, BS4 1JN.;0117 9038581;;filwood.library@bristol.gov.uk
+Fishponds Library;Fishponds Road, Bristol, BS16 3UH.;0117 9038560;;fishponds.library@bristol.gov.uk
+Hartcliffe Library;Hartcliffe Library@Symes, Symes District Centre, Peterson Avenue, Hartcliffe, Bristol, BS13 0BE.;0117 9038568;;hartcliffe.library@bristol.gov.uk
+Henbury Library;Crow Lane, Henbury, Bristol, BS10 7DR.;0117 9038522;;henbury.library@bristol.gov.uk
+Henleaze Library;Northumbria Drive, Henleaze, Bristol, BS9 4HP.;0117 9038541;0117 9038541;henleaze.library@bristol.gov.uk
+Hillfields Library;Summerleaze, Hillfields, Bristol, BS16 4HL.;0117 9038576;;hillfields.library@bristol.gov.uk
+Horfield Library;Filton Avenue, Horfield, Bristol, BS7 0BD.;0117 9038538;;horfield.library@bristol.gov.uk
+Knowle Library;1st Floor, Broadwalk Shopping Centre, Wells Road, Knowle, Bristol, BS4 2QU.;0117 9038585;0117 9038585;knowle.library@bristol.gov.uk
+Lawrence Weston Library;Ridingleaze House, Ridingleaze, Lawrence Weston, Bristol, BS11 0QE.;0117 3534667;;lawrencew.library@bristol.gov.uk
+Marksbury Road Library;Marksbury Road, Bedminster, Bristol, BS3 5LG.;0117 9038574;;marksburyrd.library@bristol.gov.uk
+Mobile Library;Outreach Services, Unit 2, Bristol Vale Trading Estate, Hartcliffe Way, Bristol, BS3 5RJ.;0117 9038531;;mobile.outreach.library@bristol.gov.uk
+Redland Library;Whiteladies Road, Redland, Bristol, BS8 2PY.;0117 9038549;;redland.library@bristol.gov.uk
+Reference Library;Central Library, College Green, Bristol, BS1 5TL.;0117 9037202;0117 9221081;refandinfo@bristol.gov.uk
+Residential Library Services;Outreach Services, Unit 2, Bristol Vale Trading Estate, Hartcliffe Way, Bristol, BS3 5RJ.;0117 9038533;;mobile.outreach.library@bristol.gov.uk
+School Library Service;Unit 1, Bristol Vale Trading Estate, Hartcliffe Way, Bedminster, Bristol, BS3 5RJ.;0117 9038534;;bristolschool.libraryservice@bristol.gov.uk
+Sea Mills Library;Sylvan Way, Sea Mills, Bristol, BS9 2NA.;0117 9038555;;seamills.library@bristol.gov.uk
+Shirehampton Library;Station Road, Shirehampton, Bristol, BS11 9TU.;0117 9038570;;shirehampton.library@bristol.gov.uk
+Southmead Library;Greystoke Avenue, Southmead, Bristol, BS10 6AS.;0117 9038583;;southmead.library@bristol.gov.uk
+St George Library;Church Road, St George, Bristol, BS5 8AL.;0117 9038523;;st.george.library@bristol.gov.uk
+St Pauls Library;Grosvenor Road, St Pauls, Bristol, BS2 8XJ.;0117 9145489;;st.pauls.library@bristol.gov.uk
+Stockwood Library;Stockwood Road, Bristol, BS14 8PL.;0117 9038546;;stockwood.library@bristol.gov.uk
+Trinity Road Library;Trinity Road, St Phillips, Bristol, BS2 0NW.;0117 9038543;;trinityrd.library@bristol.gov.uk
+Westbury Library;Falcondale Rd, Westbury-on-Trym, Bristol, BS9 3JZ.;0117 9038552;;westbury.library@bristol.gov.uk
+Whitchurch Library;Whitchurch District Centre, Oatlands Avenue, Whitchurch, Bristol, BS14 0SX.;0117 9031185;;whitchurch.library@bristol.gov.uk
+Wick Road Library;Wick Road, Brislington, Bristol, BS4 4HE.;0117 9038557;;wickrd.library@bristol.gov.uk
