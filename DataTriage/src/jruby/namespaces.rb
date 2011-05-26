@@ -5,3 +5,6 @@ $prefixes = {
     'geo'       =>  $wgs84_ns,
     'mcageo'    =>  $mcageo_ns
 }
+
+# internal uri prefixes for stuff we are harvesting
+$bcc_library = "mca://bcc/library/"
