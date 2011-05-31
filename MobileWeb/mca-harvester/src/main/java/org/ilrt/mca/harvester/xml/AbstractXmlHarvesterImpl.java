@@ -67,6 +67,8 @@ public abstract class AbstractXmlHarvesterImpl extends AbstractHarvesterImpl
         // find the sources to query
         List<Source> sources = findSources(type);
 
+        log.debug("Looking for: " + type);
+
         log.info("Found " + sources.size() + " sources to harvest");
 
         // harvest each source
@@ -77,9 +79,14 @@ public abstract class AbstractXmlHarvesterImpl extends AbstractHarvesterImpl
             String xslPath = ((XmlSource) source).getXsl();
             String xsl = "/" + xslPath.substring(6, xslPath.length());
 
+            Model model = null;
+
             // harvest the data
-            Model model = resolver.resolve(source,
-                    new XmlResponseHandlerImpl(xsl));
+            if (type.equals(MCA_REGISTRY.XmlSource.getURI())) { // pure xml
+                model = resolver.resolve(source,new XmlResponseHandlerImpl(xsl));
+            } else if (type.equals(MCA_REGISTRY.HtmlSource.getURI())) { // html
+                model = resolver.resolve(source, new XhtmlResponseHandlerImpl(xsl));
+            }
 
             if (model != null) {
 

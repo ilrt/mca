@@ -32,13 +32,9 @@
 package org.ilrt.mca.harvester.xml;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import org.ccil.cowan.tagsoup.Parser;
 import org.ilrt.mca.harvester.ResponseHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
 
 import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 import java.io.InputStream;
 
@@ -55,8 +51,7 @@ public class XmlResponseHandlerImpl extends AbstractXmlResponseHandlerImpl
     @Override
     public Model getModel(String sourceUri, InputStream is) {
 
-        XMLReader xmlReader = new Parser();
-        Source xmlSource = new SAXSource(xmlReader, new InputSource(is));
+        Source xmlSource = new StreamSource(is);
         Source xslSource = new StreamSource(getClass().getResourceAsStream(xslFilePath));
 
         return getModelFromXml(xmlSource, xslSource, sourceUri);
@@ -68,5 +63,5 @@ public class XmlResponseHandlerImpl extends AbstractXmlResponseHandlerImpl
                 || mediaType.startsWith("text/html") || mediaType.startsWith("application/xhtml");
     }
 
-    final private String xslFilePath;
+    final String xslFilePath;
 }
