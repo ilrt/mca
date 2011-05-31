@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:html="http://www.w3.org/1999/xhtml"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-                xmlns:mca="http://vocab.bris.ac.uk/mca/registry#"
-                exclude-result-prefixes="html">
+                xmlns:mca="http://vocab.bris.ac.uk/mca/registry#">
 
     <xsl:output encoding="utf-8"/>
 
@@ -33,14 +33,13 @@
 
     <!-- find the item(s) and place their content in html -->
     <xsl:template match="item">
-
         <p>
             <xsl:value-of select="./title"/>
         </p>
         <p>
             <xsl:value-of select="./description"/>
         </p>
-        <p>Weather data from a<a href="{$uri}">BBC RSS feed</a>.
+        <p>Weather data from a <a href="{$uri}">BBC RSS feed</a>.
         </p>
 
     </xsl:template>
