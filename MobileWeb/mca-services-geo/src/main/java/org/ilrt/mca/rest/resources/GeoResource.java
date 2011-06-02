@@ -34,6 +34,7 @@ package org.ilrt.mca.rest.resources;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.DC;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.sun.jersey.core.header.ContentDisposition;
@@ -134,6 +135,11 @@ public class GeoResource extends AbstractResource {
 
             if (resource.hasProperty(RDFS.label)) {
                 map.put("label", resource.getProperty(RDFS.label).getLiteral().getLexicalForm());
+            }
+
+            if (resource.hasProperty(DC.description)) {
+                map.put("description", resource.getProperty(DC.description).getLiteral()
+                        .getLexicalForm());
             }
 
             jsonArray.put(map);

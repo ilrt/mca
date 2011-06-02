@@ -370,6 +370,7 @@ var createMarkers = function(markerJson) {
         var point = new google.maps.LatLng(markerData[i].lat, markerData[i].lng);
         var markerId = markerData[i].id;
         var title =  markerData[i].label;
+        var description = markerData[i].description;
 
         var marker =  marker = new google.maps.Marker({
                 position: point
@@ -389,6 +390,11 @@ var createMarkers = function(markerJson) {
         } else {
             if (title != undefined) {
                 var content = "<p><strong>" + title + "</strong></p>";
+
+                if (description != undefined) {
+                    content = content + "<p>" + description + "</p>";
+                }
+
                 attachMarkerListener(map, marker, infowindow, content);
             }
         }
