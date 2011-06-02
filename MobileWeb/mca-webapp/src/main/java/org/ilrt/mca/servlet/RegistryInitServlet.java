@@ -167,12 +167,10 @@ public class RegistryInitServlet extends HttpServlet {
 
         for (String file : dataFiles) {
 
-            // limit the number of forward slashes at the start of the named graph
-            if (file.startsWith("/")) {
-                file = file.substring(1);
-            }
+            String graph = "mca://";
 
-            String graph = "mca://" + file;
+            // limit the number of forward slashes at the start of the named graph
+            graph += file.startsWith("/") ? file.substring(1) : file;
 
             log.info("Loading ... " + file + " into graph: " + graph);
             repository.deleteAllInGraph(graph);
