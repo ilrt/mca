@@ -185,11 +185,27 @@ public class McaJenaResourceComparator implements Comparator<TemplateModel> {
         RDFNode node2 = r2.getProperty(p).getObject();
 
         if (node1.isLiteral() && node2.isLiteral()) {
-            int val = compareLexicalForm(node1.asLiteral(), node2.asLiteral());
-            return val == 0 ? compareOnLabel(r1, r2) : val;
+
+            // order *should* be a number, but catch an exception
+            if (p.equals(MCA_REGISTRY.order)) {
+                try {
+                    Integer a = new Integer(node1.asLiteral().getLexicalForm());
+                    Integer b = new Integer(node2.asLiteral().getLexicalForm());
+                    return a.compareTo(b);
+                } catch (NumberFormatException ex) {
+                    return defaultLiteralCompare(r1, r2, node1.asLiteral(), node2.asLiteral());
+                }
+            }
+
+            return defaultLiteralCompare(r1, r2, node1.asLiteral(), node2.asLiteral());
         }
 
         return 0; // bail
+    }
+
+    private int defaultLiteralCompare(Resource r1, Resource r2, Literal a, Literal b) {
+        int val = compareLexicalForm(a, b);
+        return val == 0 ? compareOnLabel(r1, r2) : val;
     }
 
 }
