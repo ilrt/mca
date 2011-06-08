@@ -7,7 +7,9 @@
 
 <#if resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']??>
     ${resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']?first}
-<#else>
+<#elseif resource['mca:hasSource']?first['mca:hasHtmlFragment']??>
+    ${resource['mca:hasSource']?first['mca:hasHtmlFragment']?first}
+ <#else>
     <p>Sorry, not data is available</p>
 </#if>
 

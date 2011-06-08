@@ -38,7 +38,9 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 import org.apache.log4j.Logger;
 import org.ilrt.mca.dao.AbstractDao;
 import org.ilrt.mca.rdf.QueryManager;
+import org.ilrt.mca.vocab.MCA_REGISTRY;
 
+import javax.mail.event.MessageCountAdapter;
 import javax.ws.rs.core.MultivaluedMap;
 import java.io.IOException;
 
@@ -60,15 +62,22 @@ public class HtmlFragmentDelegateImpl extends AbstractDao implements Delegate {
 
     @Override
     public Resource createResource(Resource resource, MultivaluedMap<String, String> parameters) {
+
+        // the html fragments will be in a graph
         Resource graph = resource.getProperty(RDFS.seeAlso).getResource();
 
+        // the uri of the fragment might be the same as the graph or defined by mca:hasSource
+        Resource id = resource.hasProperty(MCA_REGISTRY.hasSource) ?
+                resource.getProperty(MCA_REGISTRY.hasSource).getResource() : graph;
+
+        // bind the values
         QuerySolutionMap bindings = new QuerySolutionMap();
-        bindings.add("id", graph);
+        bindings.add("id", id);
         bindings.add("graph", graph);
 
+        // return the data
         Model model = queryManager.find(bindings, sparql);
         resource.getModel().add(model);
-
         return resource;
     }
 

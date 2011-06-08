@@ -10,6 +10,7 @@ CONSTRUCT {
     $id rdfs:label $label .
     $id dc:description $description .
     $id rdfs:seeAlso $seeAlso .
+    $id mca:hasSource $source .
     $id rdf:type $type .
     $id mca:hasItem $itemId .
     $itemId rdfs:label $itemLabel .
@@ -24,6 +25,7 @@ CONSTRUCT {
     $id rdfs:label $label .
     $id rdf:type $type .
     OPTIONAL { $id rdfs:seeAlso $seeAlso } .
+    OPTIONAL { $id mca:hasSource $source } .
     OPTIONAL { $id dc:description $description } .
     OPTIONAL { $id mca:hasItem $itemId  .
         OPTIONAL { $itemId rdfs:label $itemLabel } .
