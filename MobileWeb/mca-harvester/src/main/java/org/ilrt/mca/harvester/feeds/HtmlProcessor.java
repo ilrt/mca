@@ -26,6 +26,10 @@ public class HtmlProcessor {
         String dirtyContent = "<div id='harvested-content'>" + content + "</div>";
 
         dirtyContent = dirtyContent.replace("<i>JISC EMBEDDED OBJECT</i>", "");
+        dirtyContent = dirtyContent.replaceAll("\\u201c", "\"");
+        dirtyContent = dirtyContent.replaceAll("\\u201d", "\"");
+        dirtyContent = dirtyContent.replaceAll("\\u2018", "\'");
+        dirtyContent = dirtyContent.replaceAll("\\u2019", "\'");
 
         HtmlCleaner cleaner = new HtmlCleaner();
 
@@ -48,6 +52,9 @@ public class HtmlProcessor {
                     String tagName = tag.getName();
 
                     removeAttributes(tag);
+
+
+
 
                     if (isHeaderTag(tagName) || tagName.equals("p")) {
                         removeTagIfEmpty(tagNode, tag);
@@ -87,6 +94,10 @@ public class HtmlProcessor {
                         tag.setName("abbr");
                     }
 
+
+                    if (tagName.equals("iframe")) {
+                        tag.removeFromTree();
+                    }
                 }
 
                 return true;
