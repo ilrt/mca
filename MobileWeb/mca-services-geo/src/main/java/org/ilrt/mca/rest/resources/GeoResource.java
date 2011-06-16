@@ -46,13 +46,14 @@ import org.ilrt.mca.RdfMediaType;
 import org.ilrt.mca.dao.GeoDao;
 import org.ilrt.mca.rdf.SdbManagerImpl;
 import org.ilrt.mca.rest.ex.NotFoundException;
-import org.ilrt.mca.vocab.WGS84;
 import org.ilrt.mca.vocab.MCA_GEO;
+import org.ilrt.mca.vocab.WGS84;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
@@ -73,13 +74,14 @@ public class GeoResource extends AbstractResource {
         geoDao = new GeoDao(new SdbManagerImpl(manager));
     }
 
+    // ---------- Find resources by type
 
     @GET
     @Produces({RdfMediaType.APPLICATION_RDF_XML, RdfMediaType.TEXT_RDF_N3})
     @Path("type/{type}")
     public Response placesAsRdf(@PathParam("type") String type) {
 
-        return Response.ok(createModel(MCA_GEO.NS + type)).build();
+        return Response.ok(createModelByType(MCA_GEO.NS + type)).build();
     }
 
 
@@ -88,7 +90,7 @@ public class GeoResource extends AbstractResource {
     @Path("type/{type}")
     public Response placesAsJson(@PathParam("type") String type) {
 
-        return Response.ok(jsonRepresentationOfModel(createModel(MCA_GEO.NS + type)))
+        return Response.ok(jsonRepresentationOfModel(createModelByType(MCA_GEO.NS + type)))
                 .type(MediaType.APPLICATION_JSON_TYPE).build();
     }
 
@@ -99,18 +101,60 @@ public class GeoResource extends AbstractResource {
 
         ContentDisposition cd = ContentDisposition.type("file").fileName(type + ".kml").build();
 
-        return Response.ok(createModel(MCA_GEO.NS + type))
+        return Response.ok(createModelByType(MCA_GEO.NS + type))
                 .type(KmlMediaType.APPLICATION_KML_TYPE).header("Content-Disposition", cd).build();
     }
 
-    private Model createModel(String type) {
+    // ---------- Find resources by type
+
+    @GET
+    @Produces({RdfMediaType.APPLICATION_RDF_XML, RdfMediaType.TEXT_RDF_N3})
+    public Response pointByUri(@QueryParam("id") String id) {
+
+        return Response.ok(createModelByUri(id)).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response pointByUriAsJson(@QueryParam("id") String id) {
+
+        return Response.ok(jsonRepresentationOfModel(createModelByUri(id)))
+                .type(MediaType.APPLICATION_JSON_TYPE).build();
+    }
+
+    @GET
+    @Produces({MediaType.WILDCARD, KmlMediaType.APPLICATION_KML})
+    public Response pointByUriAsKml(@QueryParam("id") String id) {
+
+        ContentDisposition kmlCd = ContentDisposition.type("file").fileName(id + ".kml").build();
+
+        return Response.ok(createModelByUri(id))
+                .type(KmlMediaType.APPLICATION_KML_TYPE)
+                .header("Content-Disposition", kmlCd).build();
+    }
+
+    // ---------- Private helper methods
+
+    private Model createModelByType(String type) {
 
         Model m = geoDao.findGeoPointByType(type);
 
         if (m == null || m.size() == 0)
             throw new NotFoundException("Unable to find the requested resource");
 
-        return geoDao.findGeoPointByType(type);
+        return m;
+    }
+
+    private Model createModelByUri(String id) {
+
+        Model m = geoDao.findGeoPointByUri(id);
+
+        if (m == null || m.size() == 0)
+            throw new NotFoundException("Unable to find the requested resource");
+
+        m.write(System.out);
+
+        return m;
     }
 
     private JSONObject jsonRepresentationOfModel(Model m) {

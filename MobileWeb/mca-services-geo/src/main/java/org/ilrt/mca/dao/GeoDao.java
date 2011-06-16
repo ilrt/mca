@@ -49,6 +49,11 @@ public class GeoDao extends AbstractDao {
         return manager.find("type", typeUri, findByTypeSparql);
     }
 
+
+    public Model findGeoPointByUri(String uri) {
+        return manager.find("s", uri, findByTypeSparql);
+    }
+
     private String findByTypeSparql;
 
     QueryManager manager;

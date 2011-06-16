@@ -60,7 +60,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class GeoResourceTest extends AbstractResourceTest {
 
-
+    @SuppressWarnings("unchecked")
     public GeoResourceTest() {
 
         super(new WebAppDescriptor.Builder("org.ilrt.mca.rest")
@@ -141,6 +141,51 @@ public class GeoResourceTest extends AbstractResourceTest {
 
     }
 
+    @Test
+    public void testUri() {
+
+        webResource = resource().path("/geo/").queryParam("id", URI_ONE);
+
+        ClientResponse clientResponse = webResource.accept(RdfMediaType.APPLICATION_RDF_XML)
+                .get(ClientResponse.class);
+
+        Assert.assertEquals("Unexpected response from the server.", 200, clientResponse.getStatus());
+    }
+
+    @Test
+    public void testInvalidUri() {
+
+        webResource = resource().path("/geo/").queryParam("id", URI_ONE + "XXXXXXXXXXXXXX");
+
+        ClientResponse clientResponse = webResource.accept(RdfMediaType.APPLICATION_RDF_XML)
+                .get(ClientResponse.class);
+
+        Assert.assertEquals("Unexpected response from the server.", 404, clientResponse.getStatus());
+    }
+
+        @Test
+    public void testKmlByUri() throws ParserConfigurationException, TransformerException, XPathExpressionException {
+
+
+        webResource = resource().path("/geo/").queryParam("id", URI_ONE);
+
+        ClientResponse clientResponse = webResource.accept(KmlMediaType.APPLICATION_KML)
+                .get(ClientResponse.class);
+
+        Assert.assertEquals("Unexpected response from the server.", 200, clientResponse.getStatus());
+    }
+
+    @Test
+    public void testJsonByUri() {
+
+        webResource = resource().path("/geo/").queryParam("id", URI_ONE);
+
+        ClientResponse clientResponse = webResource.accept(MediaType.APPLICATION_JSON_TYPE)
+                .get(ClientResponse.class);
+
+        Assert.assertEquals("Unexpected response from the server.", 200, clientResponse.getStatus());
+    }
+
     @Override
     protected void setUpDatabase() {
 
@@ -163,4 +208,6 @@ public class GeoResourceTest extends AbstractResourceTest {
     }
 
     private String GRAPH_URI = "geo://test_geo_graph1";
+
+    private String URI_ONE = "http://www.openstreetmap.org/api/0.6/node/975730982";
 }

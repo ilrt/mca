@@ -65,11 +65,14 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
 
     public Resource findResource(String id, MultivaluedMap<String, String> parameters) {
 
-        Model model = queryManager.find("id", id, findItemsSparql);
+        Model model = queryManager.find("s", id, findItemsSparql);
 
         if (model.isEmpty()) {
             return null;
         }
+
+        model.write(System.out);
+
 
         // hand work to a delegate if possible
         Resource resource = model.getResource(id);
@@ -97,7 +100,8 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
                 return new FeedDelegateImpl(queryManager);
             } else if (type.equals(MCA_REGISTRY.HtmlFragment.getURI())) {
                 return new HtmlFragmentDelegateImpl(queryManager);
-            } else if (type.equals(MCA_REGISTRY.ActiveMapSource.getURI())) {
+            } else if (type.equals(MCA_REGISTRY.ActiveMapSource.getURI()) ||
+                    type.equals(MCA_REGISTRY.ActiveMapGroup.getURI())) {
                 return new ActiveMapDelegateImpl(queryManager);
             } else if (type.equals(MCA_REGISTRY.Contact.getURI())) {
                 return new ContactsDelegateImpl(queryManager);

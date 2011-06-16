@@ -59,6 +59,8 @@ public class MCA_REGISTRY {
 
     public static final Resource ActiveMapSource = model.createResource(NS + "ActiveMapSource");
 
+    public static final Resource ActiveMapGroup = model.createResource(NS + "ActiveMapGroup");
+
     public static final Resource FeedSource = model.createProperty(NS + "FeedSource");
 
     public static final Resource Podcasts = model.createProperty(NS + "Podcasts");
@@ -92,6 +94,8 @@ public class MCA_REGISTRY {
 
     public static final Property markers = model.createProperty(NS + "markers");
 
+    public static final Property mapZoom = model.createProperty(NS + "mapZoom");
+
     public static final Property icon = model.createProperty(NS + "icon");
 
     public static final Property urlStem = model.createProperty(NS + "urlStem");
@@ -117,4 +121,6 @@ public class MCA_REGISTRY {
     public static final Property eventlist = model.createProperty(NS + "eventlist");
 
     public static final Property style = model.createProperty(NS + "style");
+
+    public static final Property groupType = model.createProperty(NS + "groupType");
 }

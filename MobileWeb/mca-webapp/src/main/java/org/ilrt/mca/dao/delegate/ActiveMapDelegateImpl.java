@@ -31,14 +31,21 @@
  */
 package org.ilrt.mca.dao.delegate;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
+import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import com.hp.hpl.jena.vocabulary.RDF;
 import org.apache.log4j.Logger;
 import org.ilrt.mca.dao.AbstractDao;
 import org.ilrt.mca.rdf.QueryManager;
+import org.ilrt.mca.vocab.MCA_REGISTRY;
+import org.ilrt.mca.vocab.WGS84;
 
 import javax.ws.rs.core.MultivaluedMap;
 import java.io.IOException;
+import java.util.Properties;
 
 /**
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
@@ -50,6 +57,15 @@ public class ActiveMapDelegateImpl extends AbstractDao implements Delegate {
         this.queryManager = queryManager;
         try {
             activeMapDetailsSparql = loadSparql("/sparql/findActiveMapDetails.rql");
+            activeMapGroupSparql = loadSparql("/sparql/findActiveMapGroup.rql");
+            activeMapDetailsByGraphSparql = loadSparql("/sparql/findActiveMapDetailsInGraph.rql");
+
+            Properties props = new Properties();
+            props.load(this.getClass().getResourceAsStream("/map.properties"));
+            defaultLat = props.getProperty("defaultLat");
+            defaultLng = props.getProperty("defaultLng");
+            defaultMapZoom = props.getProperty("defaultMapZoom");
+
         } catch (IOException ex) {
             Logger log = Logger.getLogger(ActiveMapDelegateImpl.class);
             log.error("Unable to load SPARQL query: " + ex.getMessage());
@@ -60,12 +76,77 @@ public class ActiveMapDelegateImpl extends AbstractDao implements Delegate {
     @Override
     public Resource createResource(Resource resource, MultivaluedMap<String, String> parameters) {
 
-        Model model = queryManager.find("id", resource.getURI(), activeMapDetailsSparql);
+        // parameter means we are only interested in a single resource
+        if (parameters.containsKey("item")) {
+
+            String item = parameters.getFirst("item");
+            Resource itemUri = ResourceFactory.createResource(item);
+
+            Model m = createResourceForSingleMapItem(itemUri);
+
+            Resource r = m.getResource(item);
+
+            // provides a url for the ajax request
+            m.add(r, MCA_REGISTRY.markers, "geo/?id=" + item);
+            m.add(r, WGS84.latitude, defaultLat, XSDDatatype.XSDdouble);
+            m.add(r, WGS84.longitude, defaultLng, XSDDatatype.XSDdouble);
+            m.add(r, MCA_REGISTRY.mapZoom, defaultMapZoom, XSDDatatype.XSDinteger);
+
+            return r;
+        }
+
+
+        Model model;
+
+        if (resource.getProperty(RDF.type).getResource().getURI()
+                .equals(MCA_REGISTRY.ActiveMapGroup.getURI())) {
+            model = createMapNavigationList(resource);
+        } else {
+            model = queryManager.find("id", resource.getURI(), activeMapDetailsSparql);
+        }
+
         resource.getModel().add(model);
+
         return resource;
     }
 
+    /**
+     * Creates a list of geo items that can be used to create a navigation list. For example,
+     * an A-Z of University buildings.
+     *
+     * @param resource represents the URL for the navigation list.
+     * @return a model that represents the navigation list.
+     */
+    private Model createMapNavigationList(Resource resource) {
+
+        QuerySolutionMap bindings = new QuerySolutionMap();
+        bindings.add("id", resource);
+        bindings.add("type", resource.getProperty(MCA_REGISTRY.groupType).getResource());
+
+        return queryManager.find(bindings, activeMapGroupSparql);
+    }
+
+    /**
+     * Creates a model so that a single point can be displayed on a map. For example,
+     * display the location of an individual University building.
+     *
+     * @param item represents the item of interest.
+     * @return a model that represents the item so it can be displayed on a map.
+     */
+    private Model createResourceForSingleMapItem(Resource item) {
+
+        QuerySolutionMap bindings = new QuerySolutionMap();
+        bindings.add("id", item);
+        return queryManager.find(bindings, activeMapDetailsByGraphSparql);
+    }
 
     private String activeMapDetailsSparql = null;
+    private String activeMapDetailsByGraphSparql = null;
+    private String activeMapGroupSparql = null;
+
+    private String defaultLat;
+    private String defaultLng;
+    private String defaultMapZoom;
+
     private final QueryManager queryManager;
 }
