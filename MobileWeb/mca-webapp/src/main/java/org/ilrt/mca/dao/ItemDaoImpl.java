@@ -71,7 +71,7 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
             return null;
         }
 
-        model.write(System.out);
+        //model.write(System.out);
 
 
         // hand work to a delegate if possible
