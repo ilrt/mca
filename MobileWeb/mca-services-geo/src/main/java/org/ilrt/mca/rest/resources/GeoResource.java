@@ -47,6 +47,7 @@ import org.ilrt.mca.dao.GeoDao;
 import org.ilrt.mca.rdf.SdbManagerImpl;
 import org.ilrt.mca.rest.ex.NotFoundException;
 import org.ilrt.mca.vocab.MCA_GEO;
+import org.ilrt.mca.vocab.MCA_REGISTRY;
 import org.ilrt.mca.vocab.WGS84;
 
 import javax.ws.rs.GET;
@@ -183,6 +184,11 @@ public class GeoResource extends AbstractResource {
 
             if (resource.hasProperty(DC.description)) {
                 map.put("description", resource.getProperty(DC.description).getLiteral()
+                        .getLexicalForm());
+            }
+
+            if (resource.hasProperty(MCA_REGISTRY.icon)) {
+                map.put("icon", resource.getProperty(MCA_REGISTRY.icon).getLiteral()
                         .getLexicalForm());
             }
 

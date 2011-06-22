@@ -48,11 +48,13 @@ var map;
 var markers = new Array(); // holds stop markers
 var proxyUrl;
 var icon;
+var context;
 
-var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, maxPoll, goodAccuracy, moderateAccuracy, maxDistance, defaultZoomLevel, pUrl, markerIcon, markerUrl) {
+var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, maxPoll, goodAccuracy, moderateAccuracy, maxDistance, defaultZoomLevel, pUrl, markerIcon, markerUrl, contextPath) {
 
     proxyUrl = pUrl;
     icon = markerIcon;
+    context = contextPath;
 
     window.onload = function() {
 
@@ -371,12 +373,15 @@ var createMarkers = function(markerJson) {
         var markerId = markerData[i].id;
         var title =  markerData[i].label;
         var description = markerData[i].description;
+        var data_icon = markerData[i].icon;
 
         var marker =  marker = new google.maps.Marker({
                 position: point
             });
 
-        if (icon != undefined) {
+        if (data_icon != undefined) {
+            marker.icon = context + data_icon;
+        } else if (icon != undefined) {
             marker.icon = icon;
         }
 
