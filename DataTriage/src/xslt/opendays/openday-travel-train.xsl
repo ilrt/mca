@@ -6,19 +6,15 @@
                 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
                 xmlns:mca="http://vocab.bris.ac.uk/mca/registry#"
 				exclude-result-prefixes="html rdf rdfs mca">
-<<<<<<< HEAD
-	
-=======
 
 				<!--
 					Webpage: http://www.bristol.ac.uk/opendays/planning.html
 					Command: xsltproc openday-exhibition-data.xsl exhibition.html
 				-->
 
->>>>>>> 9a9f117... extra xsl for openday content
 	<xsl:output encoding="utf-8" indent="yes"/>
 	
-	<xsl:param name="uri_base" select="'mca://data/graph/openday/exhibition/'"/>
+	<xsl:param name="uri" select="'mca://data/graph/openday/travel/train/'"/>
 	
 	<!-- match the root -->
 	<xsl:template match="/">
@@ -29,44 +25,29 @@
 	
 	<!-- the main content of the page -->
 	<xsl:template match="/html:html/html:body/html:div/html:div[@id='uobcms-content']">
-		<xsl:apply-templates select="html:h2"/>
-	</xsl:template>	
-	
-	<!-- content under each h2 will represent an RDF resource  -->
-	<xsl:template match="html:h2">
-
-		<xsl:param name="uri_id" select="./@id"/>
-		
-		<rdf:Description rdf:about="{$uri_base}{$uri_id}/">
+		<rdf:Description rdf:about="{$uri}">
 			<mca:hasHtmlFragment>
 				<xsl:variable name="header" select="."/>
 				<xsl:text disable-output-escaping="yes">&lt;</xsl:text>
         		<xsl:value-of select="concat('!','[','CDATA','[')"/>
 					<div id="openday-content">
-						<xsl:apply-templates mode="found" select="following-sibling::html:p[preceding-sibling::html:h2[1] = $header]"/>
+						<xsl:apply-templates select="html:p"/>
 					</div>
 				<xsl:value-of select="concat(']',']')"/>
-		    	<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+				<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
 			</mca:hasHtmlFragment>		
 		</rdf:Description>
-				
-	</xsl:template>
+	</xsl:template>	
 	
-	<xsl:template match="html:p[@class='screen']" mode="found"></xsl:template>
-	
-	<xsl:template match="html:p" mode="found">
-		<p><xsl:apply-templates /></p>
-	</xsl:template>
-	
-	<xsl:template match="html:a">
+	<xsl:template match="html:p">
 		<xsl:choose>
-			<xsl:when test="starts-with('/', @href)">
-		    	<a href="{@href}"><xsl:value-of select="."/></a>
-		  	</xsl:when>
-		  <xsl:otherwise>
-		   	<a href="http://www.bristol.ac.uk{@href}"><xsl:value-of select="."/></a> (<em>Link not optimised for mobile devices</em>)
-		  </xsl:otherwise>
-		</xsl:choose>
+			<xsl:when test="position() = last()">
+				<p>The University is a 30-minute walk away from the station.</p>
+			</xsl:when>
+			<xsl:otherwise>
+				<p><xsl:apply-templates /></p>
+			</xsl:otherwise>
+	    </xsl:choose>
 	</xsl:template>
 
 </xsl:stylesheet>
