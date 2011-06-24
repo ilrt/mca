@@ -1,10 +1,15 @@
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#>
 CONSTRUCT {
     $id foaf:mbox $email .
     $id foaf:phone $phone .
+    $id vcard:ADR $address .
+    $id foaf:homepage $homepage .
     $phone rdfs:label $label .
 } WHERE {
+    OPTIONAL { $id vcard:ADR $address } .
+    OPTIONAL { $id foaf:homepage $homepage } .
     OPTIONAL { $id foaf:mbox $email } .
     OPTIONAL { $id foaf:phone $phone .
     $phone rdfs:label $label } .

@@ -12,6 +12,12 @@
         <#if resource['foaf:mbox']??>
         <li class="emailContact"><a href="mailto:${resource['foaf:mbox']?first}">${resource['foaf:mbox']?first}</a></li>
         </#if>
+        <#if resource['vcard:ADR']??>
+        <li>${resource['vcard:ADR']?first}</a></li>
+        </#if>
+        <#if resource['foaf:homepage']??>
+        <li><a href="${resource['foaf:homepage']?first}">Visit website</a></li>
+        </#if>
     </ul>
 </div>
 
