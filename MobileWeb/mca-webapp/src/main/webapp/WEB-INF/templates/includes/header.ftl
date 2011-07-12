@@ -1,14 +1,20 @@
 <#include "macro.ftl">
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!doctype html>
 <head>
-    <title><@Label resource=resource/> - Mobile Campus Assistant</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-    <meta name="viewport" content="width=device-width,user-scalable=false,initial-scale=1.0"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="${contextPath}/style/style.css"/>
+  <meta charset="utf-8">
+  <title><#if resource['mca:shortLabel']??>${resource['mca:shortLabel']?first}<#else><@Label resource=resource/></#if></title>
+  <#if resource['dc:description']??><meta name="description" content="${resource['dc:description']?first}" /></#if>
+  <meta name="author" content="University of Bristol" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width,user-scalable=false,initial-scale=1.0" />
+  <link rel="apple-touch-icon-precomposed" href="${contextPath}/images/apple-touch-icon-114px.png">
+  <link rel="shortcut icon" href="${contextPath}/images/apple-touch-icon-114px.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-startup-image" href="${contextPath}/images/startup.png">
+  <meta http-equiv="cleartype" content="on">
+  <link rel="stylesheet" href="${contextPath}/style/style.css">
+  <script src="${contextPath}/js/libs/modernizr-custom.js"></script>
 </head>
-<body>
+<body
+<div id="container" class="home">

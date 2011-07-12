@@ -1,9 +1,10 @@
 <#include "macro.ftl">
-<div class="nav">
-    <ul class="nav-list">
+<nav>
+    <ul>
     <#list resource['mca:hasItem'] as item>
         <#assign label><@Label resource=item/></#assign>
-        <li><a href="${contextPath}/${item?substring(15)}"><#if item['mca:style']??><span class="${item['mca:style']?first}"></span></#if>${label}<#-- <@CountItems resource=item/>--><span class="arrow"></span></a></li>
+        <#if item['mca:style']??><#assign style>${item['mca:style']?first}</#assign><#else><#assign style>standard</#assign></#if>
+        <li class="${style}"><a href="${contextPath}/${item?substring(15)}">${label} <#if item['dc:description']??><span>(${item['dc:description']?first})</span></#if></a></li>
     </#list>
     </ul>
-</div>
+</nav>

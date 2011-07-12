@@ -1,13 +1,13 @@
 <#compress>
+
 <#include "includes/header.ftl"/>
 
 <#include "includes/logoWithoutNav.ftl"/>
 
-<h1 id="title"><@Label resource=resource/></h1>
-
+<div id="main" role="main">
 <#include "includes/standardNavigation.ftl"/>
-
-<#include "includes/copyright.ftl"/>
+</div>
 
 <#include "includes/footer.ftl"/>
+
 </#compress>
