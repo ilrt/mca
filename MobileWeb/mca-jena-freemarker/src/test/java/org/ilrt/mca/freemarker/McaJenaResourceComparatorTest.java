@@ -97,7 +97,7 @@ public class McaJenaResourceComparatorTest {
 
         // ---------- Run the tests
 
-        assertEquals("There should be three items in the sequence", 5, sequence.size());
+        assertEquals("There should be five items in the sequence", 5, sequence.size());
 
         // get the first element (this has an order of 1)
         ResourceHashModel elementOne = (ResourceHashModel) sequence.get(0);

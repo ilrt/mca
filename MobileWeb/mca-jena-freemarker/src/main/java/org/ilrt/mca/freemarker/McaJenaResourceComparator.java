@@ -188,10 +188,17 @@ public class McaJenaResourceComparator implements Comparator<TemplateModel> {
 
             // order *should* be a number, but catch an exception
             if (p.equals(MCA_REGISTRY.order)) {
+
                 try {
+
                     Integer a = new Integer(node1.asLiteral().getLexicalForm());
                     Integer b = new Integer(node2.asLiteral().getLexicalForm());
-                    return a.compareTo(b);
+
+                    if (a.intValue() == b.intValue()) {
+                        return compareOnLabel(r1, r2);
+                    } else {
+                        return a.compareTo(b);
+                    }
                 } catch (NumberFormatException ex) {
                     return defaultLiteralCompare(r1, r2, node1.asLiteral(), node2.asLiteral());
                 }
