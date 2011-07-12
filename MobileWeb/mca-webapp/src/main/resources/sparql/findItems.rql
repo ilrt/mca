@@ -12,6 +12,7 @@ CONSTRUCT {
     $itemId mca:order $itemOrder .
     $itemId mca:style $style .
     $itemId rdfs:seeAlso $itemSeeAlso .
+    $itemId dc:description $itemDescription .
     $itemSeeAlso mca:hasItem $itemSubItem .
     $id mca:hasParent $parentId .
     $parentId rdfs:Label $parentLabel .
@@ -21,6 +22,7 @@ CONSTRUCT {
         OPTIONAL { $itemId rdfs:label $itemLabel } .
         OPTIONAL { $itemId mca:order $itemOrder } .
         OPTIONAL { $itemId mca:style $style } .
+        OPTIONAL { $itemId dc:description $itemDescription } .
         OPTIONAL {
             $itemId rdfs:seeAlso $itemSeeAlso .
             OPTIONAL {
