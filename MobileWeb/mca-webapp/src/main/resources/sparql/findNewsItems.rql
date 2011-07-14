@@ -13,6 +13,7 @@ CONSTRUCT {
     ?id rdf:type <http://vocab.bris.ac.uk/mca/registry#NewsItem> .
     $id rdfs:seeAlso $graph .
     $id mca:archive ?archive .
+    $id mca:style $style .
     $itemId dc:date $date .
     $itemId rss:description $description .
     $itemId content:encoded $encoded .
@@ -20,8 +21,11 @@ CONSTRUCT {
     $itemId rss:title $title .
     $itemId mca:hasSource $graph .
     $itemId mca:hasParent $id .
+    $itemId mca:style $style .
     $id mca:hasParent $parentId .
-    $parentId rdfs:Label $parentLabel .
+    $parentId rdfs:label $parentLabel .
+    $parentId mca:hasParent $grandParentId .
+    $grandParentId rdfs:label $grandParentIdLabel .
 }
 WHERE {
     $id rdfs:label $label .
@@ -34,10 +38,17 @@ WHERE {
         $itemId rss:title $title .
     }
     OPTIONAL {
-        $parentId mca:hasItem $id .
-        $parentId rdfs:label $parentLabel
-    } .
+        $id mca:style $style .
+    }
     OPTIONAL {
         $id mca:archive ?archive .
     }
+    OPTIONAL {
+        $parentId mca:hasItem $id .
+        $parentId rdfs:label $parentLabel .
+        OPTIONAL {
+            $grandParentId mca:hasItem $parentId .
+            $grandParentId rdfs:label $grandParentIdLabel .
+        } .
+    } .
 }

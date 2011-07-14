@@ -15,6 +15,10 @@ CONSTRUCT {
     $id mca:icalLink $icalLink .
     $id mca:htmlLink $htmlLink .
     $id mca:eventlist $eventList .
+    $id mca:hasParent $parentId .
+    $parentId rdfs:label $parentLabel .
+    $parentId mca:hasParent $grandParentId .
+    $grandParentId rdfs:label $grandParentLabel .
 } WHERE {
     $id mca:template $template .
     $id rdfs:label $label .
@@ -26,4 +30,12 @@ CONSTRUCT {
     } .
     OPTIONAL {$id mca:htmlLink $htmlLink . } .
     OPTIONAL {$id mca:icalLink $icalLink . } .
+    OPTIONAL {
+        $parentId mca:hasItem $id .
+        $parentId rdfs:label $parentLabel .
+        OPTIONAL {
+            $grandParentId mca:hasItem $parentId .
+            $grandParentId rdfs:label $grandParentLabel .
+        }
+    }
 }
