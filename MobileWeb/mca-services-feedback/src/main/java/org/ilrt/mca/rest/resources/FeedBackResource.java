@@ -6,6 +6,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.sun.jersey.api.view.Viewable;
 import com.sun.jersey.spi.resource.Singleton;
+import org.ilrt.mca.vocab.MCA_REGISTRY;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -34,6 +35,7 @@ public class FeedBackResource {
         Model m = ModelFactory.createDefaultModel();
         r = m.createResource();
         r.addProperty(RDFS.label, "Feedback");
+        r.addProperty(MCA_REGISTRY.style, "feedback");
     }
 
     @GET
