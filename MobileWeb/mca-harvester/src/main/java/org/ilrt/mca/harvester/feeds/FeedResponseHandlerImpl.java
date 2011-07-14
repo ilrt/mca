@@ -70,6 +70,8 @@ public class FeedResponseHandlerImpl implements ResponseHandler {
             syndFeed.setFeedType("rss_1.0");
             syndFeed.setUri(sourceUrl);
 
+            removeOldEntries(syndFeed, 180); // clear old content
+
             // The student union feeds GUID is not a valid URI - we check that the value of
             // getUri (which the ROME API populated with the RSS GUID) starts with "http:, if not
             // use the link as the URI.
