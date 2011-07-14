@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<#include "includes/logoWithoutNav.ftl"/>
+
 
 <@Title label="Page not found!" />
 

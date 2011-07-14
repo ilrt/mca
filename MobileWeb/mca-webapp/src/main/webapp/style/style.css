@@ -1,505 +1,3 @@
-<<<<<<< HEAD
-
-html, body {
-    font-family: Helvetica, Arial, sans-serif, serif;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    height: 100%;
-}
-
-h1 {
-    font-size: 14px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 16px;
-    text-align: left;
-    margin: 9px;
-}
-
-h3 {
-    font-size: 12px;
-    text-align: left;
-    margin: 9px;
-}
-
-p {
-    font-size: 14px;
-    line-height: 18px;
-    margin: 9px;
-}
-
-#header {
-    background-image: url(../images/bristol/header-bkgd.png);
-    height: 55px;
-    text-align: center;
-}
-
-#header a {
-    display: inline-block;
-    background-image: url(../images/bristol/backarrow.png);
-    width: 56px;
-    height: 55px;
-    margin: 0 0 0 10px;
-    padding: 0 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#header a:hover, #back a:active {
-    background-position: -58px -0px;
-}
-
-.hideText {
-    display: none;
-}
-
-#title {
-    background-image: url(../images/bristol/pagetitle-bkgd.png);
-    padding: 3px 0 0 0;
-    margin: 0 0 0 0;
-    height: 16px;
-    border-top: solid 1px #E6E6E6;
-    border-bottom: solid 1px #FFFFFF;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.nav-list {
-    margin: 0;
-    padding: 0;
-}
-
-.nav-list li {
-    border-bottom: 1px solid #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    background: url(../images/bristol/nav-list-item-bg.png) repeat-x;
-    width: 100%;
-}
-
-.nav-list li > a {
-    position:relative;
-    display: block;
-    height: 48px;
-    background: url(../images/bristol/nav-list-item-background.png);
-    padding: 10px 20px 0 10px;
-    text-decoration: none;
-    color: #171717;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-}
-
-.nav-list li .arrow {
-    position:absolute;
-    right: 0;
-    width: 12px;
-    height: 100%;
-    background: url(../images/bristol/disclosure-arrow.png) no-repeat 0 24px;
-    margin-right: 10px;
-    top: 0;
-}
-
-.nav-list li:last-child > a {
-    height: 58px;
-}
-
-.nav-list li > a:hover, li > a:active {
-    background-position: 0 -58px;
-    color: #333333;
-}
-
-.nav-list li > a:hover .arrow, li > a:active .arrow {
-    background-position: -12px 24px;
-}
-
-#information {
-    padding-top: 30px;
-    margin: 10px;
-    font-size: 12px;
-    color: #666666;
-    line-height: 18px;
-}
-
-#information a {
-    display: inline;
-    color: #2F85B5;
-    text-decoration: underline;
-}
-
-#copyright {
-    margin: 10px;
-    padding-top: 15px;;
-    font-size: 12px;
-    color: #666666;
-}
-
-.newsItem {
-    padding: 10px;
-    color: #252525;
-}
-
-.newsItem a {
-    display: inline;
-    color: #2F85B5;
-    text-decoration: underline;
-}
-
-.publishDate {
-    font-style: italic;
-}
-
-.contentWarning, .contentSource {
-    color: #666666;
-    font-style: italic;
-    font-size: 11px;
-}
-
-/* ICONS - used in the navigation */
-
-/*
-
-.map {
-    background: url(../images/bristol/icon-map.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.bus {
-    background: url(../images/bristol/icon-bus.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.bike {
-    background: url(../images/bristol/icon-bike.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.today {
-    background: url(../images/bristol/icon-flag.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle
-}
-
-.events {
-    background: url(../images/bristol/icon-calendar.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle
-}
-
-.news {
-    background: url(../images/bristol/icon-news.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.weather {
-    background: url(../images/bristol/icon-umbrella.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.contacts {
-    background: url(../images/bristol/icon-contacts.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.feedback {
-    background: url(../images/bristol/icon-feedback.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.about {
-    background: url(../images/bristol/icon-info.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle;
-}
-
-.pcavailability {
-    background: url(../images/bristol/icon-computer.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle
-}
-
-.servicestatus {
-    background: url(../images/bristol/icon-dial.png) no-repeat;
-    display: inline-block;
-    width: 52px;
-    height: 41px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    vertical-align: middle
-}
-
-*/
-
-.weatherIcon, .weatherDetails, .weatherDateTime {
-   text-align: center;
-}
-
-#pcavailability table {
-    width: 55%;
-    margin: 9px;
-    font-size: 14px;
-}
-
-
-
-/* EVENTS */
-
-.nav-list li a .startdate
-{
-    display: block;
-    width: 100%;
-    padding-left:80px;
-    margin-top:-10px;
-    text-decoration: none;
-    color: #999;
-    font-size:80%;
-}
-
-.event {
-    font-size: 12px;
-}
-
-.group .description a
-{
-    display:inline;
-    text-decoration:underline;
-    color:blue;
-}
-
-.event .label
-{
-    font-weight:bold;
-    padding-right:0.2em;
-    width:5em;
-    display:inline-block;
-}
-
-.event .date .value
-{
-    display:none;
-}
-
-.event .row
-{
-    margin-top:0.6em;
-    margin-bottom:0.6em;
-    margin-left:1em;
-    padding-left:0.4em;
-}
-
-.event p
-{
-    font-size:100%;
-}
-
-.event .description
-{
-    border-left:5px solid #89bf58;
-}
-
-.event .day, .event .time, .event .from, .event .to
-{
-    border-left:5px solid #e8a81d;
-}
-
-.event .location
-{
-    border-left:5px solid #e7481d;
-}
-
-.eventList .startdate
-{
-    color: #ccc; font-size:80%;
-}
-
-.calendarlinks
-{
-    text-align:center;
-    margin-top:0.5em;
-    margin-bottom:0.5em;
-    font-size: 12px;
-}
-
-.calendarlinks a {
-    text-decoration: none;
-}
-
-.calendarlinks .calendarlink
-{
-    text-align:center;
-    display:inline-block;
-    padding-left:2em;
-    padding-right:2em;
-}
-
-.calendarlinks .calendarlink img
-{
-    border: 0;
-}
-
-
-/* Contacts */
-
-.contactDetails {
-    font-size: 13px;
-}
-
-.contactDetails form {
-    margin: 9px;
-}
-
-.contactDetails ul {
-    list-style: none;
-    margin-left: 9px;
-    padding: 0;
-}
-
-.contactDetails li {
-
-    margin-top: 15px;
-}
-
-.contactDetails a {
-    display: inline;
-    color: #2F85B5;
-    text-decoration: underline;
-}
-
-#map {
-    height: 100%;
-    height: 90%
-}
-
-#searching {
-    position: absolute;
-    top: 20;
-    background: #FFFFCC;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #b3b9ab;
-    z-index: 100;
-}
-
-/*
-transport-info-init is used to intialise the infowindow in the transport map.
-It's height value should ensure that the map pans enough to allow for later dynamic content
-*/
-#transport-info-init {
-    height: 150px;
-    width: 100%;
-}
-
-#transport-info {
-    width: 100%;
-}
-
-/* gmap api id - stops university photos appearing in windows */
-#iw_kml img {
-    display: none;
-}
-
-/* Feedback form */
-#feedback-form {
-    padding: 0 0.8em 0 0.8em;
-}
-
-#form_email, #form_comments {
-    width: 100%;
-}
-
-
-/*
-LDAP Search
-*/
-
-#search-results {
-    margin: 1em 1.5em 1em 1.5em;
-}
-
-.contact {
-    border-bottom: solid 1px silver;
-    padding-top: 1em;
-}
-
-
-.contact > p {
-    font-size: 0.8em;
-    margin: 0;
-}
-
-.contact-phone {
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-.contact-email {
-    padding-top: 1em;
-
-}
-=======
 ﻿/**
  * HTML5 ✰ Boilerplate
  *
@@ -637,7 +135,6 @@ button {  width: auto; overflow: visible; }
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .iem7 img { -ms-interpolation-mode: bicubic; }
 
-
 /**
  * You might tweak these..
  */
@@ -721,12 +218,13 @@ header, header a:link, header a:visited, header li h1 {
 
 .home header { background: #181612 url(../images/header-bkgd.png) left top repeat-x; }
 
-.services header { background: #C02F38 url(../images/header-bkgd-red.png) left bottom repeat-x; }
+.today header { background: #C02F38 url(../images/header-bkgd-red.png) left bottom repeat-x; }
 .places header { background: #4F6F19 url(../images/header-bkgd-green.png) left bottom repeat-x; }
 .news header { background: #9C5708 url(../images/header-bkgd-brown.png) left bottom repeat-x; }
 .transport header { background: #7E81BE url(../images/header-bkgd-purple.png) left bottom repeat-x; }
 .events header { background: #820053 url(../images/header-bkgd-plum.png) left bottom repeat-x; }
 .contacts header { background: #16A3A0 url(../images/header-bkgd-teal.png) left bottom repeat-x; }
+.feedback header { background: #C02F38 url(../images/header-bkgd-red.png) left bottom repeat-x; }
 .about header { background: #8F8A82 url(../images/header-bkgd-grey.png) left bottom repeat-x; }
 
 .home header h1 {
@@ -971,4 +469,142 @@ header #hometrail a span { background-image: url(../images/logo-sun-highres.png)
 .home header h1 { background-image: url(../images/logo-home-highres.png); background-size: 179px 48px; }
 
 }
->>>>>>> af6d60d... adding the new styles
+
+
+/* MCA Content */
+
+/* Feedback form */
+
+#form_email {
+    width: 95%;
+}
+
+#form_comments {
+    width: 100%;
+}
+
+#harvested-content {
+    padding: 0.5em 0 0.5em 0;
+}
+
+#pcavailability table {
+    width: 55%;
+    margin: 9px;
+    font-size: 14px;
+}
+
+/* EVENTS */
+
+.nav-list li a .startdate
+{
+    display: block;
+    width: 100%;
+    padding-left:80px;
+    margin-top:-10px;
+    text-decoration: none;
+    color: #999;
+    font-size:80%;
+}
+
+.event {
+    font-size: 12px;
+}
+
+.group .description a
+{
+    display:inline;
+    text-decoration:underline;
+    color:blue;
+}
+
+.event .label
+{
+    font-weight:bold;
+    padding-right:0.2em;
+    width:5em;
+    display:inline-block;
+}
+
+.event .date .value
+{
+    display:none;
+}
+
+.event .row
+{
+    margin-top:0.6em;
+    margin-bottom:0.6em;
+    margin-left:1em;
+    padding-left:0.4em;
+}
+
+.event p
+{
+    font-size:100%;
+}
+
+.event .description
+{
+    border-left:5px solid #89bf58;
+}
+
+.event .day, .event .time, .event .from, .event .to
+{
+    border-left:5px solid #e8a81d;
+}
+
+.event .location
+{
+    border-left:5px solid #e7481d;
+}
+
+.eventList .startdate
+{
+    color: #ccc; font-size:80%;
+}
+
+.calendarlinks
+{
+    text-align:center;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    font-size: 12px;
+}
+
+.calendarlinks a {
+    text-decoration: none;
+}
+
+.calendarlinks .calendarlink
+{
+    text-align:center;
+    display:inline-block;
+    padding-left:2em;
+    padding-right:2em;
+}
+
+.calendarlinks .calendarlink img
+{
+    border: 0;
+}
+
+/* map */
+
+html, body, #container, #main {
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+    height: 90%
+}
+
+#searching {
+    position: absolute;
+    top: 20;
+    background: #FFFFCC;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b3b9ab;
+    z-index: 100;
+}

@@ -1,20 +1,27 @@
+<#compress>
 <#include "includes/header.ftl"/>
 
-<#include "includes/logoOneLevelNav.ftl"/>
-
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
+<#include "includes/breadcrumbWithTitle.ftl"/>
 
 <#if resource['mca:hasNewsItem']??>
-<div class="nav">
-    <ul class="nav-list">
+<nav>
+    <ul>
         <#list resource['mca:hasNewsItem']?reverse as item>
             <#assign label=item['rss:title']?first/>
-            <li><a href="./?item=${item?url("UTF8")}"><span class="news"></span>${label}<span class="arrow"></span></a></li>
+            <#if item['mca:style']??><#assign style>${item['mca:style']?first}</#assign><#else><#assign style>standard</#assign></#if>
+            <li class="${style}"><a href="./?item=${item?url("UTF8")}"><span class="date">${item['dc:date']?first?datetime("yyyy-MM-dd\'T\'HH:mm:ss'Z'")?string('dd MMM')}:</span> ${label}</a></li>
         </#list>
     </ul>
+</nav>
 <#else>
-<p>Sorry, no news items.</p>
+    <div id='content'>
+        <#if resource['mca:noDataMessage']??>
+            <p>${resource['mca:noDataMessage']?first}</p>
+        <#else>
+            <p>Sorry, there is no news.</p>
+        </#if>
+    </div>
 </#if>
 
 <#include "includes/footer.ftl"/>
+</#compress>

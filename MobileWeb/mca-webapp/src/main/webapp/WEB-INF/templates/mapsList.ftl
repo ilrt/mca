@@ -1,6 +1,6 @@
 <#include "includes/header.ftl"/>
 
-<#include "includes/logoOneLevelNav.ftl"/>
+<#include "includes/breadcrumbWithTitle.ftl"/>
 
 <#assign label><@Label resource/></#assign>
 <@Title label="${label}" />

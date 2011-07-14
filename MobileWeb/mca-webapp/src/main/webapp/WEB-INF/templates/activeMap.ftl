@@ -1,9 +1,6 @@
 <#include "includes/header.ftl"/>
 
-<#include "includes/logoOneLevelNav.ftl"/>
-
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
+<#include "includes/breadcrumbWithTitle.ftl"/>
 
 <#-- url used for getting information via a proxy -->
 <#if resource['mca:urlStem']??>
@@ -35,4 +32,30 @@ initializeMap("map", ${resource['geo:lat']?first?string.computer}, ${resource['g
 <div id="map"></div>
 <div>&nbsp;</div>
 
-<#include "includes/footer.ftl"/>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+<script>window.jQuery || document.write("<script src='${contextPath}/js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+<script src="${contextPath}/js/mylibs/helper.js"></script>
+<script>
+MBP.scaleFix();
+yepnope({
+  test : Modernizr.mq('(min-width)'),
+  nope : ['js/libs/respond.min.js']
+});
+ </script>
+<#if googleAnalyticsKey??>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '${googleAnalyticsKey}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</#if>
+</body>
+</html>

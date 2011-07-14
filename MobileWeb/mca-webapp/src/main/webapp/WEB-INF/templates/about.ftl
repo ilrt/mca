@@ -1,12 +1,10 @@
+<#compress>
+
 <#include "includes/header.ftl"/>
 
-<#include "includes/logoOneLevelNav.ftl"/>
+<#include "includes/breadcrumbWithTitle.ftl"/>
 
-<@Title label="${resource['rdfs:label']?first}" />
-
-<div>
-
-    <h2>About</h2>
+<div id=content>
 
     <p>This is a trial beta service provided by the
        <a href="http://mymobilebristol.com">MyMobileBristol</a> project. The project
@@ -34,3 +32,5 @@
 </div>
 
 <#include "includes/footer.ftl"/>
+
+</#compress>

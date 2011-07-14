@@ -1,8 +1,20 @@
+<#compress>
+<#include "includes/macro.ftl">
 <#include "includes/header.ftl"/>
 
-<#include "includes/logoSameLevelNav.ftl"/>
+<header>
+    <ul>
+        <#if resource['mca:hasEventItem']??>
+            <@BreadCrumb resource=resource['mca:hasEventItem']?first/>
+        <#else>
+            <@BreadCrumb resource=resource/>
+        </#if>
+    </ul>
+</header>
 
-<@Title label="Event Details" />
+<div id="main" role="main">
+
+<div id="content">
 
 <script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
@@ -99,22 +111,25 @@
     }
 </script>
 
+<#if resource['mca:hasEventItem']??>
+    <#list resource['mca:hasEventItem'] as event>
+        <div class="event">
+            <h3>${event['ical:summary']?first}</h3>
 
-<#list resource['mca:hasEventItem'] as event>
-    <div class="event">
-        <h3>${event['ical:summary']?first}</h3>
-
-        <div class="date">
-            <#assign startDate><@ParseXsdDate event['ical:dtstart']?first/></#assign>
-            <span class="dtstart"><abbr class='value' title='${event['ical:dtstart']?first?substring(0,19)}Z'>${startDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
-            <div class="eventtime"></div>
-            <#assign endDate><@ParseXsdDate event['ical:dtend']?first/></#assign>
-            <span class="dtend"><abbr class='value' title='${event['ical:dtend']?first?substring(0,19)}Z'>${endDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
+            <div class="date">
+                <#assign startDate><@ParseXsdDate event['ical:dtstart']?first/></#assign>
+                <span class="dtstart"><abbr class='value' title='${event['ical:dtstart']?first?substring(0,19)}Z'>${startDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
+                <div class="eventtime"></div>
+                <#assign endDate><@ParseXsdDate event['ical:dtend']?first/></#assign>
+                <span class="dtend"><abbr class='value' title='${event['ical:dtend']?first?substring(0,19)}Z'>${endDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
+            </div>
+         <div class="description row"><#if event['ical:description']??>${event['ical:description']?first}</#if></div>
+             <div class="location row"><#if event['ical:location']??><span class="label">Location</span> ${event['ical:location']?first}<#else></#if></div>
+        <div class="organiser row"><#if event['ical:organizer']??><span class="label">Organiser</span>${event['ical:organizer']?first}<#else></#if></div>
         </div>
-     <div class="description row"><#if event['ical:description']??>${event['ical:description']?first}</#if></div>
-         <div class="location row"><#if event['ical:location']??><span class="label">Location</span> ${event['ical:location']?first}<#else></#if></div>
-    <div class="organiser row"><#if event['ical:organizer']??><span class="label">Organiser</span>${event['ical:organizer']?first}<#else></#if></div>
-    </div>
-</#list>
+    </#list>
+</#if>
 
+</div>
 <#include "includes/footer.ftl"/>
+</#compress>

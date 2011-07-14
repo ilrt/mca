@@ -1,16 +1,18 @@
+<#compress>
 <#include "includes/header.ftl"/>
-
-<#include "includes/logoOneLevelNav.ftl"/>
-
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
-
-<#if resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']??>
-    ${resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']?first}
-<#elseif resource['mca:hasSource']?first['mca:hasHtmlFragment']??>
-    ${resource['mca:hasSource']?first['mca:hasHtmlFragment']?first}
- <#else>
-    <p>Sorry, not data is available</p>
+<#include "includes/breadcrumbWithTitle.ftl"/>
+<#assign message>Sorry, not data is available</#assign>
+<#if resource['rdfs:seeAlso']??>
+    <#if resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']??>
+        <#assign message>${resource['rdfs:seeAlso']?first['mca:hasHtmlFragment']?first}</#assign>
+    </#if>
+<#elseif resource['mca:hasSource']??>
+    <#if resource['mca:hasSource']?first['mca:hasHtmlFragment']??>
+        <#assign message>${resource['mca:hasSource']?first['mca:hasHtmlFragment']?first}</#assign>
+    </#if>
 </#if>
-
+<div id="content">
+${message}
+</div>
 <#include "includes/footer.ftl"/>
+</#compress>

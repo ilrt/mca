@@ -39,7 +39,7 @@ ${value?substring(0, length?number - 3)}${value?substring(length?number - 2, len
 <#compress>
 <#assign length>${value?length}</#assign>
 <#assign temp>${value?substring(0, length?number - 3)}${value?substring(length?number - 2, length?number)}</#assign>
-${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('E, d MMM yyyy')}&nbsp;<#if temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('HH:mm') != "00:00">${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('HH:mm')}</#if>
+${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('HH:mm') != "00:00">${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('HH:mm')}</#if>
 </#compress>
 </#macro>
 
@@ -66,3 +66,35 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('E, d MMM yyyy')}&nbsp;<#if t
 <#macro Description resource><#if resource['dc:description']??>${resource['dc:description']?first}</#if></#macro>
 
 <#macro Ellipses value number><#if value?length &gt;= number>${value?substring(0,20)}...<#else>${value}</#if></#macro>
+
+<#macro BreadCrumbWithParent resource>
+    <#if resource['mca:hasParent']?first != 'mca://registry/'>
+        <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
+        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@Label resource=resource['mca:hasParent']?first/></span></a></li>
+    <#else>
+        <li id="hometrail"><a class="parent" href="${contextPath}/"><span>Home</span></a></li>
+    </#if>
+</#macro>
+
+<#macro BreadCrumbWithGrandParent resource>
+    <#-- we can ignore the homepage since we provide a link anyway -->
+    <#if resource['mca:hasParent']?first['mca:hasParent']?first != 'mca://registry/'>
+        <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
+        <li><a href="${contextPath}/${resource['mca:hasParent']?first['mca:hasParent']?first?substring(15)}"><span>&#8230;</span></a></li>
+        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@Label resource=resource['mca:hasParent']?first/></span></a></li>
+    <#else>
+        <@BreadCrumbWithParent resource=resource/>
+    </#if>
+</#macro>
+
+<#macro BreadCrumb resource>
+    <#-- check we have a parent -->
+    <#if resource['mca:hasParent']??>
+        <#-- check to see if we have a parent for the parent ... #-->
+        <#if resource['mca:hasParent']?first['mca:hasParent']??>
+            <@BreadCrumbWithGrandParent resource=resource/>
+        <#else>
+            <@BreadCrumbWithParent resource=resource/>
+        </#if>
+    </#if>
+</#macro>

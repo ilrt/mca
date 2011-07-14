@@ -16,5 +16,3 @@
   <link rel="stylesheet" href="${contextPath}/style/style.css">
   <script src="${contextPath}/js/libs/modernizr-custom.js"></script>
 </head>
-<body
-<div id="container" class="home">

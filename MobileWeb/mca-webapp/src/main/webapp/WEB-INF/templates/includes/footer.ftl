@@ -1,3 +1,5 @@
+</div>
+
 <footer>
 <p><a href="${contextPath}/">Mobile Bristol home</a> | <a href="http://www.bristol.ac.uk">main University website</a></p>
 <p class="legal">&#169;2011 University of Bristol</p>
@@ -5,8 +7,8 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-<script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
-<script src="js/mylibs/helper.js"></script>
+<script>window.jQuery || document.write("<script src='${contextPath}/js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+<script src="${contextPath}/js/mylibs/helper.js"></script>
 <script>
 MBP.scaleFix();
 yepnope({
