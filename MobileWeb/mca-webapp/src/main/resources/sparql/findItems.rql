@@ -16,8 +16,10 @@ CONSTRUCT {
     $itemSeeAlso mca:hasItem $itemSubItem .
     $s mca:hasParent $parentId .
     $parentId rdfs:label $parentLabel .
+    $parentId mca:shortLabel $parentShortLabel .
     $parentId mca:hasParent $grandParentId .
     $grandParentId rdfs:label $grandParentIdLabel .
+    $grandParentId mca:shortLabel $grandParentIdShortLabel .
 } WHERE {
     $s $p $o .
     OPTIONAL {
@@ -40,8 +42,14 @@ CONSTRUCT {
         $parentId mca:hasItem $s .
         $parentId rdfs:label $parentLabel .
         OPTIONAL {
+            $parentId mca:shortLabel $parentShortLabel .
+        } .
+        OPTIONAL {
             $grandParentId mca:hasItem $parentId .
             $grandParentId rdfs:label $grandParentIdLabel .
+            OPTIONAL {
+                $grandParentId mca:label $grandParentIdShortLabel .
+            } .
         } .
     } .
 }

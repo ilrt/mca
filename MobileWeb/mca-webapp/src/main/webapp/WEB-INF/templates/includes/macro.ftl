@@ -67,10 +67,20 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 
 <#macro Ellipses value number><#if value?length &gt;= number>${value?substring(0,20)}...<#else>${value}</#if></#macro>
 
+<#macro BreadCrumbLabel resource>
+<#compress>
+    <#if resource['mca:shortLabel']??>
+        ${resource['mca:shortLabel']?first}
+        <#else>
+        <@Label resource=resource/>
+    </#if>
+</#compress>
+</#macro>
+
 <#macro BreadCrumbWithParent resource>
     <#if resource['mca:hasParent']?first != 'mca://registry/'>
         <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
-        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@Label resource=resource['mca:hasParent']?first/></span></a></li>
+        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
     <#else>
         <li id="hometrail"><a class="parent" href="${contextPath}/"><span>Home</span></a></li>
     </#if>
@@ -81,7 +91,7 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
     <#if resource['mca:hasParent']?first['mca:hasParent']?first != 'mca://registry/'>
         <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
         <li><a href="${contextPath}/${resource['mca:hasParent']?first['mca:hasParent']?first?substring(15)}"><span>&#8230;</span></a></li>
-        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@Label resource=resource['mca:hasParent']?first/></span></a></li>
+        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
     <#else>
         <@BreadCrumbWithParent resource=resource/>
     </#if>
