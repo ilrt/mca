@@ -82,6 +82,8 @@ public class MobileCampusResource extends AbstractResource {
 
         String template = resolveTemplateFromResource(resource);
 
+        resource.getModel().write(System.out);
+
         return Response.ok(new Viewable(getTemplatePath(template), resource)).build();
     }
 

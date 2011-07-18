@@ -34,14 +34,20 @@ public class FeedBackResource {
 
         Model m = ModelFactory.createDefaultModel();
         r = m.createResource();
-        r.addProperty(RDFS.label, "Feedback");
-        r.addProperty(MCA_REGISTRY.style, "feedback");
+        r.addProperty(RDFS.label, mailProperties.getProperty("form.model.label"));
+        r.addProperty(MCA_REGISTRY.style,  mailProperties.getProperty("form.model.style"));
+
+        Resource parent = m.createResource(mailProperties.getProperty("form.model.parentId"));
+        parent.addProperty(MCA_REGISTRY.hasItem, r);
+        m.add(r, MCA_REGISTRY.hasParent, parent);
     }
 
     @GET
     @Produces({MediaType.TEXT_HTML})
     public Response processForm(@QueryParam("email") String email,
                                 @QueryParam("comment") String comment) throws MessagingException {
+
+        r.getModel().write(System.out);
 
         if (comment == null || comment.isEmpty()) {
             return Response.ok(new Viewable("/feedback", r)).build();

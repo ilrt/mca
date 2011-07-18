@@ -90,6 +90,8 @@ public class MCA_REGISTRY {
 
     public static final Property hasItem = model.createProperty(NS + "hasItem");
 
+    public static final Property hasParent = model.createProperty(NS + "hasParent");
+
     public static final Property template = model.createProperty(NS + "template");
 
     public static final Property markers = model.createProperty(NS + "markers");
@@ -123,4 +125,6 @@ public class MCA_REGISTRY {
     public static final Property style = model.createProperty(NS + "style");
 
     public static final Property groupType = model.createProperty(NS + "groupType");
+
+    public static final Property shortLabel = model.createProperty(NS + "shortLabel");
 }
