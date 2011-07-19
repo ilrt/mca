@@ -5,4 +5,4 @@
     </ul>
 </header>
 
-<div id="main" role="main">
+<@Main resource=resource/>

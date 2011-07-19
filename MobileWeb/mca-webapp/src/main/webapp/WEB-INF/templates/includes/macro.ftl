@@ -108,3 +108,15 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
         </#if>
     </#if>
 </#macro>
+
+<#macro Main resource>
+<#compress>
+<#assign style>main</#assign>
+<#if resource['rdf:type']??>
+    <#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#ActiveMapSource' || resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#KmlMapSource'>
+        <#assign style>mapcontainer</#assign>
+    </#if>
+</#if>
+<div id="${style}" role="main">
+</#compress>
+</#macro>
