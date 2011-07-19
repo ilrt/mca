@@ -9,6 +9,7 @@ import com.sun.jersey.spi.resource.Singleton;
 import org.ilrt.mca.Common;
 import org.ilrt.mca.RdfMediaType;
 import org.ilrt.mca.services.ldap.BasicLdapSearch;
+import org.ilrt.mca.vocab.MCA_REGISTRY;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -38,6 +39,10 @@ public class LdapSearchResource {
         // service for handling searches
         ldapSearch = new BasicLdapSearch(ldapProperties, ldapSearchProperties);
 
+        label = ldapSearchProperties.getProperty("form.model.label");
+        style = ldapSearchProperties.getProperty("form.model.style");
+        parentId = ldapSearchProperties.getProperty("form.model.parentId");
+
         m = ModelFactory.createDefaultModel();
     }
 
@@ -47,8 +52,16 @@ public class LdapSearchResource {
 
         // just return the form
         if (search == null || search.isEmpty()) {
+
             r = m.createResource();
-            r.addProperty(RDFS.label, "Staff Search");
+
+            r.addProperty(RDFS.label, label);
+            r.addProperty(MCA_REGISTRY.style, style);
+
+            Resource parent = m.createResource(parentId);
+            parent.addProperty(MCA_REGISTRY.hasItem, r);
+            m.add(r, MCA_REGISTRY.hasParent, parent);
+
             return Response.ok(new Viewable(FORM_VIEW, r)).build();
         }
 
@@ -64,8 +77,11 @@ public class LdapSearchResource {
 
         // get the results
         Resource results = ldapSearch.search(resultUri, createFilter(search));
-        results.addProperty(RDFS.label, "Staff Search Results");
-
+        Resource parent = results.getModel().createResource(parentId);
+        parent.addProperty(MCA_REGISTRY.hasItem, results);
+        results.getModel().add(results, MCA_REGISTRY.hasParent, parent);
+        results.addProperty(MCA_REGISTRY.style, style);
+        results.addProperty(RDFS.label, label);
         return Response.ok(new Viewable(RESULTS_VIEW, results)).build();
     }
 
@@ -112,6 +128,10 @@ public class LdapSearchResource {
 
     private final String FORM_VIEW = "/staffsearch";
     private final String RESULTS_VIEW = "/staffSearchResults";
+
+    String label;
+    String style;
+    String parentId;
 
     @Context
     private

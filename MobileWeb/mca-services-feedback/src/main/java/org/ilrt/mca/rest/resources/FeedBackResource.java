@@ -35,7 +35,7 @@ public class FeedBackResource {
         Model m = ModelFactory.createDefaultModel();
         r = m.createResource();
         r.addProperty(RDFS.label, mailProperties.getProperty("form.model.label"));
-        r.addProperty(MCA_REGISTRY.style,  mailProperties.getProperty("form.model.style"));
+        r.addProperty(MCA_REGISTRY.style, mailProperties.getProperty("form.model.style"));
 
         Resource parent = m.createResource(mailProperties.getProperty("form.model.parentId"));
         parent.addProperty(MCA_REGISTRY.hasItem, r);
