@@ -1,9 +1,7 @@
 <#compress>
 <#include "includes/header.ftl"/>
 <#include "includes/breadcrumbWithTitle.ftl"/>
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
-
+<div id="content">
 <#include "includes/staffSearchForm.ftl"/>
 
 <#if resource['dc:description']??>
@@ -47,7 +45,7 @@
 <p>Sorry, there are no results.</p>
 </#if>
 
-
+</div>
 
 <#include "includes/footer.ftl"/>
 </#compress>

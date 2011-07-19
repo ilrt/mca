@@ -1,8 +1,8 @@
 <#compress>
 <#include "includes/header.ftl"/>
 <#include "includes/breadcrumbWithTitle.ftl"/>
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
+
+<div id="content">
 
 <#include "includes/staffSearchForm.ftl"/>
 
@@ -10,6 +10,6 @@
 
 <p>To search for students, job titles, or organisational titles see
 the Contact Directory (not optimised for mobiles).</p>
-
+</div>
 <#include "includes/footer.ftl"/>
 </#compress>

@@ -226,6 +226,7 @@ header, header a:link, header a:visited, header li h1 {
 .contacts header { background: #16A3A0 url(../images/header-bkgd-teal.png) left bottom repeat-x; }
 .feedback header { background: #C02F38 url(../images/header-bkgd-red.png) left bottom repeat-x; }
 .about header { background: #8F8A82 url(../images/header-bkgd-grey.png) left bottom repeat-x; }
+.openday header { background: #820053 url(../images/header-bkgd-plum.png) left bottom repeat-x; }
 
 .home header h1 {
 	margin: 0;
@@ -270,6 +271,7 @@ header li a.parent {
 .events header li a.parent { background-image: url(../images/header-arrow-plum.png); }
 .contacts header li a.parent { background-image: url(../images/header-arrow-teal.png); }
 .about header li a.parent { background-image: url(../images/header-arrow-grey.png); }
+.openday header li a.parent { background-image: url(../images/header-arrow-plum.png); }
 
 header #hometrail a span {
 	display: block;
@@ -317,6 +319,7 @@ nav li.news a { border-color: #9C5708; }
 nav li.events a { border-color: #820053; }
 nav li.contacts a { border-color: #16A3A0; }
 nav li.about a { border-color: #8F8A82; }
+nav li.openday a { border-color: #820053; }
 
 nav h2 {
 	text-transform: uppercase;
@@ -424,12 +427,11 @@ a.more span {
 	color: #777;
 }
 
-
-
 footer {
-	background: transparent url(../images/footer-shadow.png) left top repeat-x;
-	padding: 10px 10px 30px;
+    background: transparent url(../images/footer-shadow.png) left top repeat-x;
+    padding: 10px 10px 30px;
 }
+
 
 footer, footer a, footer a:link, footer a:visited {
 	font-size: 14px;
@@ -590,7 +592,18 @@ header #hometrail a span { background-image: url(../images/logo-sun-highres.png)
 
 /* map */
 
+/*
 html, body, #container, #main {
+    height: 100%;
+}
+*/
+
+
+html, body, #container {
+    height: 100%;
+}
+
+#mapcontainer {
     height: 100%;
 }
 
@@ -608,3 +621,75 @@ html, body, #container, #main {
     border-color: #b3b9ab;
     z-index: 100;
 }
+
+/*
+transport-info-init is used to intialise the infowindow in the transport map.
+It's height value should ensure that the map pans enough to allow for later dynamic content
+*/
+#transport-info-init {
+    height: 150px;
+    width: 100%;
+}
+
+#transport-info {
+    width: 100%;
+}
+
+/* gmap api id - stops university photos appearing in windows */
+#iw_kml img {
+    display: none;
+}
+
+/* Contacts */
+
+.contactDetails {
+    font-size: 13px;
+}
+
+.contactDetails form {
+    margin: 9px;
+}
+
+.contactDetails ul {
+    list-style: none;
+    margin-left: 9px;
+    padding: 0;
+}
+
+.contactDetails li {
+
+    margin-top: 15px;
+}
+
+.contactDetails a {
+    display: inline;
+    color: #2F85B5;
+    text-decoration: underline;
+}
+
+/*
+LDAP Search
+*/
+
+.contact {
+    border-bottom: solid 1px silver;
+    padding-top: 1em;
+}
+
+
+.contact > p {
+    font-size: 0.8em;
+    margin: 0;
+    
+}
+
+.contact-phone {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.contact-email {
+    padding-top: 1em;
+
+}
+>>>>>>> 01dc6ec... adding the new styles

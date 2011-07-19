@@ -2,9 +2,6 @@
 
 <#include "includes/breadcrumbWithTitle.ftl"/>
 
-<#assign label><@Label resource/></#assign>
-<@Title label="${label}" />
-
 <script type="text/javascript"
          src="http://www.google.com/jsapi?key=ABQIAAAAdUlVnqcMy8dOraexYlBKqxTDMCtVt0Z1QKDY6FJUEvi5o6nJzRSVHu1QtUKAj255RXb5v_X_E-R-AQ&sensor=true"></script>
 
