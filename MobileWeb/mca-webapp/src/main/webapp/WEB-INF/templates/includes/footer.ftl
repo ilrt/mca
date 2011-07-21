@@ -1,3 +1,5 @@
+<@Shortcut resource=resource/>
+
 </div>
 
 <footer>
@@ -9,13 +11,20 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 <script>window.jQuery || document.write("<script src='${contextPath}/js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
 <script src="${contextPath}/js/mylibs/helper.js"></script>
+<script src="${contextPath}/js/shortcuts.js"></script>
 <script>
 MBP.scaleFix();
 yepnope({
   test : Modernizr.mq('(min-width)'),
   nope : ['js/libs/respond.min.js']
 });
- </script>
+</script>
+
+<script type="text/javascript">
+    shortcuts('<@ShortCutKey resource=resource/>', '<@ShortCutValue resource=resource/>', '${contextPath}');
+</script>
+
+
 <#if googleAnalyticsKey??>
 <script type="text/javascript">
   var _gaq = _gaq || [];
