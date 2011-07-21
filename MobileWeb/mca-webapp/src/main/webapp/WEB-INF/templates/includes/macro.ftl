@@ -144,7 +144,11 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 <#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#NewsItem'>
 <#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
 <#elseif resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
-<#assign key>${resource}?item=${resource['mca:hasEventItem']?first['ical:uid']?first}</#assign>
+    <#if resource['mca:hasEventItem']??>
+        <#if resource['mca:hasEventItem']?first['ical:uid']??>
+            <#assign key>${resource}?item=${resource['mca:hasEventItem']?first['ical:uid']?first}</#assign>
+        </#if>
+    </#if>
 </#if>
 ${key?xml}
 </#compress>
@@ -154,7 +158,9 @@ ${key?xml}
 <#compress>
 <#assign value><@Label resource=resource/></#assign>
 <#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
+<#if resource['mca:hasEventItem']??>
 <#assign value><@Label resource=resource['mca:hasEventItem']?first/></#assign>
+</#if>
 </#if>
 ${value}
 </#compress>
