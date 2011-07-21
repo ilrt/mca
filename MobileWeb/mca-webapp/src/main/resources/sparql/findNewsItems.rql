@@ -10,7 +10,7 @@ PREFIX mca:     <http://vocab.bris.ac.uk/mca/registry#>
 CONSTRUCT {
     $id rdfs:label $label .
     $id mca:hasNewsItem $itemId .
-    ?id rdf:type <http://vocab.bris.ac.uk/mca/registry#NewsItem> .
+    ?id rdf:type <http://vocab.bris.ac.uk/mca/registry#NewsItemList> .
     $id rdfs:seeAlso $graph .
     $id mca:archive ?archive .
     $id mca:style $style .
@@ -22,6 +22,7 @@ CONSTRUCT {
     $itemId mca:hasSource $graph .
     $itemId mca:hasParent $id .
     $itemId mca:style $style .
+    $itemId rdf:type <http://vocab.bris.ac.uk/mca/registry#NewsItem> .
     $id mca:hasParent $parentId .
     $parentId rdfs:label $parentLabel .
     $parentId mca:hasParent $grandParentId .
