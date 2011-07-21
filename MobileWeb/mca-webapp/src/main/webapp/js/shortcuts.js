@@ -1,52 +1,58 @@
-var shortcuts = function(key, val, contextPath) {
+var Shortcuts =  {
 
-    var addContent = '<a href="javascript:updateStore()" id="add"><span class="notadded">Add shortcut</span></a>';
-    var removeContent = '<a href="javascript:updateStore()" id="add"><span class="added">Remove shortcut</span></a>';
+    key : null,
 
-    $(document).ready(function() {
-        updateInterface();
-    });
+    addContent : '<a href="javascript:shortcuts.updateStore()" id="add"><span class="notadded">Add shortcut</span></a>',
 
-    function updateStore() {
+    removeContent : '<a href="javascript:shortcuts.updateStore()" id="add"><span class="added">Remove shortcut</span></a>',
+
+    create : function(_key, _value, _contextPath) {
+        this.key = _key;
+        this.value = _value;
+        this.contextPath = _contextPath;
+        return this;
+    },
+
+    updateStore : function() {
          if (Modernizr.localstorage) {
-             if (localStorage.getItem(key)) {
-                localStorage.removeItem(key);
+             if (localStorage.getItem(this.key)) {
+                localStorage.removeItem(this.key);
              } else {
-                 localStorage.setItem(key, val);
+                 localStorage.setItem(this.key, this.value);
              }
-             updateInterface();
+             this.updateInterface();
          }
-    }
+    },
 
-    function updateInterface() {
+    updateInterface : function() {
         if (Modernizr.localstorage) {
             if ($('#shortcuts').length) {
-                showShortcuts();
+                this.showShortcuts();
             } else if ($('#shortcut').length) {
-                handleShortcutUI();
+                this.handleShortcutUI();
             }
         }
-    }
+    },
 
-    function handleShortcutUI() {
+    handleShortcutUI : function() {
         if (Modernizr.localstorage) {
             $('#shortcut').empty();
-            if (localStorage.getItem(key)) {
-                $('#shortcut').append(removeContent);
+            if (localStorage.getItem(this.key)) {
+                $('#shortcut').append(this.removeContent);
             } else {
-                $('#shortcut').append(addContent);
+                $('#shortcut').append(this.addContent);
             }
         }
-    }
+    },
 
-    function showShortcuts() {
+    showShortcuts : function() {
         if (Modernizr.localstorage) {
             if (localStorage.length > 0) {
                 var shortcutHtml = '<nav><h2>My shortcuts</h2><ul>';
                 for (var i = 0; i < localStorage.length; i++) {
                     var key = localStorage.key(i);
                     var value = localStorage[key];
-                    var url = contextPath + "/" + key.substr(15, key.length);
+                    var url = this.contextPath + "/" + key.substr(15, key.length);
                     shortcutHtml = shortcutHtml + '<li><a href="' + url + '">' + value + '</a></li>';
                 }
                 shortcutHtml = shortcutHtml + "</ul></nav>";

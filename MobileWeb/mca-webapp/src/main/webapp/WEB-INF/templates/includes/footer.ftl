@@ -21,7 +21,10 @@ yepnope({
 </script>
 
 <script type="text/javascript">
-    shortcuts('<@ShortCutKey resource=resource/>', '<@ShortCutValue resource=resource/>', '${contextPath}');
+    var shortcuts = Shortcuts.create('<@ShortCutKey resource=resource/>', '<@ShortCutValue resource=resource/>', '${contextPath}');
+    $(document).ready(function() {
+        shortcuts.updateInterface();
+    });
 </script>
 
 
