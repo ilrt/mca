@@ -3,13 +3,13 @@
 <#macro Label resource>
     <#compress>
     <#if resource['rdfs:label']??>
-        ${resource['rdfs:label']?first}
+        ${resource['rdfs:label']?first?xml}
     <#elseif resource['foaf:name']??>
-        ${resource['foaf:name']?first}
+        ${resource['foaf:name']?first?xml}
     <#elseif resource['dc:title']??>
-        ${resource['dc:title']?first}
+        ${resource['dc:title']?first?xml}
     <#elseif resource['rss:title']??>
-        ${resource['rss:title']?first}
+        ${resource['rss:title']?first?xml}
     <#else>
         Untitled
     </#if>
@@ -118,5 +118,44 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
     </#if>
 </#if>
 <div id="${style}" role="main">
+</#compress>
+</#macro>
+
+
+<#macro Shortcuts resource>
+    <#if !resource['mca:hasParent']??>
+        <div id="shortcuts"></div>
+    </#if>
+</#macro>
+
+<#macro Shortcut resource>
+    <#-- check we have a parent -->
+    <#if resource['mca:hasParent']??>
+        <#-- check to see if we have a parent for the parent ... #-->
+        <#if resource['mca:hasParent']?first['mca:hasParent']??>
+            <div id="shortcut"></div>
+        </#if>
+    </#if>
+</#macro>
+
+<#macro ShortCutKey resource>
+<#compress>
+<#assign key>${resource}</#assign>
+<#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#NewsItem'>
+<#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
+<#elseif resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
+<#assign key>${resource}?item=${resource['mca:hasEventItem']?first['ical:uid']?first}</#assign>
+</#if>
+${key?xml}
+</#compress>
+</#macro>
+
+<#macro ShortCutValue resource>
+<#compress>
+<#assign value><@Label resource=resource/></#assign>
+<#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
+<#assign value><@Label resource=resource['mca:hasEventItem']?first/></#assign>
+</#if>
+${value}
 </#compress>
 </#macro>

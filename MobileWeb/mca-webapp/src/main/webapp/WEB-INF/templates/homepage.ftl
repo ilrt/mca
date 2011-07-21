@@ -4,7 +4,9 @@
 
 <#include "includes/logoWithoutNav.ftl"/>
 
+<div id="mainNav">
 <#include "includes/standardNavigation.ftl"/>
+</div>
 
 <#include "includes/footer.ftl"/>
 

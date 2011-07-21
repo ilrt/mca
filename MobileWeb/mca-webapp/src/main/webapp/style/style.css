@@ -375,6 +375,11 @@ h2.date {
 	font-size: 0.875em;
 }
 
+span.date {
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
 #content p, ul, ol, dl, blockquote {
 	margin: 1em 0;
 }
@@ -604,12 +609,11 @@ html, body, #container {
 }
 
 #mapcontainer {
-    height: 100%;
+    height: 80%;
 }
 
 #map {
-    height: 100%;
-    height: 90%
+    height: 80%;
 }
 
 #searching {
@@ -659,12 +663,6 @@ It's height value should ensure that the map pans enough to allow for later dyna
 .contactDetails li {
 
     margin-top: 15px;
-}
-
-.contactDetails a {
-    display: inline;
-    color: #2F85B5;
-    text-decoration: underline;
 }
 
 /*
