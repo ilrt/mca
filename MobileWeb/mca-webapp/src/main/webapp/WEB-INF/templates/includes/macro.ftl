@@ -142,13 +142,9 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 <#compress>
 <#assign key>${resource}</#assign>
 <#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#NewsItem'>
-<#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
-<#elseif resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
-    <#if resource['mca:hasEventItem']??>
-        <#if resource['mca:hasEventItem']?first['ical:uid']??>
-            <#assign key>${resource}?item=${resource['mca:hasEventItem']?first['ical:uid']?first}</#assign>
-        </#if>
-    </#if>
+    <#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
+<#elseif resource['rdf:type']?first == 'http://www.w3.org/2002/12/cal/ical#Vevent'>
+    <#assign key>${resource['mca:hasParent']?first}?item=${resource['ical:uid']?first}</#assign>
 </#if>
 ${key?xml}
 </#compress>
@@ -157,11 +153,15 @@ ${key?xml}
 <#macro ShortCutValue resource>
 <#compress>
 <#assign value><@Label resource=resource/></#assign>
-<#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#EventCalendar'>
-<#if resource['mca:hasEventItem']??>
-<#assign value><@Label resource=resource['mca:hasEventItem']?first/></#assign>
+<#--
+<#if resource['rdf:type']?first == 'http://www.w3.org/2002/12/cal/ical#Vevent'>
+    <#if resource['mca:hasEventItem']??>
+        <#if resource['mca:hasEventItem']?first['rdfs:label']??>
+            <#assign value><@Label resource=resource['mca:hasEventItem']?first/></#assign>
+        </#if>
+    </#if>
 </#if>
-</#if>
+-->
 ${value}
 </#compress>
 </#macro>

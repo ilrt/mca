@@ -4,19 +4,19 @@ PREFIX ical:      <http://www.w3.org/2002/12/cal/ical#>
 PREFIX mca:     <http://vocab.bris.ac.uk/mca/registry#>
 
 CONSTRUCT {
-    $this mca:hasEventItem $x .
-    $x ical:dtstart $startdate .
-    $x ical:dtend $enddate .
-    $x ical:description $description .
-    $x ical:summary $summary .
-    $x ical:location $location .
-    $x ical:organizer $orgname .
-    $x ical:calAddress $orgemail .
-    $x ical:uid $id .
-    $x mca:template <template://eventDetails.ftl> .
-    $x rdf:type ical:Vevent .
-    $x mca:hasParent $this .
-    $x rdfs:label $summary .
+    $this mca:hasEventItem $uid .
+    $uid ical:dtstart $startdate .
+    $uid ical:dtend $enddate .
+    $uid ical:description $description .
+    $uid ical:summary $summary .
+    $uid ical:location $location .
+    $uid ical:organizer $orgname .
+    $uid ical:calAddress $orgemail .
+    $uid ical:uid $id .
+    $uid mca:template <template://eventDetails.ftl> .
+    $uid rdf:type ical:Vevent .
+    $uid mca:hasParent $this .
+    $uid rdfs:label $summary .
  } WHERE {
     GRAPH ?graph {
         $x ical:uid $id .

@@ -111,25 +111,29 @@
     }
 </script>
 
+<#--
 <#if resource['mca:hasEventItem']??>
     <#list resource['mca:hasEventItem'] as event>
+-->
         <div class="event">
-            <h3>${event['ical:summary']?first}</h3>
+            <h3>${resource['ical:summary']?first}</h3>
 
             <div class="date">
-                <#assign startDate><@ParseXsdDate event['ical:dtstart']?first/></#assign>
-                <span class="dtstart"><abbr class='value' title='${event['ical:dtstart']?first?substring(0,19)}Z'>${startDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
+                <#assign startDate><@ParseXsdDate resource['ical:dtstart']?first/></#assign>
+                <span class="dtstart"><abbr class='value' title='${resource['ical:dtstart']?first?substring(0,19)}Z'>${startDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
                 <div class="eventtime"></div>
-                <#assign endDate><@ParseXsdDate event['ical:dtend']?first/></#assign>
-                <span class="dtend"><abbr class='value' title='${event['ical:dtend']?first?substring(0,19)}Z'>${endDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
+                <#assign endDate><@ParseXsdDate resource['ical:dtend']?first/></#assign>
+                <span class="dtend"><abbr class='value' title='${resource['ical:dtend']?first?substring(0,19)}Z'>${endDate?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string("E, d MMM")}</abbr></span>
             </div>
-         <div class="description row"><#if event['ical:description']??>${event['ical:description']?first}</#if></div>
-             <div class="location row"><#if event['ical:location']??><span class="label">Location</span> ${event['ical:location']?first}<#else></#if></div>
-        <div class="organiser row"><#if event['ical:organizer']??><span class="label">Organiser</span>${event['ical:organizer']?first}<#else></#if></div>
+         <div class="description row"><#if resource['ical:description']??>${resource['ical:description']?first}</#if></div>
+             <div class="location row"><#if resource['ical:location']??><span class="label">Location</span> ${resource['ical:location']?first}<#else></#if></div>
+        <div class="organiser row"><#if resource['ical:organizer']??><span class="label">Organiser</span>${resource['ical:organizer']?first}<#else></#if></div>
         </div>
+<#--
     </#list>
-</#if>
 
+</#if>
+-->
 </div>
 <#include "includes/footer.ftl"/>
 </#compress>

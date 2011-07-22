@@ -99,6 +99,9 @@ public class EventDelegateImpl extends AbstractDao implements Delegate {
             QuerySolutionMap bindings = new QuerySolutionMap();
             bindings.add("id", ResourceFactory.createPlainLiteral(queryUid));
             bindings.add("this", resource);
+
+            // added by mike - make the bnodes into something we can work with
+            bindings.add("uid", ResourceFactory.createResource("mca://harvestedevent/" + queryUid));
             if (graphUri != null) bindings.add("graph", graphUri);
 
             Model resultModel = queryManager.find(bindings, findEventDetails);
@@ -106,6 +109,11 @@ public class EventDelegateImpl extends AbstractDao implements Delegate {
 
             resource.getProperty(MCA_REGISTRY.template).changeObject(resource.getModel()
                     .createResource("template://eventDetails.ftl"));
+
+            Resource r = resource.getModel().getResource("mca://harvestedevent/" + queryUid);
+            r.addProperty(MCA_REGISTRY.style, resource.getProperty(MCA_REGISTRY.style).getLiteral());
+
+            return resource.getModel().getResource("mca://harvestedevent/" + queryUid);
 
 
         } else {
