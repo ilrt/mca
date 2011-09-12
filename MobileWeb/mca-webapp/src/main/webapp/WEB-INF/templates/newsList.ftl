@@ -9,7 +9,7 @@
         <#list resource['mca:hasNewsItem']?reverse as item>
             <#assign label=item['rss:title']?first/>
             <#if item['mca:style']??><#assign style>${item['mca:style']?first}</#assign><#else><#assign style>standard</#assign></#if>
-            <li class="${style}"><a href="./?item=${item?url("UTF8")}"><span class="date">${item['dc:date']?first?datetime("yyyy-MM-dd\'T\'HH:mm:ss'Z'")?string('dd MMM')}:</span> ${label}</a></li>
+            <li class="${style}"><a href="./?item=${item?url("UTF8")}"><#if item['dc:date']??><span class="date">${item['dc:date']?first?datetime("yyyy-MM-dd\'T\'HH:mm:ss'Z'")?string('dd MMM')}:</span></#if> ${label}</a></li>
         </#list>
     </ul>
 </nav>

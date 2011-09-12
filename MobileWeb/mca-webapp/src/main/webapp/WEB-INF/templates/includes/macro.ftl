@@ -141,12 +141,14 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 <#macro ShortCutKey resource>
 <#compress>
 <#assign key>${resource}</#assign>
+<#if resource['rdf:type']??>
 <#if resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/registry#NewsItem'>
     <#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
 <#elseif resource['rdf:type']?first == 'http://www.w3.org/2002/12/cal/ical#Vevent'>
     <#assign key>${resource['mca:hasParent']?first}?item=${resource['ical:uid']?first}</#assign>
 </#if>
 ${key?xml}
+</#if>
 </#compress>
 </#macro>
 
