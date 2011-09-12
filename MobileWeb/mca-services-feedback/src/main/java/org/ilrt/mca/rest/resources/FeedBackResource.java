@@ -47,7 +47,7 @@ public class FeedBackResource {
     public Response processForm(@QueryParam("email") String email,
                                 @QueryParam("comment") String comment) throws MessagingException {
 
-        r.getModel().write(System.out);
+        //r.getModel().write(System.out);
 
         if (comment == null || comment.isEmpty()) {
             return Response.ok(new Viewable("/feedback", r)).build();
