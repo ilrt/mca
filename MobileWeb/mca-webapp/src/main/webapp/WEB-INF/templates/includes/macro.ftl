@@ -3,13 +3,13 @@
 <#macro Label resource>
     <#compress>
     <#if resource['rdfs:label']??>
-        ${resource['rdfs:label']?first?xml}
+        ${resource['rdfs:label']?first?html}
     <#elseif resource['foaf:name']??>
-        ${resource['foaf:name']?first?xml}
+        ${resource['foaf:name']?first?html}
     <#elseif resource['dc:title']??>
-        ${resource['dc:title']?first?xml}
+        ${resource['dc:title']?first?html}
     <#elseif resource['rss:title']??>
-        ${resource['rss:title']?first?xml}
+        ${resource['rss:title']?first?html}
     <#else>
         Untitled
     </#if>
