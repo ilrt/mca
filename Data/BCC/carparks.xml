@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+File came from http://travelbristol.org/sites/all/ajax/carparks/index.xml
+Modified by Mike Jones:
+* Added the latitude and longitude to The Cottage Inn (37)
+* Removed 75 (On - Street Pay and Display). No latitude and longitude for on street parking.
+* 64 (Stoke View, Fishponds, BS16 3AU) -> postcode should be BS17 3AE
+* 20 (Wapping Wharf, BS1 6UD) - does this car park still exist?
+-->
+<CarParkComponent type="list" GoogleMapKey="ABQIAAAAYOgyGX7PjCVTRgzmgV0McBRCrINwvE9yYn57lhMmqBvZvxxpwBT98-vlrwb_8e2MbnpJzGsFd_SelQ">
+	<Params search="" area="0" maxstay="0" disabled="false"/>
+	<CarParkList>
+		<CarPark>
+			<Id>22</Id>
+			<Name>Alexandra Park, Fishponds, BS16 2BG</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>24</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>Alexandra car park is temporarily unavailable (for approx. 1 year)</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Alexandra Park</Address1>
+			<Address2>Fishponds</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS16 2BG</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.03m</HeightRestrictions>
+			<Longitude>-2.536601</Longitude>
+			<Latitude>51.478349</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>4</Id>
+			<Name>Bedminster, BS3 4</Name>
+			<Structure>Surface</Structure>
+			<Operator>NCP</Operator>
+			<Area>5</Area>
+			<Spaces>170</Spaces>
+			<Type>B</Type>
+			<OpHours>0630-1900 Mon-Sat</OpHours>
+			<MaxStay>12</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>For prices contact NCP</Notes>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>202</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Dalby Avenue</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 4</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>None</HeightRestrictions>
+			<Longitude>-2.59466171264648</Longitude>
+			<Latitude>51.4416770073455</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>23</Id>
+			<Name>Beechwood Road, Fishponds, BS16 3TD</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>96</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Beechwood Road</Address1>
+			<Address2>Fishponds</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS16 3TD</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.1m</HeightRestrictions>
+			<Longitude>-2.526593</Longitude>
+			<Latitude>51.479635</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>34</Id>
+			<Name>Bristol 1st Hotel, BS1 6BQ</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>4</Area>
+			<Spaces>40</Spaces>
+			<Type>B</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>4</MaxStay>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">4.0</cost4>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>119</MapKey>
+			<DisabledBays>No</DisabledBays>
+			<Address1>Temple Rose Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 6BQ</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.585188</Longitude>
+			<Latitude>51.451519</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>5</Id>
+			<Name>Broadmead, BS1 3AF</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>1</Area>
+			<Spaces>468</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>77</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Lower Castle St</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 3AF</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>6ft</HeightRestrictions>
+			<Longitude>-2.585256</Longitude>
+			<Latitude>51.456703</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>25</Id>
+			<Name>Brunel Lock, Hotwells, BS1 6XL</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>45</Spaces>
+			<Type>K</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>12</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>129</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Brunel Lock Road</Address1>
+			<Address2>Hotwells</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6XL</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.618206</Longitude>
+			<Latitude>51.4476</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>26</Id>
+			<Name>Brunswick Square, BS2 8PE</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>1</Area>
+			<Spaces>44</Spaces>
+			<Type>B</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>2</MaxStay>
+			<Cost>
+				<cost1 info="1hr">2.0</cost1>
+				<cost2 info="2hr">3.5</cost2>
+				<costnight info="night">2.5</costnight>
+				<costweekend info="weekend">1.6</costweekend>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes>Please note new charges wef 10 Jan 11.  Minimum charge 50p</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>70</MapKey>
+			<DisabledBays>No</DisabledBays>
+			<Address1>Brunswick Square</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS2 8PE</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.587722</Longitude>
+			<Latitude>51.46057</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>78</Id>
+			<Name>Cabot Circus, BS2 9AB</Name>
+			<Structure>MSCP</Structure>
+			<Operator>PRI</Operator>
+			<Area>1</Area>
+			<Spaces>2500</Spaces>
+			<Type>H</Type>
+			<OpHours>24 hours</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>true</CCTV>
+			<Notes>Please see Cabot Circus website for full details of Cabot Circus car parking facilities, including costs</Notes>
+			<Picture/>
+			<URL>http://www.cabotcircus.com/website/VisitUs.aspx?currentSectionId=dd7d1797-b0a2-424e-820d-b28818c9d134</URL>
+			<MapKey>0</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Cabot Circus</Address1>
+			<Address2>Off Newfoundland Road</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS2 9AB</Postcode>
+			<PhoneNumber>0117 9529 360</PhoneNumber>
+			<HeightRestrictions/>
+			<Longitude>-2.582259</Longitude>
+			<Latitude>51.4595</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>27</Id>
+			<Name>Callington Road, BS4 5BE</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>25</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Callington Road</Address1>
+			<Address2>Brislington</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS4 5BE</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.547067</Longitude>
+			<Latitude>51.433567</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>32</Id>
+			<Name>Chalks Road, Redfield, BS5 9EP</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>120</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Chalks Road</Address1>
+			<Address2>St George</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS5 9EP</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>1.97m</HeightRestrictions>
+			<Longitude>-2.552923</Longitude>
+			<Latitude>51.461081</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>33</Id>
+			<Name>Charles Place, Hotwells, BS8 4QW</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>10</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>95</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Charles Place</Address1>
+			<Address2>Hotwells</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS8 4QW</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.619769</Longitude>
+			<Latitude>51.450334</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>35</Id>
+			<Name>Clayton Street, Avonmouth, BS11 9AH</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>50</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Clayton Street</Address1>
+			<Address2>Avonmouth</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS11 9AH</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.3m</HeightRestrictions>
+			<Longitude>-2.701444</Longitude>
+			<Latitude>51.500471</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>6</Id>
+			<Name>Clifton Down Shopping Centre, BS8 2NN</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>PRI</Operator>
+			<Area>7</Area>
+			<Spaces>339</Spaces>
+			<Type>C</Type>
+			<OpHours>07.00-22.30 - Monday to Sunday</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>Contact Shopping Centre for further details</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>190</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Clifton Down Shopping Centre</Address1>
+			<Address2>Whiteladies Road</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS8 2NN</Postcode>
+			<PhoneNumber>0117 973 2348</PhoneNumber>
+			<HeightRestrictions/>
+			<Longitude>-2.610769</Longitude>
+			<Latitude>51.463959</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>79</Id>
+			<Name>College Street, BS1 5UY</Name>
+			<Structure>Surface and Under Cover</Structure>
+			<Operator>BCC</Operator>
+			<Area>2</Area>
+			<Spaces>248</Spaces>
+			<Type>B</Type>
+			<OpHours>24 hours 7 days</OpHours>
+			<MaxStay>2</MaxStay>
+			<Cost>
+				<cost2 info="2hr">3.2</cost2>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<CCTV>true</CCTV>
+			<Notes>Charging Hours - Mon to Fri 0800 to 2359 hours, Sat/Sun/Bank Holiday All Hours - See Notice Board for charges</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>yes</DisabledBays>
+			<Address1>College Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 5UY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.1mtrs (6'10")</HeightRestrictions>
+			<Longitude>-2.60363101959229</Longitude>
+			<Latitude>51.4521081614692</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>37</Id>
+			<Name>Cottage Inn, Hotwells, BS1 6YG</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>100</Spaces>
+			<Type>K</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>12</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>130</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Baltic Wharf</Address1>
+			<Address2>Cumberland Road</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6YG</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.616154</Longitude>
+			<Latitude>51.446395</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>38</Id>
+			<Name>Derby Street, Redfield, BS5 9PH</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>48</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Derby Street</Address1>
+			<Address2>St George</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS5 9PH</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>1.9m</HeightRestrictions>
+			<Longitude>-2.552695</Longitude>
+			<Latitude>51.458906</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>39</Id>
+			<Name>Diamond Street, Bedminster, BS3 3LF</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>5</Area>
+			<Spaces>50</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>195</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Diamond Street</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 3LF</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.601601</Longitude>
+			<Latitude>51.439962</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>40</Id>
+			<Name>Dowling Road, Hartcliffe, BS13 0HA</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>100</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Dowling Road</Address1>
+			<Address2>Hartcliffe</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS13 0HA</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.59712</Longitude>
+			<Latitude>51.404198</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>41</Id>
+			<Name>Ducie Road, Lawrence Hill, BS5 0AT</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>50</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>196</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Ducie Road</Address1>
+			<Address2>Lawrence Hill</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS5 0AT</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.565526</Longitude>
+			<Latitude>51.457055</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>42</Id>
+			<Name>Frog Lane, BS1 5UY</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>2</Area>
+			<Spaces>11</Spaces>
+			<Type>B</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>2</MaxStay>
+			<Cost>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes>Mon to Fri - 8am to 6pm Permit Holders only  Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>197</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Frog Lane</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 5UY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.602892</Longitude>
+			<Latitude>51.452832</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>8</Id>
+			<Name>Gardiner Haskins Home Centre, BS2 0JP</Name>
+			<Structure>Surface</Structure>
+			<Operator>PRI</Operator>
+			<Area>4</Area>
+			<Spaces>300</Spaces>
+			<Type>D</Type>
+			<OpHours/>
+			<MaxStay>0</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>For further details contact:  www.gardinerhaskins.co.uk</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>192</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Broad Plain Retail Centre</Address1>
+			<Address2>Off Temple Way</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS2 0JP</Postcode>
+			<PhoneNumber>0117 929 2288</PhoneNumber>
+			<HeightRestrictions/>
+			<Longitude>-2.582759</Longitude>
+			<Latitude>51.454049</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>77</Id>
+			<Name>Gloucester Road, BS7 8BN</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>20</Spaces>
+			<Type>A</Type>
+			<OpHours>24 Hours</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays/>
+			<Address1>Gloucester Road</Address1>
+			<Address2>Bishopston</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS7 8BN</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.591845</Longitude>
+			<Latitude>51.474397</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>43</Id>
+			<Name>Harden Road, Stockwood, BS14 8PS</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>36</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Harden Road</Address1>
+			<Address2>Stockwood</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS14 8PS</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.545</Longitude>
+			<Latitude>51.413407</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>44</Id>
+			<Name>Hereford Street, Bedminster, BS3 4NA</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>5</Area>
+			<Spaces>52</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>198</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Hereford Street</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 4NA</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.1m</HeightRestrictions>
+			<Longitude>-2.595819</Longitude>
+			<Latitude>51.440145</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>45</Id>
+			<Name>Little Paradise, Bedminster, BS3 4DY</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>5</Area>
+			<Spaces>56</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Little Paradise</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 4DY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.594313</Longitude>
+			<Latitude>51.442715</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>47</Id>
+			<Name>Machin Road, Henbury, BS10 7HQ</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>34</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Machin Road</Address1>
+			<Address2>Henbury</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS10 7HQ</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.621847</Longitude>
+			<Latitude>51.510029</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>49</Id>
+			<Name>Maritime Heritage Centre, BS1 6JL</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>6</Area>
+			<Spaces>150</Spaces>
+			<Type>B</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>4</MaxStay>
+			<Cost>
+				<cost4 info="4hr">1.1</cost4>
+				<costweekend info="weekend">1.1</costweekend>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.bristol-link.co.uk/history/ss-great-britain.htm</URL>
+			<MapKey>135</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Gas Ferry Road</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 6JL</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.603568</Longitude>
+			<Latitude>51.447299</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>50</Id>
+			<Name>McCadam Way, BS1 6XL</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>15</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>199</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>McAdam Way</Address1>
+			<Address2>Hotwells</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6XL</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.618206</Longitude>
+			<Latitude>51.4476</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>31</Id>
+			<Name>Millennium Square Car Park (@Bristol), B</Name>
+			<Structure>Underground</Structure>
+			<Operator>ATB</Operator>
+			<Area>6</Area>
+			<Spaces>524</Spaces>
+			<Type>C</Type>
+			<OpHours>24 hours, 7 days a week</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>For further details and costs of parking visit:  www.at-bristol.org.uk/open/carpark.htm</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>139</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Canons Way</Address1>
+			<Address2>Off Anchor Road</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 5DB</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.59928</Longitude>
+			<Latitude>51.450648</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>11</Id>
+			<Name>Nelson Street, BS1 3DB</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>1</Area>
+			<Spaces>295</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs Mon-Sat</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>80</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Nelson Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 3DB</Postcode>
+			<PhoneNumber>0117-926 2685</PhoneNumber>
+			<HeightRestrictions>5ft 10ins</HeightRestrictions>
+			<Longitude>-2.592594</Longitude>
+			<Latitude>51.456282</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>53</Id>
+			<Name>Oldfield Place, Hotwells, BS8 4QJ</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>15</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Oldfield Place</Address1>
+			<Address2>Hotwells</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS8 4QJ</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.620139</Longitude>
+			<Latitude>51.44901</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>12</Id>
+			<Name>Prince Street, BS1 4QF</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>3</Area>
+			<Spaces>311</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>110</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Jurys Bristol Hotel</Address1>
+			<Address2>Prince Street</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 4QF</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>6ft 3ins</HeightRestrictions>
+			<Longitude>-2.597018</Longitude>
+			<Latitude>51.45047</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>13</Id>
+			<Name>Queen Charlotte Street, BS1 4ES</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>3</Area>
+			<Spaces>282</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs Mon-Sun</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>121</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Queen Charlotte Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 4ES</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>6ft</HeightRestrictions>
+			<Longitude>-2.59315</Longitude>
+			<Latitude>51.452873</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>60</Id>
+			<Name>Ridingleaze, Lawrence Weston, BS11 0NT</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>50</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Broadlands Drive</Address1>
+			<Address2>Lawrence Weston</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS11 0NT</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.657124</Longitude>
+			<Latitude>51.503156</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>14</Id>
+			<Name>Rupert Street, BS1 2PY</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>1</Area>
+			<Spaces>503</Spaces>
+			<Type>D</Type>
+			<OpHours>24hrs Mon-Sat</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>69</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Rupert Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 2PY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>7ft 6ins</HeightRestrictions>
+			<Longitude>-2.594243</Longitude>
+			<Latitude>51.457237</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>62</Id>
+			<Name>Sandy Park, Brislington, BS4 3PH</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>15</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Sandy Park Road</Address1>
+			<Address2>Brislington</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS4 3PH</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.555438</Longitude>
+			<Latitude>51.44055</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>63</Id>
+			<Name>Sheene Road, Bedminster, BS3 4JJ</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>5</Area>
+			<Spaces>36</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>201</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Wesley Street</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 4JJ</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2.05m</HeightRestrictions>
+			<Longitude>-2.598907</Longitude>
+			<Latitude>51.439688</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>15</Id>
+			<Name>St James Barton, BS1 3</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>NCP</Operator>
+			<Area>1</Area>
+			<Spaces>340</Spaces>
+			<Type>D</Type>
+			<OpHours>07.00-21.00 Mon-Sat</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL>http://www.ncp.co.uk/</URL>
+			<MapKey>72</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>St. James Barton</Address1>
+			<Address2>Bond Street</Address2>
+			<Address3/>
+			<Postcode>BS1 3</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>6ft 6ins</HeightRestrictions>
+			<Longitude>-2.588857</Longitude>
+			<Latitude>51.459822</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>64</Id>
+			<Name>Stoke View, Fishponds, BS16 3AU</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>40</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Stoke View Road</Address1>
+			<Address2>Stoke View</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS16 3AU</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.538429</Longitude>
+			<Latitude>51.477367</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>17</Id>
+			<Name>Temple Meads, BS1 6QF</Name>
+			<Structure>Surface</Structure>
+			<Operator>BR</Operator>
+			<Area>4</Area>
+			<Spaces>366</Spaces>
+			<Type>B</Type>
+			<OpHours/>
+			<MaxStay>0</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>For further details visit:   www.nationalrail.co.uk/stations/BRI.html</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>126</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Bristol Temple Meads Station</Address1>
+			<Address2>Temple Way</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6QF</Postcode>
+			<PhoneNumber>01249 444 538</PhoneNumber>
+			<HeightRestrictions/>
+			<Longitude>-2.583515</Longitude>
+			<Latitude>51.448938</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>19</Id>
+			<Name>The Mall Galleries, BS1 3XD</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>PRI</Operator>
+			<Area>1</Area>
+			<Spaces>959</Spaces>
+			<Type>C</Type>
+			<OpHours>08.00-19.00 Mon, Tues, Weds, Fri, Sat. 08.00-20.00 Thurs. 10.30-18.00 Sun. 09.30-1800 Bank Holidays</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes>For further details visit:  www.themall.co.uk/my-mall/bristol/parking.aspxetails visit:</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>79</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>The Mall Galleries</Address1>
+			<Address2>Newgate</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 3XD</Postcode>
+			<PhoneNumber>0117 929 0569</PhoneNumber>
+			<HeightRestrictions/>
+			<Longitude>-2.589889</Longitude>
+			<Latitude>51.456702</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>68</Id>
+			<Name>Trenchard Street, BS1 5AN</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>BCC</Operator>
+			<Area>2</Area>
+			<Spaces>950</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+				<costseason info="season">2074.0</costseason>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes>Pay by coins, notes, credit/debit cards. Monday to Friday Night rate from 6pm.   Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>99</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Trenchard Street</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 5AN</Postcode>
+			<PhoneNumber>0117-922 2198</PhoneNumber>
+			<HeightRestrictions> 2.057m</HeightRestrictions>
+			<Longitude>-2.599682</Longitude>
+			<Latitude>51.45472</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>20</Id>
+			<Name>Wapping Wharf, BS1 6UD</Name>
+			<Structure>Surface</Structure>
+			<Operator>EURO</Operator>
+			<Area>6</Area>
+			<Spaces>600</Spaces>
+			<Type>C</Type>
+			<OpHours/>
+			<MaxStay>12</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>186</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Wapping Road</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 6UD</Postcode>
+			<PhoneNumber>020 7563 3000</PhoneNumber>
+			<HeightRestrictions>None</HeightRestrictions>
+			<Longitude>51.447087</Longitude>
+			<Latitude>-2.597306</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>70</Id>
+			<Name>Waverly Road, Shirehampton, BS11 9SB</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>40</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Waverley Road</Address1>
+			<Address2>Shirehampton</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS11 9SB</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.676798</Longitude>
+			<Latitude>51.489088</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>71</Id>
+			<Name>Welsh Back (Various Areas), BS1</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>3</Area>
+			<Spaces>30</Spaces>
+			<Type>J</Type>
+			<OpHours>Permit Holders Only</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost>
+				<costseason info="season">1404.88</costseason>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Welsh Back</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.59874</Longitude>
+			<Latitude>51.454813</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>73</Id>
+			<Name>Westbury Hill, Westbury-onTrym, BS9 3JY</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>106</Spaces>
+			<Type>A</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>3</MaxStay>
+			<Cost/>
+			<CCTV>false</CCTV>
+			<Notes/>
+			<Picture/>
+			<URL/>
+			<MapKey>0</MapKey>
+			<DisabledBays>n/a</DisabledBays>
+			<Address1>Westbury Hill</Address1>
+			<Address2>Westbury-on-Trym</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS9 3JY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.620997</Longitude>
+			<Latitude>51.489919</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<Id>72</Id>
+			<Name>West End (Berkeley Place), BS8 1EH</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>BCC</Operator>
+			<Area>2</Area>
+			<Spaces>750</Spaces>
+			<Type>C</Type>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<MaxStay>24</MaxStay>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+				<costseason info="season">1850.0</costseason>
+			</Cost>
+			<CCTV>false</CCTV>
+			<Notes>Pay by coins, notes, credit/debit cards.  Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11</Notes>
+			<Picture/>
+			<URL/>
+			<MapKey>62</MapKey>
+			<DisabledBays>Adj</DisabledBays>
+			<Address1>Berkeley Place</Address1>
+			<Address2/>
+			<Address3>Bristol</Address3>
+			<Postcode>BS8 1EH</Postcode>
+			<PhoneNumber>0117 922 2198</PhoneNumber>
+			<HeightRestrictions> 2.1m</HeightRestrictions>
+			<Longitude>-2.608872</Longitude>
+			<Latitude>51.455517</Latitude>
+			<MapRef/>
+		</CarPark>
+		<CarPark>
+			<id>58</id>
+			<Name>Queens Road, Withywood, BS13 8PJ</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>22</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>3</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>0</MapKey>
+			<DisabledBays>No</DisabledBays>
+			<Address1>Queens Road</Address1>
+			<Address2>Withywood</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS13 8PJ</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.620386</Longitude>
+			<Latitude>51.40877</Latitude>
+			<MapRef/>
+			<Cost/>
+			<notes/>
+		</CarPark>
+		<CarPark>
+			<id>48</id>
+			<Name>Mardyke Wharf, BS8 4UR</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>28</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>4</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>187</MapKey>
+			<DisabledBays>No</DisabledBays>
+			<Address1>Mardyke Wharf</Address1>
+			<Address2>Hotwells Road</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS8 4UR</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.616542</Longitude>
+			<Latitude>51.450117</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<notes>Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wed 10 Jan 11.</notes>
+		</CarPark>
+		<CarPark>
+			<id>67</id>
+			<Name>The Grove, BS1 4RB</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>6</Area>
+			<Spaces>113</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>24</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>140</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>The Grove</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 4RB</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions>2m</HeightRestrictions>
+			<Longitude>-2.59402</Longitude>
+			<Latitude>51.448975</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<notes>Pay by coins, notes, credit/debit cards. Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11</notes>
+		</CarPark>
+		<CarPark>
+			<id>66</id>
+			<Name>Temple Gate, BS1 6PL</Name>
+			<Structure>Multi-Storey</Structure>
+			<Operator>BCC</Operator>
+			<Area>4</Area>
+			<Spaces>425</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>24</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>145</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Off Temple Gate</Address1>
+			<Address2>Opposite Temple Meads Station</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6PL</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions> 2.29m</HeightRestrictions>
+			<Longitude>-2.58401</Longitude>
+			<Latitude>51.448288</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+				<costseason info="season">1474.0</costseason>
+			</Cost>
+			<notes>Pay by coins, notes, credit/debit cards.  Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11</notes>
+		</CarPark>
+		<CarPark>
+			<id>59</id>
+			<Name>Redcliffe Parade, BS1 6SW</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>35</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>24</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>143</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Redcliffe Parade East</Address1>
+			<Address2>Redcliffe</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6SW</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.59117</Longitude>
+			<Latitude>51.448311</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<notes>Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11</notes>
+		</CarPark>
+		<CarPark>
+			<id>57</id>
+			<Name>Queen Square, BS1 4NT</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>3</Area>
+			<Spaces>159</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>2</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>111</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Queen Square</Address1>
+			<Address2>Bristol</Address2>
+			<Address3/>
+			<Postcode>BS1 4NT</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.593292</Longitude>
+			<Latitude>51.450561</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.6</cost1>
+				<cost2 info="2hr">3.2</cost2>
+				<costnight info="night">2.5</costnight>
+				<costseason info="season">2074.0</costseason>
+			</Cost>
+			<notes>Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period</notes>
+		</CarPark>
+		<CarPark>
+			<id>56</id>
+			<Name>Portwall Lane, BS1 6NB</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>170</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>24</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>142</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>Portwall Lane</Address1>
+			<Address2>Redcliffe</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS1 6NB</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.588788</Longitude>
+			<Latitude>51.449424</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<cost12 info="12hr">10.0</cost12>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<notes>Pay by coins, notes, credit/debit cards.  Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges wef 10 Jan 11.</notes>
+		</CarPark>
+		<CarPark>
+			<id>46</id>
+			<Name>Lower Guinea Street, BS1 6SY</Name>
+			<Structure>Surface</Structure>
+			<Operator>BCC</Operator>
+			<Area>7</Area>
+			<Spaces>22</Spaces>
+			<Type/>
+			<OpHours>24hrs 7 days a week</OpHours>
+			<Maxstay>4</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>14</MapKey>
+			<DisabledBays>No</DisabledBays>
+			<Address1>Lower Guinea Street</Address1>
+			<Address2>Redcliffe</Address2>
+			<Address3/>
+			<Postcode>BS1 6SY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.593613</Longitude>
+			<Latitude>51.446423</Latitude>
+			<MapRef/>
+			<Cost>
+				<cost1 info="1hr">1.0</cost1>
+				<cost2 info="2hr">2.0</cost2>
+				<cost3 info="3hr">3.0</cost3>
+				<cost4 info="4hr">5.0</cost4>
+				<costnight info="night">2.5</costnight>
+			</Cost>
+			<notes>Sat Upto 2hrs £1.10, over 2 hrs £2.60:  Sun £1.60 any period.  Please note new charges Mon to Fri 8am to 6pm wef 10 Jan 11</notes>
+		</CarPark>
+		<CarPark>
+			<id>1</id>
+			<Name>Asda, Bedminster, BS3 4JY</Name>
+			<Structure>Surface</Structure>
+			<Operator>PRI</Operator>
+			<Area>5</Area>
+			<Spaces>700</Spaces>
+			<Type/>
+			<OpHours/>
+			<Maxstay>0</Maxstay>
+			<CCTV>false</CCTV>
+			<URL/>
+			<Picture/>
+			<MapKey>188</MapKey>
+			<DisabledBays>Yes</DisabledBays>
+			<Address1>East Street</Address1>
+			<Address2>Bedminster</Address2>
+			<Address3>Bristol</Address3>
+			<Postcode>BS3 4JY</Postcode>
+			<PhoneNumber/>
+			<HeightRestrictions/>
+			<Longitude>-2.594471</Longitude>
+			<Latitude>51.443493</Latitude>
+			<MapRef/>
+			<Cost/>
+			<notes/>
+		</CarPark>
+	</CarParkList>
+	<CarParkAreas>
+		<CarParkArea>
+			<id>5</id>
+			<name>Bedminster</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>1</id>
+			<name>Broadmead</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>7</id>
+			<name>Districts</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>6</id>
+			<name>Harbourside</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>3</id>
+			<name>Old City</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>4</id>
+			<name>Temple</name>
+			<notes/>
+		</CarParkArea>
+		<CarParkArea>
+			<id>2</id>
+			<name>West End</name>
+			<notes/>
+		</CarParkArea>
+	</CarParkAreas>
+	<CarParkOperators>
+		<CarParkOperator>
+			<id>8</id>
+			<code>ATB</code>
+			<name>At Bristol</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>1</id>
+			<code>BADG</code>
+			<name>Badgerline</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>2</id>
+			<code>BCC</code>
+			<name>Bristol City Council</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>4</id>
+			<code>BRI</code>
+			<name>Britannia</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>3</id>
+			<code>BR</code>
+			<name>British Rail</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>5</id>
+			<code>EURO</code>
+			<name>Euro Car Parks</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>6</id>
+			<code>NCP</code>
+			<name>National Car Parks Ltd</name>
+			<notes/>
+		</CarParkOperator>
+		<CarParkOperator>
+			<id>7</id>
+			<code>PRI</code>
+			<name>Other Private Operators</name>
+			<notes/>
+		</CarParkOperator>
+	</CarParkOperators>
+	<CarParkTypes>
+		<CarParkType>
+			<typeid>K</typeid>
+			<description>Free</description>
+			<notes>This need to be verified with Mike James in Parking Services</notes>
+		</CarParkType>
+		<CarParkType>
+			<typeid>A</typeid>
+			<description>Free</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>E</typeid>
+			<description>Free to Shoppers at adjacent shop</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>I</typeid>
+			<description>Park and Ride</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>F</typeid>
+			<description>Parking Meters</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>B</typeid>
+			<description>Pay and Display</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>G</typeid>
+			<description>Pay on Entry</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>D</typeid>
+			<description>Pay on Exit</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>C</typeid>
+			<description>Pay on Foot</description>
+			<notes/>
+		</CarParkType>
+		<CarParkType>
+			<typeid>J</typeid>
+			<description>Permit Holder's Only</description>
+			<notes>This need to be verified with Mike James in Parking Services</notes>
+		</CarParkType>
+		<CarParkType>
+			<typeid>H</typeid>
+			<description>Reserved Only</description>
+			<notes/>
+		</CarParkType>
+	</CarParkTypes>
+</CarParkComponent>

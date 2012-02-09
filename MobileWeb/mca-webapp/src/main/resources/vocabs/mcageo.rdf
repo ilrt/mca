@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+        xml:base="http://vocab.bris.ac.uk/mca/geo#">
+
+    <!-- classes and properties to represent amenities -->
+
+    <rdfs:Class rdf:ID="Amenity">
+        <rdfs:label xml:lang="en">An amenity</rdfs:label>
+        <rdfs:comment>Represents things of interest. It is used in finding things
+        that are displayed in maps.</rdfs:comment>
+    </rdfs:Class>
+
+    <rdf:Property rdf:ID="hasTag">
+        <rdfs:domain rdf:resource="#amenity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </rdf:Property>
+
+    <rdfs:Class rdf:ID="Library">
+        <rdfs:label xml:lang="en">Bristol City Council (BCC) Library</rdfs:label>
+        <rdfs:comment>Represents a library owned by Bristol City Council.</rdfs:comment>
+    </rdfs:Class>
+
+    <!-- I needed to create some classes and properties for the car park data -->
+
+    <rdfs:Class rdf:ID="CarParkOperator">
+        <rdfs:label xml:lang="en">Car Park Operators</rdfs:label>
+        <rdfs:comment>Owners and operators of car parks</rdfs:comment>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:ID="CarParkType">
+        <rdfs:label xml:lang="en">Car Park Type</rdfs:label>
+    </rdfs:Class>
+
+    <rdfs:Property rdf:ID="hasOperator">
+        <rdfs:label xml:lang="en">Has Operator</rdfs:label>
+        <rdfs:comment>Who operates the car park.</rdfs:comment>
+    </rdf:Property>
+
+    <rds:Property rdf:ID="hasSpaces">
+        <rdfs:label xml:lang="en">Has Spaces</rdfs:label>
+         <rdfs:comment>How many spaces are in the car park?</rdfs:comment>
+    </rdfs:Property>
+
+    <rds:Property rdf:ID="hasOperatingHours">
+        <rdfs:label xml:lang="en">Has Operating Hours</rdfs:label>
+         <rdfs:comment>What are the operating hours of the car park?</rdfs:comment>
+    </rdfs:Property>
+
+    <rds:Property rdf:ID="hasDisabledBays">
+        <rdfs:label xml:lang="en">Has Disabled Bays</rdfs:label>
+         <rdfs:comment>Do the car parks have disabled bays?</rdfs:comment>
+    </rdfs:Property>
+
+</rdf:RDF>
