@@ -20,7 +20,7 @@ Usage: xsltproc bcc_carparks.xsl carparkdata.xml
 @prefix foaf:       &lt;http://xmlns.com/foaf/0.1/&gt; .
 @prefix vcard:      &lt;http://www.w3.org/2001/vcard-rdf/3.0#&gt; .
 @prefix mcageo:     &lt;http://vocab.bris.ac.uk/mca/geo#&gt; .
-@prefix gn:         &lt;http://www.geonames.org/ontology#&gt;
+@prefix gn:         &lt;http://www.geonames.org/ontology#&gt; .
 <xsl:apply-templates/>
 </xsl:template>
 
@@ -28,17 +28,17 @@ Usage: xsltproc bcc_carparks.xsl carparkdata.xml
 <xsl:template match="/CarParkComponent/CarParkList/CarPark">
 <!-- create the URI - the data has Id and id :-( -->
 &lt;mca://data/bcc/parkingdata/carpark/<xsl:value-of select="Id"/><xsl:value-of select="id"/>&gt; rdf:type geo:Point ;
-rdf:type gn:S.PKLT ;
+rdf:type &lt;http://www.geonames.org/ontology#S.PKLT&gt; ;
 rdf:type mcageo:Amenity ;
 rdfs:label "<xsl:value-of select="./Name"/>" ;
 mcageo:hasTag "bcc_carpark"^^xsd:string ;
 geo:lat "<xsl:value-of select="Latitude"/>"^^xsd:double ;
 geo:long "<xsl:value-of select="Longitude"/>"^^xsd:double ;
 mcageo:hasOperator &lt;mca://bcc/parkingdata/type/<xsl:value-of select="Operator"/>&gt; ;
-mcageo:hasSpaces <xsl:value-of select="Spaces"/>"^^xsd:integer ;
+mcageo:hasSpaces "<xsl:value-of select="Spaces"/>"^^xsd:integer ;
 <xsl:if test="DisabledBays != ''">mcageo:hasDisabledBays "<xsl:value-of select="DisabledBays"/>"^^xsd:string ;</xsl:if>
 vcard:ADR "<xsl:value-of select="Address1"/><xsl:if test="Address2 != ''">, <xsl:value-of select="Address2"/></xsl:if><xsl:if test="Address3 != ''">, <xsl:value-of select="Address3"/></xsl:if><xsl:if test="Postcode != ''">, <xsl:value-of select="Postcode"/></xsl:if>" ;
-<xsl:if test="OpHours != ''">mcageo:hasOperatingHours "<xsl:value-of select="OpHours"/>"^^xsd:string</xsl:if>" ;
+<xsl:if test="OpHours != ''">mcageo:hasOperatingHours "<xsl:value-of select="OpHours"/>"^^xsd:string ;</xsl:if> 
 .
 </xsl:template>
 
