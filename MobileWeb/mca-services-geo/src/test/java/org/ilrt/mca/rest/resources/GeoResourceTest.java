@@ -96,7 +96,7 @@ public class GeoResourceTest extends AbstractResourceTest {
     @Test
     public void testType() {
 
-        webResource = resource().path("/geo/type/cafe");
+        webResource = resource().path("/geo/type").queryParam("uri", "http://vocab.bris.ac.uk/mca/geo#cafe");
 
         ClientResponse clientResponse = webResource.accept(RdfMediaType.APPLICATION_RDF_XML)
                 .get(ClientResponse.class);
@@ -107,8 +107,7 @@ public class GeoResourceTest extends AbstractResourceTest {
 
     @Test
     public void testInvalidType() {
-
-        webResource = resource().path("/geo/type/invalid");
+        webResource = resource().path("/geo/type").queryParam("uri", "http://vocab.bris.ac.uk/mca/geo#invalid");
 
         ClientResponse clientResponse = webResource.accept(RdfMediaType.APPLICATION_RDF_XML)
                 .get(ClientResponse.class);
@@ -121,7 +120,7 @@ public class GeoResourceTest extends AbstractResourceTest {
     public void testKml() throws ParserConfigurationException, TransformerException, XPathExpressionException {
 
 
-        webResource = resource().path("/geo/type/cafe");
+        webResource = resource().path("/geo/type").queryParam("uri", "http://vocab.bris.ac.uk/mca/geo#cafe");
 
         ClientResponse clientResponse = webResource.accept(KmlMediaType.APPLICATION_KML)
                 .get(ClientResponse.class);
@@ -132,7 +131,7 @@ public class GeoResourceTest extends AbstractResourceTest {
     @Test
     public void testJson() {
 
-        webResource = resource().path("/geo/type/cafe");
+        webResource = resource().path("/geo/type").queryParam("uri", "http://vocab.bris.ac.uk/mca/geo#cafe");
 
         ClientResponse clientResponse = webResource.accept(MediaType.APPLICATION_JSON_TYPE)
                 .get(ClientResponse.class);

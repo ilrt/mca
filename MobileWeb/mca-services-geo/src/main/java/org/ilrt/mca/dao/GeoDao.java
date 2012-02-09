@@ -46,6 +46,8 @@ public class GeoDao extends AbstractDao {
 
     public Model findGeoPointByType(String typeUri) {
 
+        System.out.println("????????? " + typeUri);
+
         return manager.find("type", typeUri, findByTypeSparql);
     }
 

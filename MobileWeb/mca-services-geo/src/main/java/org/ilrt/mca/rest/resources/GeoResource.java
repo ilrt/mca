@@ -79,34 +79,34 @@ public class GeoResource extends AbstractResource {
 
     @GET
     @Produces({RdfMediaType.APPLICATION_RDF_XML, RdfMediaType.TEXT_RDF_N3})
-    @Path("type/{type}")
-    public Response placesAsRdf(@PathParam("type") String type) {
+    @Path("type")
+    public Response placesAsRdf(@QueryParam("uri") String type) {
 
-        return Response.ok(createModelByType(MCA_GEO.NS + type)).build();
+        return Response.ok(createModelByType(type)).build();
     }
 
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("type/{type}")
-    public Response placesAsJson(@PathParam("type") String type) {
+    @Path("type")
+    public Response placesAsJson(@QueryParam("uri") String type) {
 
-        return Response.ok(jsonRepresentationOfModel(createModelByType(MCA_GEO.NS + type)))
+        return Response.ok(jsonRepresentationOfModel(createModelByType(type)))
                 .type(MediaType.APPLICATION_JSON_TYPE).build();
     }
 
     @GET
     @Produces({MediaType.WILDCARD, KmlMediaType.APPLICATION_KML})
-    @Path("type/{type}")
-    public Response placesAsKml(@PathParam("type") String type) {
+    @Path("type")
+    public Response placesAsKml(@QueryParam("uri") String type) {
 
         ContentDisposition cd = ContentDisposition.type("file").fileName(type + ".kml").build();
 
-        return Response.ok(createModelByType(MCA_GEO.NS + type))
+        return Response.ok(createModelByType(type))
                 .type(KmlMediaType.APPLICATION_KML_TYPE).header("Content-Disposition", cd).build();
     }
 
-    // ---------- Find resources by type
+    // ---------- Find resources by id
 
     @GET
     @Produces({RdfMediaType.APPLICATION_RDF_XML, RdfMediaType.TEXT_RDF_N3})
@@ -139,6 +139,8 @@ public class GeoResource extends AbstractResource {
     private Model createModelByType(String type) {
 
         Model m = geoDao.findGeoPointByType(type);
+
+        m.write(System.out);
 
         if (m == null || m.size() == 0)
             throw new NotFoundException("Unable to find the requested resource");
