@@ -291,7 +291,7 @@ var getDepartureInfo = function(infowindow, id, url) {
     }
 
     // make the request
-    xmlhttp.open("GET", url + id, true);
+    xmlhttp.open("GET", url + id.split("/").pop(), true);
     xmlhttp.send(null);
 
 }
