@@ -182,8 +182,6 @@ public class GeoResource extends AbstractResource {
 
         Model m = geoDao.findGeoPointByType(type);
 
-        m.write(System.out);
-
         if (m.size() == 0) {
             throw new NotFoundException("Unable to find the requested resource");
         }
@@ -202,8 +200,6 @@ public class GeoResource extends AbstractResource {
         if (m == null || m.size() == 0) {
             throw new NotFoundException("Unable to find the requested resource");
         }
-
-        m.write(System.out);
 
         return m;
     }
