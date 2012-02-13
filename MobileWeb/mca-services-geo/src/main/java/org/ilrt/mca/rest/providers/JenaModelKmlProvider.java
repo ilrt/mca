@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, University of Bristol
+ * Copyright (c) 2010, 2011, 2012 University of Bristol
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyWriter;
@@ -58,29 +57,35 @@ import java.io.OutputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
+/**
+ * MessageBodyWriter implementation that handles a Jena Model with geo data and creates a
+ * KML file.
+ *
+ * @author Mike Jones (mike.a.jones@bristol.ac.uk)
+ */
 @Provider
-@Produces({MediaType.WILDCARD, KmlMediaType.APPLICATION_KML})
+@Produces({ MediaType.WILDCARD, KmlMediaType.APPLICATION_KML })
 public class JenaModelKmlProvider implements MessageBodyWriter<Model> {
 
 
     @Override
-    public boolean isWriteable(Class<?> aClass, Type type, Annotation[] annotations,
-                               MediaType mediaType) {
+    public final boolean isWriteable(final Class<?> aClass, final Type type,
+                                     final Annotation[] annotations, final MediaType mediaType) {
 
         return Model.class.isAssignableFrom(aClass);
     }
 
     @Override
-    public long getSize(Model model, Class<?> aClass, Type type, Annotation[] annotations,
-                        MediaType mediaType) {
+    public final long getSize(final Model model, final Class<?> aClass, final Type type,
+                              final Annotation[] annotations, final MediaType mediaType) {
         return -1;
     }
 
     @Override
-    public void writeTo(Model model, Class<?> aClass, Type type, Annotation[] annotations,
-                        MediaType mediaType,
-                        MultivaluedMap<String, Object> stringObjectMultivaluedMap,
-                        OutputStream outputStream) throws IOException, WebApplicationException {
+    public final void writeTo(final Model model, final Class<?> aClass, final Type type,
+                              final Annotation[] annotations, final MediaType mediaType,
+                              final MultivaluedMap<String, Object> stringObjectMultivaluedMap,
+                              final OutputStream outputStream) throws IOException {
 
         try {
 
@@ -119,7 +124,14 @@ public class JenaModelKmlProvider implements MessageBodyWriter<Model> {
     }
 
 
-    private Element createPlacemark(Resource resource, Document doc) {
+    /**
+     * Creates a Placemark element for the KML document.
+     *
+     * @param resource the RDF resource with geo information.
+     * @param doc      the XML document.
+     * @return a KML Placemark Element.
+     */
+    private Element createPlacemark(final Resource resource, final Document doc) {
 
         Element placemark = doc.createElement("Placemark");
 

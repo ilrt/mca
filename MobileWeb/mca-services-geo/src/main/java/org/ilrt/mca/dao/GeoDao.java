@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, University of Bristol
+ * Copyright (c) 2010, 2011, 2012 University of Bristol
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,27 +36,43 @@ import org.ilrt.mca.rdf.QueryManager;
 
 import java.io.IOException;
 
-public class GeoDao extends AbstractDao {
+/**
+ * Provides access to geo-related data. This find POI based on their type.
+ *
+ *
+ * @author Mike Jones (mike.a.jones@bristol.ac.uk)
+ */
+public final class GeoDao extends AbstractDao {
 
-    public GeoDao(QueryManager manager) throws IOException {
-        this.manager = manager;
+    /**
+     * @param mManager provides access to the underlying data source.
+     * @throws IOException if there is a problem opening the properties file.
+     */
+    public GeoDao(final QueryManager mManager) throws IOException {
+        this.manager = mManager;
         findByTypeSparql = loadSparql("/sparql/findGeoPointsByType.rql");
     }
 
-
-    public Model findGeoPointByType(String typeUri) {
-
-        System.out.println("????????? " + typeUri);
+    /**
+     * Find the data by type: this will return multiple POI.
+     * @param typeUri the rdf type we are interested in.
+     * @return a Model that encapsulates one ore more POI.
+     */
+    public Model findGeoPointByType(final String typeUri) {
 
         return manager.find("type", typeUri, findByTypeSparql);
     }
 
 
-    public Model findGeoPointByUri(String uri) {
+    /**
+     * Find the data by URI.
+     * @param uri the URI of the item we are interested in.
+     * @return the POI encapsulated in a Model object.
+     */
+    public Model findGeoPointByUri(final String uri) {
         return manager.find("s", uri, findByTypeSparql);
     }
 
     private String findByTypeSparql;
-
-    QueryManager manager;
+    private QueryManager manager;
 }
