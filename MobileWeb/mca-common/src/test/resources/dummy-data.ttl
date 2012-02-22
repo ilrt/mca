@@ -1,0 +1,26 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix mca:        <http://vocab.bris.ac.uk/mca/registry#> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix geo:        <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix mcageo:     <http://vocab.bris.ac.uk/mca/geo#> .
+@prefix gn:         <http://www.geonames.org/ontology#> .
+
+<mca://data/bcc/parkingdata/carpark/22> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Alexandra Park, Fishponds, BS16 2BG" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.478349"^^xsd:double ;
+geo:long "-2.536601"^^xsd:double ;
+mcageo:hasOperator <mca://bcc/parkingdata/type/BCC> ;
+mcageo:hasSpaces "24"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Alexandra Park, Fishponds, Bristol, BS16 2BG" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ;
+
+.
