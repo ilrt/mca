@@ -85,7 +85,6 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         return model.getResource(id);
     }
 
-
     private Delegate findDelegate(Resource resource) {
 
         if (resource.hasProperty(RDF.type)) {

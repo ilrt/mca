@@ -41,4 +41,5 @@ import javax.ws.rs.core.MultivaluedMap;
 public interface ItemDao {
 
     Resource findResource(String id, MultivaluedMap<String, String> parameters);
+
 }
