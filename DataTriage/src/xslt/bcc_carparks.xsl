@@ -34,7 +34,7 @@ rdfs:label "<xsl:value-of select="./Name"/>" ;
 mcageo:hasTag "bcc_carpark"^^xsd:string ;
 geo:lat "<xsl:value-of select="Latitude"/>"^^xsd:double ;
 geo:long "<xsl:value-of select="Longitude"/>"^^xsd:double ;
-mcageo:hasOperator &lt;mca://bcc/parkingdata/type/<xsl:value-of select="Operator"/>&gt; ;
+mcageo:hasOperator &lt;mca://data/bcc/parkingdata/operator/<xsl:value-of select="Operator"/>&gt; ;
 mcageo:hasSpaces "<xsl:value-of select="Spaces"/>"^^xsd:integer ;
 <xsl:if test="DisabledBays != ''">mcageo:hasDisabledBays "<xsl:value-of select="DisabledBays"/>"^^xsd:string ;</xsl:if>
 vcard:ADR "<xsl:value-of select="Address1"/><xsl:if test="Address2 != ''">, <xsl:value-of select="Address2"/></xsl:if><xsl:if test="Address3 != ''">, <xsl:value-of select="Address3"/></xsl:if><xsl:if test="Postcode != ''">, <xsl:value-of select="Postcode"/></xsl:if>" ;
