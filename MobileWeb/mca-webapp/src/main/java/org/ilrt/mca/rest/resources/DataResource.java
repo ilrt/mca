@@ -15,15 +15,11 @@
  */
 package org.ilrt.mca.rest.resources;
 
-/**
- * @author Mike Jones (mike.a.jones@bristol.ac.uk)
- */
-
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.sun.jersey.api.view.Viewable;
 import com.sun.jersey.spi.container.servlet.WebConfig;
 import com.sun.jersey.spi.resource.Singleton;
-import org.apache.log4j.Logger;
+import org.ilrt.mca.RdfMediaType;
 import org.ilrt.mca.dao.DataDao;
 import org.ilrt.mca.dao.DataDaoImpl;
 import org.ilrt.mca.rdf.QueryManager;
@@ -36,9 +32,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 /**
+ * A lot of harvested data uses minted URIs that start with "/data". This JAX-RS
+ * resource proves a way of viewing the data.
+ *
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
  */
 @Singleton
@@ -49,15 +47,17 @@ public class DataResource extends AbstractResource {
         super();
         QueryManager queryManager = new SdbManagerImpl(manager);
         dataDao = new DataDaoImpl(queryManager);
-
-
     }
 
+    /**
+     * @param path the request path.
+     * @return an HTML representation of the requested URI.
+     */
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Response getGroupsAsHtml(@PathParam("path") String path, @Context UriInfo ui) {
+    public Response getGroupsAsHtml(@PathParam("path") String path) {
 
-        Resource resource = dataDao.findData(getDomain() + path);
+        Resource resource = createResource(path);
 
         if (resource == null || resource.getModel().size() == 0) {
             return Response.status(Response.Status.NOT_FOUND).entity(new Viewable("/404.ftl",
@@ -68,26 +68,77 @@ public class DataResource extends AbstractResource {
                 .entity(new Viewable("/data.ftl", resource)).build();
     }
 
+    /**
+     * @param path the request path.
+     * @return an RDF representation of the requested URI (RDF/XML or Turtle)
+     */
+    @GET
+    @Produces({RdfMediaType.APPLICATION_RDF_XML, RdfMediaType.TEXT_RDF_N3})
+    public Response getModelAsRdf(@PathParam("path") String path) {
+
+        Resource resource = createResource(path);
+
+        if (resource.getModel().isEmpty()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok(resource).build();
+    }
+
+    /**
+     * @param path the request path.
+     * @return a JSON representation of the requested URI.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getGroupAsJson(@PathParam("path") String path) {
+
+        Resource resource = createResource(path);
+
+        if (resource.getModel().isEmpty()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok(resource).build();
+    }
+
+    /**
+     * @param path the path parameter.
+     * @return the full URI of the requested resource.
+     */
+    private Resource createResource(String path) {
+        return dataDao.findData(getDomain() + path);
+    }
+
+    /**
+     * Obtains the domain name part of a URI that the application is deployed too, e.g.
+     * http://m.bristol.ac.uk. This is specified in the web.xml in a context parameter.
+     * If null, return the internal "mca://: scheme.
+     *
+     * @return return the domain name specified in the web.xml or "mca://".
+     */
     private String getDomain() {
 
         if (domain == null) {
             domain = config.getServletContext().getInitParameter("domain");
 
-            if (!domain.endsWith("/")) {
-                domain += "/";
+            if (domain != null) {
+                if (!domain.endsWith("/")) {
+                    domain += "/";
+                }
+                domain += "data/";
+            } else {
+                domain = "mca://";
             }
-
-            domain += "data/";
         }
 
         return domain;
     }
 
     @Context
+    private
     WebConfig config;
 
     private DataDao dataDao;
-    Logger log = Logger.getLogger(MobileCampusResource.class);
-    String domain;
-
+    private String domain;
 }
