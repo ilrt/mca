@@ -232,7 +232,8 @@ public class RegistryInitServlet extends HttpServlet {
 
         for (String file : registryFiles) {
             log.info("Loading ... " + file);
-            model.read(getClass().getResourceAsStream(file), null, langTypeAsString(file));
+            Model m = domain != null ? createTransformModelFromFile(file) : createModelFromFile(file);
+            model.add(m);
         }
         repository.add(model);
 
