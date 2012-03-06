@@ -70,10 +70,7 @@ public class MobileCampusResource extends AbstractResource {
     @Produces(MediaType.TEXT_HTML)
     public Response getGroupsAsHtml(@PathParam("path") String path, @Context UriInfo ui) {
 
-        // are we just after the root?
-        String uri = isRoot(path) ? "mca://registry/" : Common.MCA_STUB + path;
-
-        Resource resource = itemDao.findResource(uri, ui.getQueryParameters());
+        Resource resource = itemDao.findResource(getDomain("") + path, ui.getQueryParameters());
 
         if (resource == null || resource.getModel().size() == 0) {
             return Response.status(Response.Status.NOT_FOUND).entity(new Viewable("/404.ftl",
@@ -81,8 +78,6 @@ public class MobileCampusResource extends AbstractResource {
         }
 
         String template = resolveTemplateFromResource(resource);
-
-        //resource.getModel().write(System.out);
 
         return Response.ok(new Viewable(getTemplatePath(template), resource)).build();
     }
@@ -118,10 +113,7 @@ public class MobileCampusResource extends AbstractResource {
 
     private Resource createResource(@PathParam("path") String path, @Context UriInfo ui) {
 
-        // are we just after the root?
-        String uri = isRoot(path) ? "mca://registry/" : Common.MCA_STUB + path;
-
-        return itemDao.findResource(uri, ui.getQueryParameters());
+        return itemDao.findResource(getDomain("") + path, ui.getQueryParameters());
     }
 
 
@@ -137,10 +129,6 @@ public class MobileCampusResource extends AbstractResource {
 
     private String getTemplatePath(String templatePath) {
         return "/" + templatePath.substring(Common.TEMPLATE_STUB.length());
-    }
-
-    private boolean isRoot(String path) {
-        return (path == null || path.equals("") || path.equals("/"));
     }
 
     private ItemDao itemDao;

@@ -107,38 +107,8 @@ public class DataResource extends AbstractResource {
      * @return the full URI of the requested resource.
      */
     private Resource createResource(String path) {
-        return dataDao.findData(getDomain() + path);
+        return dataDao.findData(getDomain("data/") + path);
     }
-
-    /**
-     * Obtains the domain name part of a URI that the application is deployed too, e.g.
-     * http://m.bristol.ac.uk. This is specified in the web.xml in a context parameter.
-     * If null, return the internal "mca://: scheme.
-     *
-     * @return return the domain name specified in the web.xml or "mca://".
-     */
-    private String getDomain() {
-
-        if (domain == null) {
-            domain = config.getServletContext().getInitParameter("domain");
-
-            if (domain != null) {
-                if (!domain.endsWith("/")) {
-                    domain += "/";
-                }
-                domain += "data/";
-            } else {
-                domain = "mca://";
-            }
-        }
-
-        return domain;
-    }
-
-    @Context
-    private
-    WebConfig config;
 
     private DataDao dataDao;
-    private String domain;
 }
