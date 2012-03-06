@@ -91,6 +91,7 @@ public class FreeMarkerTemplateProcessor implements ViewProcessor<Template> {
 
         // useful for referencing static assets like images and style sheets
         vars.put("contextPath", servletContext.getContextPath());
+        vars.put("domain", domain);
 
         // add the google analytics key
         if (googleAnalyticsKey != null && googleAnalyticsKey.length() > 0) {
@@ -141,6 +142,13 @@ public class FreeMarkerTemplateProcessor implements ViewProcessor<Template> {
 
         // find the google analytics key
         googleAnalyticsKey = context.getInitParameter("googleAnalyticsKey");
+        domain = context.getInitParameter("domain");
+
+        if (!domain.endsWith("/")) {
+            domain += "/";
+        }
+
+
     }
 
     protected String getDefaultExtension() {
@@ -200,6 +208,7 @@ public class FreeMarkerTemplateProcessor implements ViewProcessor<Template> {
     private String rootPath;
 
     private String googleAnalyticsKey;
+    private String domain;
 
     private final String TEMPLATE_KEY = "freemarker.template.path";
     private final String DEFAULT_PATH = "/WEB-INF/templates";
