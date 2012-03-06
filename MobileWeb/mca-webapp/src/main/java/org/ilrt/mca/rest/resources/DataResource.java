@@ -17,7 +17,6 @@ package org.ilrt.mca.rest.resources;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.sun.jersey.api.view.Viewable;
-import com.sun.jersey.spi.container.servlet.WebConfig;
 import com.sun.jersey.spi.resource.Singleton;
 import org.ilrt.mca.RdfMediaType;
 import org.ilrt.mca.dao.DataDao;
@@ -29,7 +28,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
