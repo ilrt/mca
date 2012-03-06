@@ -78,9 +78,9 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 </#macro>
 
 <#macro BreadCrumbWithParent resource>
-    <#if resource['mca:hasParent']?first != 'mca://registry/'>
+    <#if resource['mca:hasParent']?first != '${domain}'>
         <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
-        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
+        <li><a class="parent" href="${resource['mca:hasParent']?first}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
     <#else>
         <li id="hometrail"><a class="parent" href="${contextPath}/"><span>Home</span></a></li>
     </#if>
@@ -88,10 +88,10 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
 
 <#macro BreadCrumbWithGrandParent resource>
     <#-- we can ignore the homepage since we provide a link anyway -->
-    <#if resource['mca:hasParent']?first['mca:hasParent']?first != 'mca://registry/'>
+    <#if resource['mca:hasParent']?first['mca:hasParent']?first != '${domain}'>
         <li id="hometrail"><a class="" href="${contextPath}/"><span>Home</span></a></li>
-        <li><a href="${contextPath}/${resource['mca:hasParent']?first['mca:hasParent']?first?substring(15)}"><span>&#8230;</span></a></li>
-        <li><a class="parent" href="${contextPath}/${resource['mca:hasParent']?first?substring(15)}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
+        <li><a href="${resource['mca:hasParent']?first['mca:hasParent']?first}"><span>&#8230;</span></a></li>
+        <li><a class="parent" href="${resource['mca:hasParent']?first}"><span><@BreadCrumbLabel resource=resource['mca:hasParent']?first/></span></a></li>
     <#else>
         <@BreadCrumbWithParent resource=resource/>
     </#if>
