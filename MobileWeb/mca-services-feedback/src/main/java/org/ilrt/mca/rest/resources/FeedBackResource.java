@@ -37,7 +37,12 @@ public class FeedBackResource {
         r.addProperty(RDFS.label, mailProperties.getProperty("form.model.label"));
         r.addProperty(MCA_REGISTRY.style, mailProperties.getProperty("form.model.style"));
 
-        Resource parent = m.createResource(mailProperties.getProperty("form.model.parentId"));
+        String parentUriId = mailProperties.getProperty("form.model.parentId");
+        if (!parentUriId.endsWith("/")) {
+            parentUriId += "/";
+        }
+        
+        Resource parent = m.createResource(parentUriId);
         parent.addProperty(MCA_REGISTRY.hasItem, r);
         m.add(r, MCA_REGISTRY.hasParent, parent);
     }
