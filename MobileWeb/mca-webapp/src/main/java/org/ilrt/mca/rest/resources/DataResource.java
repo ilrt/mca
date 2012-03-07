@@ -16,6 +16,9 @@
 package org.ilrt.mca.rest.resources;
 
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.vocabulary.RDF;
 import com.sun.jersey.api.view.Viewable;
 import com.sun.jersey.spi.resource.Singleton;
 import org.ilrt.mca.RdfMediaType;
@@ -28,8 +31,11 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A lot of harvested data uses minted URIs that start with "/data". This JAX-RS
@@ -45,15 +51,19 @@ public class DataResource extends AbstractResource {
         super();
         QueryManager queryManager = new SdbManagerImpl(manager);
         dataDao = new DataDaoImpl(queryManager);
+
+        // TODO - I really should use dependency injection
+        templates.put("http://www.geonames.org/ontology#S.PKLT", "/fragments/carparks.ftl");
     }
 
     /**
      * @param path the request path.
+     *
      * @return an HTML representation of the requested URI.
      */
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Response getGroupsAsHtml(@PathParam("path") String path) {
+    public Response getGroupsAsHtml(@PathParam("path") String path, @QueryParam("type") String type) {
 
         Resource resource = createResource(path);
 
@@ -62,8 +72,10 @@ public class DataResource extends AbstractResource {
                     "Unable to resolve the requested path: " + path)).build();
         }
 
+        String template = findTemplate(type, resource);
+        
         return Response.status(Response.Status.OK)
-                .entity(new Viewable("/data.ftl", resource)).build();
+                .entity(new Viewable(template, resource)).build();
     }
 
     /**
@@ -108,5 +120,29 @@ public class DataResource extends AbstractResource {
         return dataDao.findData(getDomain("data/") + path);
     }
 
+    private String findTemplate(String type, Resource resource) {
+
+        String template = null;
+
+        System.out.println("Here!");
+        
+        if (type != null && type.equals("custom")) {
+            if (resource.hasProperty(RDF.type)) {
+                StmtIterator iter = resource.listProperties(RDF.type);
+                while (iter.hasNext()) {
+                    Statement statement = iter.nextStatement();
+                    String temp = templates.get(statement.getResource().getURI());
+                    if (temp != null) {
+                        template = temp;
+                    }
+                }
+            }
+        }
+
+        return template == null ? "/data.ftl" : template;
+    }
+
     private DataDao dataDao;
+
+    Map<String, String> templates = new HashMap<String, String>();
 }
