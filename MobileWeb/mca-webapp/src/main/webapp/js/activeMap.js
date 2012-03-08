@@ -232,6 +232,23 @@ var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, ma
 
 };
 
+
+// listener for stop markers
+var attachMarkerListenerWithLocalData = function(map, mark, infowindow, id) {
+
+    google.maps.event.addListener(mark, 'click', function() {
+
+        // the style should ensure the autopan pans far enough to allow
+        // space for later dynamic content
+        infowindow.setContent("<div id='info-init'>Fetching...</div>");
+        infowindow.open(map, mark);
+
+        // start the process of fetching the live info
+        getGeoInfo(infowindow, id);
+
+    });
+}
+
 // listener for stop markers
 var attachMarkerListenerWithProxy = function(map, mark, infowindow, id, url) {
 
@@ -295,6 +312,48 @@ var getDepartureInfo = function(infowindow, id, url) {
     xmlhttp.send(null);
 
 }
+
+// ajax request for live departure info
+var getGeoInfo = function(infowindow, id) {
+
+    var xmlhttp;
+
+    if (window.XMLHttpRequest) {
+
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+
+    } else {
+
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+    }
+
+    xmlhttp.onreadystatechange = function() {
+
+        if (xmlhttp.readyState == 4) {
+
+            // set the contents of the infowindow
+            setDataInfoContent(infowindow, xmlhttp.responseText);
+
+        }
+
+    }
+
+    // make the request
+    xmlhttp.open("GET", id + "?type=custom", true);
+    xmlhttp.send(null);
+
+}
+
+// set the contents of the infowindow
+var setDataInfoContent = function(infowindow, data) {
+
+    var content = "<div id='info'>" + data + "</div>";
+    infowindow.setContent(content);
+}
+
 
 // set the contents of the infowindow
 var setInfoContent = function(infowindow, json) {
@@ -392,7 +451,9 @@ var createMarkers = function(markerJson) {
         // attach the click listener
         if (proxyUrl != 'undefined') {
             attachMarkerListenerWithProxy(map, marker, infowindow, markerId, proxyUrl);
-        } else {
+        } else if(markerId.indexOf("/data/") !== -1) {
+           attachMarkerListenerWithLocalData(map, marker, infowindow, markerId);
+        }else {
             if (title != undefined) {
                 var content = "<p><strong>" + title + "</strong></p>";
 

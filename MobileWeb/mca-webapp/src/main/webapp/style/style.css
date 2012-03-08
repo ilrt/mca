@@ -639,6 +639,18 @@ It's height value should ensure that the map pans enough to allow for later dyna
     width: 100%;
 }
 
+
+#info-init {
+    height: 150px;
+    width: 100%;
+    font-size: 10px;
+}
+
+#info {
+    width: 100%;
+    font-size: 10px;
+}
+
 /* gmap api id - stops university photos appearing in windows */
 #iw_kml img {
     display: none;
