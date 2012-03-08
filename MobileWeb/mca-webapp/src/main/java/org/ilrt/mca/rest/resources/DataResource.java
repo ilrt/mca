@@ -124,8 +124,6 @@ public class DataResource extends AbstractResource {
 
         String template = null;
 
-        System.out.println("Here!");
-        
         if (type != null && type.equals("custom")) {
             if (resource.hasProperty(RDF.type)) {
                 StmtIterator iter = resource.listProperties(RDF.type);
