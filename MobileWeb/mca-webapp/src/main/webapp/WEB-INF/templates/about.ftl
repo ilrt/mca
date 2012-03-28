@@ -6,17 +6,16 @@
 
 <div id=content>
 
-    <p>This is a trial beta service provided by the
-       <a href="http://mymobilebristol.com">MyMobileBristol</a> project. The project
-       is funded by Joint Information Systems Committee (JISC) under their Business
-       and Community Engagement Programme.</p>
+    <p>This is a trial beta service.</p>
+
+    <p>The software and content has been developed through the JISC-funded
+        <a href="http://mobilecampus.ilrt.bris.ac.uk/">Mobile Campus Assistant</a>,
+        <a href="http://mymobilebristol.com">MyMobileBristol</a> and
+        <a href=="http://greeningevents.ilrt.bris.ac.uk/">Greening Events</a> projects.</p>
 
     <p>We'd love your feedback on it -
     please use <a href="http://askit.bris.ac.uk/uob/products/uob_mobile_campus_assistant">AskIT</a>
     or use the <a href="../feedback/">feedback form</a>.</p>
-
-    <p>Part of the aim is to develop this as a smart phone application for staff and students
-        at Bristol University, and for members of the wider Bristol community.</p>
 
     <h2>Credit</h2>
 
