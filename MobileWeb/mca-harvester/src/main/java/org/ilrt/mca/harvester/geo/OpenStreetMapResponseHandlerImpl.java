@@ -41,33 +41,70 @@ import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import org.ilrt.mca.harvester.ResponseHandler;
-import org.ilrt.mca.vocab.WGS84;
 import org.ilrt.mca.vocab.MCA_GEO;
+import org.ilrt.mca.vocab.WGS84;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
  */
-public class OpenStreetMapResponseHandlerImpl implements ResponseHandler {
+public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements ResponseHandler {
+
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+
+        final String dataFile = "/Users/cmmaj/Development/workspaces/idea/mca-bristol/Data/OSM/map.osm.xml";
+        final String results = "/Users/cmmaj/Development/workspaces/idea/mca-bristol/Data/OSM/osm.rdf";
+
+        /*
+        OpenStreetMapResponseHandlerImpl handler = new OpenStreetMapResponseHandlerImpl();
+        FileInputStream fis = new FileInputStream(new File(dataFile));
+        Model m = handler.getModel(null, fis);
+        FileOutputStream fos = new FileOutputStream(new File(results));
+        m.write(fos);
+        fos.close();
+        */
+
+        // get the parser ready
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser parser = factory.newSAXParser();
+
+        // create an instance and get the items of interest
+        OpenStreetMapResponseHandlerImpl handler = new OpenStreetMapResponseHandlerImpl();
+        handler.loadItemsOfInterest();
+
+        // parse the data file
+        FileInputStream fis = new FileInputStream(new File(dataFile));
+        parser.parse(new InputSource(fis), handler);
+
+    }
 
     public OpenStreetMapResponseHandlerImpl() {
         model = ModelFactory.createDefaultModel();
 
-        // get the rules
-        InputStream is = getClass().getResourceAsStream("/rules/osmdata.rules");
+        // get the osm.rules
+        InputStream is = getClass().getResourceAsStream("/osm/rules/osmdata.rules");
         rules = Rule.parseRules(Rule.rulesParserFromReader(
                 new BufferedReader(new InputStreamReader(is))));
 
@@ -83,9 +120,13 @@ public class OpenStreetMapResponseHandlerImpl implements ResponseHandler {
 
             NodeList nodeList = doc.getFirstChild().getChildNodes();
 
+            int total = nodeList.getLength();
+
             for (int i = 0; i < nodeList.getLength(); i++) {
 
                 Node node = nodeList.item(i);
+
+                System.out.println("Node " + i + " of " + total);
 
                 if (node.getNodeName().equals("node")) {
 
@@ -233,7 +274,130 @@ public class OpenStreetMapResponseHandlerImpl implements ResponseHandler {
         model.add(ModelFactory.createInfModel(new GenericRuleReasoner(rules), model));
     }
 
+    public final void startElement(final String uri, final String localName, final String qName,
+                                   final Attributes attributes) throws SAXException {
+
+        if (qName.equals(nodeElement)) {
+            isNode = true;
+
+            // get the id, lat and lon
+
+            if (attributes.getValue(idAttrVal) != null) {
+                id = attributes.getValue(idAttrVal);
+            }
+
+            if (attributes.getValue(latAttrVal) != null) {
+                lat = attributes.getValue(latAttrVal);
+            }
+
+            if (attributes.getValue(idAttrVal) != null) {
+                lon = attributes.getValue(lon);
+            }
+            
+        }
+
+        if (qName.equals(tagElement)) {
+
+            isTag = true;
+
+            // we are ony interested in tags within a node
+            if (isNode) {
+                if (attributes.getValue(keyAttr) != null) {
+                    
+                    String type = attributes.getValue(keyAttr);
+
+                    if (type.equals(amenityAttrVal)) {
+                        isAmenity = true;
+                        System.out.println("Amenity");
+                    }
+
+                    if (type.equals(shopAttrVal)) {
+                        isShop = true;
+                        System.out.println("Shop");
+                    }
+                    
+                    
+                }
+                /*
+                        && attributes.getValue(keyAttr).equals(amenityAttrVal)) {
+                    
+                    String amenityType = attributes.getValue(valAttr);
+
+                    if (itemsOfInterest.contains(amenityType)) {
+                        System.out.println("We are interested in this type: " + amenityType);
+                    }
+                 */
+
+
+
+            }
+
+        }
+
+    }
+
+    public final void endElement(final String uri, final String localName, final String qName)
+            throws SAXException {
+
+        if (qName.equals(nodeElement)) {
+            isNode = false;
+            id = null;
+            lon = null;
+            lat = null;
+
+            isAmenity = false;
+            isShop = false;
+        }
+
+        if (qName.equals(tagElement)) {
+            isTag = false;
+        }
+
+    }
+
+    public final void characters(final char[] ch, final int start, final int length)
+            throws SAXException {
+
+    }
+
+    private void loadItemsOfInterest() {
+
+        Scanner scanner = new Scanner(getClass().getResourceAsStream("/osm/amenities_of_interest.txt"));
+
+        while (scanner.hasNextLine()) {
+            itemsOfInterest.add(scanner.next().trim());
+        }
+    }
+    
+    private List<String> itemsOfInterest = new ArrayList<String>();
+
+
     private Model model;
 
     private final List<Rule> rules;
+
+    private final String nodeElement = "node";
+    private final String tagElement = "tag";
+
+    private final String keyAttr = "k";
+    private final String valAttr = "v";
+
+    // types of nodes
+    private final String amenityAttrVal = "amenity";
+    private final String shopAttrVal = "shop";
+
+    private final String idAttrVal = "id";
+    private final String latAttrVal = "lat";
+    private final String lonAttrVal = "lon";
+
+    private boolean isNode = false;
+    private boolean isTag = false;
+
+    // keep track of the type of node
+    private boolean isAmenity = false;
+    private boolean isShop = false;
+    
+    private String id = null;
+    private String lat = null;
+    private String lon = null;
 }
