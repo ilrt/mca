@@ -40,26 +40,21 @@ import com.hp.hpl.jena.reasoner.rulesys.Rule;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
+import com.hp.hpl.jena.vocabulary.VCARD;
 import org.ilrt.mca.harvester.ResponseHandler;
 import org.ilrt.mca.vocab.MCA_GEO;
 import org.ilrt.mca.vocab.WGS84;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -68,87 +63,81 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * Converts OpenStreetMap XML data to RDF.
+ *
+ * We are interested in amenities and shops that have cash points (atm). The amenities
+ * that we are interested in are loaded from an external configuration file. When the
+ * RDF is created we use a reasoner to create additional triples that assign
+ * RDF types to the different points of interest.
+ *
+ *
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
  */
 public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements ResponseHandler {
 
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+    /**
+     * Entry point to use the harvester on the command line.
+     *
+     * @param args needs 2 arguments. (1) The OSM XML file (2) The RDF output file.
+     * @throws Exception if there is an issue parsing the XML or creating the RDF.
+     */
+    public static void main(String[] args) throws Exception {
 
-        final String dataFile = "/Users/cmmaj/Development/workspaces/idea/mca-bristol/Data/OSM/map.osm.xml";
-        final String results = "/Users/cmmaj/Development/workspaces/idea/mca-bristol/Data/OSM/osm.rdf";
+        // get the location of the files from the command line
+        if (args.length != 2) {
+            System.out.println("Expected arguments: [Input File] [Output File]");
+            System.exit(1);
+        }
 
-        /*
+        // The data and output files
+        FileInputStream fis = new FileInputStream(new File(args[0]));
+        FileOutputStream fos = new FileOutputStream(new File(args[1]));
+
+        // Process the xml and convert to RDF
         OpenStreetMapResponseHandlerImpl handler = new OpenStreetMapResponseHandlerImpl();
-        FileInputStream fis = new FileInputStream(new File(dataFile));
         Model m = handler.getModel(null, fis);
-        FileOutputStream fos = new FileOutputStream(new File(results));
+        fis.close();
         m.write(fos);
         fos.close();
-        */
-
-        // get the parser ready
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
-
-        // create an instance and get the items of interest
-        OpenStreetMapResponseHandlerImpl handler = new OpenStreetMapResponseHandlerImpl();
-        handler.loadItemsOfInterest();
-
-        // parse the data file
-        FileInputStream fis = new FileInputStream(new File(dataFile));
-        parser.parse(new InputSource(fis), handler);
-
     }
 
+    /**
+     * Default constructor.
+     */
     public OpenStreetMapResponseHandlerImpl() {
         model = ModelFactory.createDefaultModel();
 
         // get the osm.rules
-        InputStream is = getClass().getResourceAsStream("/osm/rules/osmdata.rules");
+        InputStream is = getClass().getResourceAsStream(rulesFile);
         rules = Rule.parseRules(Rule.rulesParserFromReader(
                 new BufferedReader(new InputStreamReader(is))));
 
     }
 
+    // ---------- ResponseHandler interface methods
+
+    /**
+     * Return a Jena Model representation of the harvested data.
+     *
+     * @param sourceUri the URI of the source.
+     * @param is        InputStream of the harvested data source.
+     * @return return a RDF Model representation of the harvested file.
+     */
     @Override
     public Model getModel(String sourceUri, InputStream is) {
         try {
 
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(is);
+            // get the parser ready
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
 
-            NodeList nodeList = doc.getFirstChild().getChildNodes();
+            // create an instance and get the items of interest
+            loadItemsOfInterest();
 
-            int total = nodeList.getLength();
+            // parse the xml
+            parser.parse(is, this);
 
-            for (int i = 0; i < nodeList.getLength(); i++) {
-
-                Node node = nodeList.item(i);
-
-                System.out.println("Node " + i + " of " + total);
-
-                if (node.getNodeName().equals("node")) {
-
-                    // the attributes on the node hold the id and lat/long; use these
-                    // to create uri (id) and initial data (lot/long)
-                    Resource resource = createResource(node.getAttributes());
-
-                    NodeList tagList = node.getChildNodes();
-
-                    for (int j = 0; j < tagList.getLength(); j++) {
-
-                        Node tag = tagList.item(j);
-
-                        if (tag.getNodeName().equals("tag")) {
-                            parseTagElement(resource, tag);
-                        }
-                    }
-
-                    model.add(resource.getModel());
-                }
-            }
-
+            // create additional types
             fireRules();
 
         } catch (ParserConfigurationException e) {
@@ -162,214 +151,338 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         return model;
     }
 
+    /**
+     * Does the harvester handle this media type
+     *
+     * @param mediaType the media type of the data source
+     * @return true if the harvested thinks it can process it, otherwise false.
+     */
     @Override
     public boolean isSupportedMediaType(String mediaType) {
         return mediaType.startsWith("text/xml") || mediaType.startsWith("application/xml");
     }
 
-    /**
-     * The node id and the latitude and longitude are stored as attributes on the node
-     * element. We get these via a NamedNodeMap and create a URI and appropriate
-     * WGS84 properties.
-     *
-     * @param map NamedNodeMap that holds attributes of interest
-     * @return a Resource object that holds a URI and lat/long values
-     */
-    private Resource createResource(NamedNodeMap map) {
 
-        // create the URI
-        Resource resource = model.createResource("http://www.openstreetmap.org/api/0.6/node/"
-                + map.getNamedItem("id").getTextContent());
-
-        // add the latitude and longitude
-        resource.addProperty(WGS84.latitude, map.getNamedItem("lat").getTextContent(),
-                XSDDatatype.XSDdouble);
-        resource.addProperty(WGS84.longitude, map.getNamedItem("lon").getTextContent(),
-                XSDDatatype.XSDdouble);
-
-        // add type
-        resource.addProperty(RDF.type, WGS84.Point);
-
-        return resource;
-    }
-
+    // ---------- Override SAX handler methods
 
     /**
-     * The OSM data is encapsulated in lots of Tag elements with key (k) and value (v)
-     * attribute values. We pull this lexical information and covert it to RDF types
-     * and literals.
+     * Receive notification of the start of an element.
      *
-     * @param resource the Resource object we will add additional information.
-     * @param tag      the XML node that holds the OSM data.
+     * @param uri        the namespace URI or null.
+     * @param localName  the local name.
+     * @param qName      the qualified name.
+     * @param attributes the attributes attached to the element.
+     * @throws SAXException any SAX exception.
      */
-    private void parseTagElement(Resource resource, Node tag) {
-
-        // get the attributes in the tag element
-        NamedNodeMap map = tag.getAttributes();
-
-        // a name becomes a label
-        if (map.getNamedItem("k").getTextContent().equals("name")) {
-            resource.addProperty(RDFS.label, map.getNamedItem("v").getTextContent(),
-                    XSDDatatype.XSDstring);
-        }
-
-        // we are interested in amenities
-        if (map.getNamedItem("k").getTextContent().equals("amenity")) {
-
-            resource.addProperty(RDF.type, MCA_GEO.Amenity);
-
-            // values can be separated by semicolons
-            parseValue(map.getNamedItem("v").getTextContent(), resource);
-        }
-
-        // we are interested in amenities
-        if (map.getNamedItem("k").getTextContent().equals("shop")) {
-
-            resource.addProperty(RDF.type, MCA_GEO.Shop);
-
-            // values can be separated by semicolons
-            parseValue(map.getNamedItem("v").getTextContent(), resource);
-        }
-
-        // does the node have a website?
-        if (map.getNamedItem("k").getTextContent().equals("website")) {
-            resource.addProperty(FOAF.homepage, model.createResource(map.getNamedItem("v")
-                    .getTextContent()));
-        }
-
-        // does the node have an email address?
-        if (map.getNamedItem("k").getTextContent().equals("email")) {
-            resource.addProperty(FOAF.mbox, model.createResource("mailto:" + map.getNamedItem("v")
-                    .getTextContent()));
-        }
-
-        // does the node have a telephone number?
-        if (map.getNamedItem("k").getTextContent().equals("phone")) {
-            resource.addProperty(FOAF.phone, model.createResource("tel:" + map.getNamedItem("v")
-                    .getTextContent()));
-        }
-
-        // does the node have an atm
-        if (map.getNamedItem("k").getTextContent().equals("atm")) {
-            if (map.getNamedItem("v").getTextContent().equals("yes")) {
-                resource.addProperty(RDF.type, MCA_GEO.BuildingWithCashPoint);
-            }
-        }
-    }
-
-    private void parseValue(String value, Resource resource) {
-
-        // values can be separated by semicolons
-        String[] values = value.split(";");
-
-        // for each value create a tag and type, if appropriate
-        for (String value1 : values) {
-            resource.addProperty(MCA_GEO.hasTag, value1);
-        }
-    }
-
-
-    void fireRules() {
-
-        model.add(ModelFactory.createInfModel(new GenericRuleReasoner(rules), model));
-    }
-
     public final void startElement(final String uri, final String localName, final String qName,
                                    final Attributes attributes) throws SAXException {
 
+        // node element
         if (qName.equals(nodeElement)) {
+
             isNode = true;
 
-            // get the id, lat and lon
-
-            if (attributes.getValue(idAttrVal) != null) {
-                id = attributes.getValue(idAttrVal);
-            }
-
-            if (attributes.getValue(latAttrVal) != null) {
-                lat = attributes.getValue(latAttrVal);
-            }
-
-            if (attributes.getValue(idAttrVal) != null) {
-                lon = attributes.getValue(lon);
-            }
-            
+            // get the id, lat and lon for the node
+            processId(attributes);
         }
 
+        // tag element - should be found within a node element
         if (qName.equals(tagElement)) {
 
             isTag = true;
 
             // we are ony interested in tags within a node
             if (isNode) {
-                if (attributes.getValue(keyAttr) != null) {
-                    
-                    String type = attributes.getValue(keyAttr);
 
-                    if (type.equals(amenityAttrVal)) {
-                        isAmenity = true;
-                        System.out.println("Amenity");
-                    }
+                processNodeType(attributes);
 
-                    if (type.equals(shopAttrVal)) {
-                        isShop = true;
-                        System.out.println("Shop");
-                    }
-                    
-                    
+                if (isAmenity) {
+                    processAmenityType(attributes);
                 }
-                /*
-                        && attributes.getValue(keyAttr).equals(amenityAttrVal)) {
-                    
-                    String amenityType = attributes.getValue(valAttr);
 
-                    if (itemsOfInterest.contains(amenityType)) {
-                        System.out.println("We are interested in this type: " + amenityType);
-                    }
-                 */
-
-
-
+                // we have a key attribute in the tag ...
+                if (isTag) {
+                    processTagElement(attributes);
+                }
             }
-
         }
-
     }
 
+    /**
+     * Receive notification of the end of an element.
+     *
+     * @param uri       the namespace URI or null.
+     * @param localName the local name.
+     * @param qName     the qualified name.
+     * @throws SAXException any SAX exception.
+     */
     public final void endElement(final String uri, final String localName, final String qName)
             throws SAXException {
 
+        // node
         if (qName.equals(nodeElement)) {
-            isNode = false;
-            id = null;
-            lon = null;
-            lat = null;
 
-            isAmenity = false;
-            isShop = false;
+            // we are only interested in shops with an atm
+            if (isShop && isAtm) {
+                isOfInterest = true;
+            }
+
+            // place of interest, so create RDF
+            if (isOfInterest) {
+                processItemOfInterest();
+            }
+
+            // reset the state for the node
+            resetState();
         }
 
+        // tag
         if (qName.equals(tagElement)) {
             isTag = false;
         }
 
     }
 
-    public final void characters(final char[] ch, final int start, final int length)
-            throws SAXException {
+    // ---------- private methods for handling state while processing the XML
+
+    /**
+     * Get the id (used in the URI), the latitude and longitude.
+     *
+     * @param attributes the attributes attached to the element.
+     */
+    private void processId(final Attributes attributes) {
+
+        if (attributes.getValue(idAttrVal) != null) {
+            id = attributes.getValue(idAttrVal);
+        }
+
+        if (attributes.getValue(latAttrVal) != null) {
+            lat = attributes.getValue(latAttrVal);
+        }
+
+        if (attributes.getValue(lonAttrVal) != null) {
+            lon = attributes.getValue(lonAttrVal);
+        }
+    }
+
+    /**
+     * Check if we are an amenity or a shop.
+     *
+     * @param attributes the attributes attached to the element.
+     */
+    private void processNodeType(final Attributes attributes) {
+
+        if (attributes.getValue(keyAttr) != null) {
+
+            String type = attributes.getValue(keyAttr);
+
+            if (type.equals(amenityAttrVal)) {
+                isAmenity = true;
+            }
+
+            if (type.equals(shopAttrVal)) {
+                isShop = true;
+            }
+        }
+    }
+
+    /**
+     * Check if we are an atm. Also check if an amenity, are  we interested in it.
+     *
+     * @param attributes the attributes attached to the element.
+     */
+    private void processAmenityType(final Attributes attributes) {
+
+        String type = attributes.getValue(valAttr);
+
+        if (type.equals(atmAttrVal)) {
+            isAtm = true;
+        }
+
+        if (itemsOfInterest.contains(type)) {
+            isOfInterest = true;
+            tag = type;
+        }
+    }
+
+    /**
+     * Process the Tag element, since the key/values might be of interest.
+     *
+     * @param attributes the attributes attached to the element.
+     */
+    private void processTagElement(final Attributes attributes) {
+
+        if (attributes.getValue(keyAttr) != null) {
+
+            // get the name
+            if (attributes.getValue(keyAttr).equals(nameAttrVal)) {
+                name = attributes.getValue(valAttr);
+            }
+
+            // the house number
+            if (attributes.getValue(keyAttr).equals(houseNoAttrVal)) {
+                houseNo = attributes.getValue(valAttr);
+            }
+
+            // the street
+            if (attributes.getValue(keyAttr).equals(streetAttrVal)) {
+                street = attributes.getValue(valAttr);
+            }
+
+            // the postcode
+            if (attributes.getValue(keyAttr).equals(postCodeAttrVal)) {
+                postCode = attributes.getValue(valAttr);
+            }
+
+            // phone number
+            if (attributes.getValue(keyAttr).equals(phoneAttrVal)) {
+                phone = attributes.getValue(valAttr);
+            }
+
+            // website
+            if (attributes.getValue(keyAttr).equals(websiteAttrVal)) {
+                website = attributes.getValue(valAttr);
+            }
+
+            // email
+            if (attributes.getValue(keyAttr).equals(emailAttrVal)) {
+                email = attributes.getValue(valAttr);
+            }
+
+            // operator
+            if (attributes.getValue(keyAttr).equals(operatorAttrVal)) {
+                operator = attributes.getValue(valAttr);
+            }
+
+            // does it have an atm?
+            if (attributes.getValue(keyAttr).equals(atmAttrVal)) {
+                if (attributes.getValue(valAttr).equals(yAttrVal)
+                        || attributes.getValue(valAttr).equals(yesAttrVal)) {
+                    isAtm = true;
+                }
+            }
+        }
+    }
+
+    /**
+     * A node has been marked as containing items of interest - get the state and
+     * create some RDF.
+     */
+    private void processItemOfInterest() {
+
+        Resource resource = model.createResource(uriBase + id);
+
+        // seeAlso
+        resource.addProperty(RDFS.seeAlso, model.createResource(osmUriBase + id));
+
+        // add the latitude and longitude
+        resource.addProperty(WGS84.latitude, lat, XSDDatatype.XSDdouble);
+        resource.addProperty(WGS84.longitude, lon, XSDDatatype.XSDdouble);
+
+        // add Point type
+        resource.addProperty(RDF.type, WGS84.Point);
+
+        // add tag
+        if (tag != null) {
+            resource.addProperty(MCA_GEO.hasTag, tag, XSDDatatype.XSDstring);
+        }
+
+        // a name becomes a label
+        if (name != null) {
+            resource.addProperty(RDFS.label, name, XSDDatatype.XSDstring);
+        }
+
+        if (houseNo != null && street != null && postCode != null) {
+            StringBuilder builder = new StringBuilder(houseNo);
+            builder.append(", ").append(street).append(", ").append(postCode);
+            resource.addProperty(VCARD.ADR, builder.toString(), XSDDatatype.XSDstring);
+        }
+
+        if (phone != null) {
+            phone = phone.replaceAll(" ", ""); // remove spaces
+            if (phone.startsWith("0")) {
+                phone = "+44" + phone.substring(1, phone.length());
+            }
+            resource.addProperty(FOAF.phone, model.createResource("tel:" + phone));
+        }
+
+        // does the node have a website?
+        if (website != null) {
+            if (website.startsWith("http")) {
+                resource.addProperty(FOAF.homepage, model.createResource(website));
+            }
+        }
+
+        // does the node have an email address?
+        if (email != null) {
+            resource.addProperty(FOAF.mbox, model.createResource("mailto:" + email));
+        }
+
+        // we are interested in amenities
+        if (isAmenity) {
+            resource.addProperty(RDF.type, MCA_GEO.Amenity);
+        }
+
+        // we are interested in shops (with an atm)
+        if (isShop) {
+            resource.addProperty(RDF.type, MCA_GEO.Shop);
+        }
+
+        if (isAtm) {
+            resource.addProperty(RDF.type, MCA_GEO.BuildingWithCashPoint);
+        }
 
     }
 
+    /**
+     * Reset the state to false (boolean) or null (String).
+     */
+    public void resetState() {
+        isNode = false;
+        isTag = false;
+        isAmenity = false;
+        isShop = false;
+        isAtm = false;
+        isOfInterest = false;
+        id = null;
+        lat = null;
+        lon = null;
+        name = null;
+        houseNo = null;
+        street = null;
+        postCode = null;
+        phone = null;
+        website = null;
+        email = null;
+        operator = null;
+        tag = null;
+    }
+
+    // ----------- workflow things ...
+
+    /**
+     * Load the amenities we are interested from an external file.
+     */
     private void loadItemsOfInterest() {
 
-        Scanner scanner = new Scanner(getClass().getResourceAsStream("/osm/amenities_of_interest.txt"));
+        itemsOfInterest = new ArrayList<String>();
+
+        Scanner scanner = new Scanner(getClass().getResourceAsStream(amenitiesOfInterest));
 
         while (scanner.hasNextLine()) {
             itemsOfInterest.add(scanner.next().trim());
         }
     }
-    
-    private List<String> itemsOfInterest = new ArrayList<String>();
+
+    /**
+     * Fire the reasoner rules against the RDF we have created.
+     */
+    void fireRules() {
+
+        model.add(ModelFactory.createInfModel(new GenericRuleReasoner(rules), model));
+    }
+
+    private List<String> itemsOfInterest;
 
 
     private Model model;
@@ -382,22 +495,48 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
     private final String keyAttr = "k";
     private final String valAttr = "v";
 
-    // types of nodes
+    // tag values we are interested in
     private final String amenityAttrVal = "amenity";
     private final String shopAttrVal = "shop";
-
     private final String idAttrVal = "id";
     private final String latAttrVal = "lat";
     private final String lonAttrVal = "lon";
+    private final String nameAttrVal = "name";
+    private final String houseNoAttrVal = "addr:housenumber";
+    private final String streetAttrVal = "addr:street";
+    private final String postCodeAttrVal = "addr:postcode";
+    private final String phoneAttrVal = "phone";
+    private final String websiteAttrVal = "website";
+    private final String emailAttrVal = "email";
+    private final String operatorAttrVal = "operator";
+    private final String atmAttrVal = "atm";
+    private final String yAttrVal = "y";
+    private final String yesAttrVal = "yes";
 
+    // help keep track of state
     private boolean isNode = false;
     private boolean isTag = false;
-
-    // keep track of the type of node
     private boolean isAmenity = false;
     private boolean isShop = false;
-    
+    private boolean isAtm = false;
+    private boolean isOfInterest = false;
+
+    // values we are interested in
     private String id = null;
     private String lat = null;
     private String lon = null;
+    private String name = null;
+    private String houseNo = null;
+    private String street = null;
+    private String postCode = null;
+    private String phone = null;
+    private String website = null;
+    private String email = null;
+    private String operator = null;
+    private String tag = null;
+
+    final private String uriBase = "mca://data/osm/node/";
+    final private String osmUriBase = "http://www.openstreetmap.org/api/0.6/node/";
+    final private String amenitiesOfInterest = "/osm/amenities_of_interest.txt";
+    final private String rulesFile = "/osm/rules/osmdata.rules";
 }
