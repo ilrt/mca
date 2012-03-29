@@ -132,6 +132,8 @@ public class DataResource extends AbstractResource {
                     String temp = templates.get(statement.getResource().getURI());
                     if (temp != null) {
                         template = temp;
+                    } else {
+                        template = "/fragments/default_bubble.ftl";
                     }
                 }
             }
