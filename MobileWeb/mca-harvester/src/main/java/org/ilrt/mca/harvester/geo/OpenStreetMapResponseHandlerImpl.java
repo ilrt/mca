@@ -59,7 +59,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -69,7 +71,6 @@ import java.util.Scanner;
  * that we are interested in are loaded from an external configuration file. When the
  * RDF is created we use a reasoner to create additional triples that assign
  * RDF types to the different points of interest.
- *
  *
  * @author Mike Jones (mike.a.jones@bristol.ac.uk)
  */
@@ -99,6 +100,8 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         fis.close();
         m.write(fos);
         fos.close();
+
+
     }
 
     /**
@@ -139,6 +142,7 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
 
             // create additional types
             fireRules();
+
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -192,12 +196,12 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
             isTag = true;
 
             // we are ony interested in tags within a node
-            if (isNode) {
+            if (isNode || isWay) {
 
                 processNodeType(attributes);
 
-                if (isAmenity) {
-                    processAmenityType(attributes);
+                if (isAmenity || isTourism) {
+                    processType(attributes);
                 }
 
                 // we have a key attribute in the tag ...
@@ -205,6 +209,17 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
                     processTagElement(attributes);
                 }
             }
+        }
+
+        if (qName.equals(wayElement)) {
+            // get the id for the way
+            processId(attributes);
+            isWay = true;
+        }
+
+        if (qName.equals(ndElement)) {
+            isNd = true;
+            nodeRef = attributes.getValue(refAttr);
         }
     }
 
@@ -222,13 +237,16 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         // node
         if (qName.equals(nodeElement)) {
 
+            // keep track of the point
+            nodes.put(id, new Point(lat, lon));
+
             // we are only interested in shops with an atm
             if (isShop && isAtm) {
                 isOfInterest = true;
             }
 
-            // place of interest, so create RDF
-            if (isOfInterest) {
+            // place of interest (but still in use), so create RDF
+            if (isOfInterest && !isDisused) {
                 processItemOfInterest();
             }
 
@@ -239,6 +257,20 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         // tag
         if (qName.equals(tagElement)) {
             isTag = false;
+        }
+
+        if (qName.equals(wayElement)) {
+            if (isOfInterest) {
+                processItemOfInterest();
+
+            }
+            isWay = false;
+            nodeRef = null;
+            resetState();
+        }
+
+        if (qName.equals(ndElement)) {
+            isNd = false;
         }
 
     }
@@ -283,6 +315,10 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
             if (type.equals(shopAttrVal)) {
                 isShop = true;
             }
+
+            if (type.equals(tourismAttrVal)) {
+                isTourism = true;
+            }
         }
     }
 
@@ -291,7 +327,7 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
      *
      * @param attributes the attributes attached to the element.
      */
-    private void processAmenityType(final Attributes attributes) {
+    private void processType(final Attributes attributes) {
 
         String type = attributes.getValue(valAttr);
 
@@ -361,6 +397,14 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
                     isAtm = true;
                 }
             }
+
+            // is disused?
+            if (attributes.getValue(keyAttr).equals(disusedAttrVal)) {
+                if (attributes.getValue(valAttr).equals(yAttrVal)
+                        || attributes.getValue(valAttr).equals(yesAttrVal)) {
+                    isDisused = true;
+                }
+            }
         }
     }
 
@@ -370,14 +414,25 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
      */
     private void processItemOfInterest() {
 
+        // local uri for the point
         Resource resource = model.createResource(uriBase + id);
 
-        // seeAlso
-        resource.addProperty(RDFS.seeAlso, model.createResource(osmUriBase + id));
+        // seeAlso - links to the
+        if (isNode) {
+            resource.addProperty(RDFS.seeAlso, model.createResource(osmNodeUriBase + id));
+        } else if (isWay) {
+            resource.addProperty(RDFS.seeAlso, model.createResource(osmWayUriBase + id));
+        }
 
         // add the latitude and longitude
-        resource.addProperty(WGS84.latitude, lat, XSDDatatype.XSDdouble);
-        resource.addProperty(WGS84.longitude, lon, XSDDatatype.XSDdouble);
+        if (isNode) {
+            resource.addProperty(WGS84.latitude, lat, XSDDatatype.XSDdouble);
+            resource.addProperty(WGS84.longitude, lon, XSDDatatype.XSDdouble);
+        } else if (isWay) {
+            Point point = nodes.get(nodeRef);
+            resource.addProperty(WGS84.latitude, point.getLat(), XSDDatatype.XSDdouble);
+            resource.addProperty(WGS84.longitude, point.getLon(), XSDDatatype.XSDdouble);
+        }
 
         // add Point type
         resource.addProperty(RDF.type, WGS84.Point);
@@ -428,8 +483,12 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
             resource.addProperty(RDF.type, MCA_GEO.Shop);
         }
 
+        // an atm
         if (isAtm) {
             resource.addProperty(RDF.type, MCA_GEO.BuildingWithCashPoint);
+            if (name == null && operator != null) {
+                resource.addProperty(RDFS.label, operator, XSDDatatype.XSDstring);
+            }
         }
 
     }
@@ -440,10 +499,14 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
     public void resetState() {
         isNode = false;
         isTag = false;
+        isWay = false;
+        isNd = false;
         isAmenity = false;
         isShop = false;
+        isTourism = false;
         isAtm = false;
         isOfInterest = false;
+        isDisused = false;
         id = null;
         lat = null;
         lon = null;
@@ -489,15 +552,28 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
 
     private final List<Rule> rules;
 
+    /**
+     * The XML elements that we will want to investigate.
+     */
     private final String nodeElement = "node";
     private final String tagElement = "tag";
+    private final String wayElement = "way";
+    private final String ndElement = "nd";
 
+    /**
+     * The attribute names that we will parse.
+     */
     private final String keyAttr = "k";
     private final String valAttr = "v";
+    private final String refAttr = "ref";
 
-    // tag values we are interested in
+    /**
+     * A lot of data is stored in 'key' or 'value' attributes. These are values that we are
+     * interested in while parsing data.
+     */
     private final String amenityAttrVal = "amenity";
     private final String shopAttrVal = "shop";
+    private final String tourismAttrVal = "tourism";
     private final String idAttrVal = "id";
     private final String latAttrVal = "lat";
     private final String lonAttrVal = "lon";
@@ -512,16 +588,28 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
     private final String atmAttrVal = "atm";
     private final String yAttrVal = "y";
     private final String yesAttrVal = "yes";
+    private final String disusedAttrVal = "disused";
+    private final String refAttrVal = "val";
 
-    // help keep track of state
+    /**
+     * We use a generous splattering of boolean variables to keep track of state.
+     * What type of tag are we in, what type of thing are we representing etc.
+     */
     private boolean isNode = false;
     private boolean isTag = false;
+    private boolean isWay = false;
+    private boolean isNd = false;
     private boolean isAmenity = false;
     private boolean isShop = false;
+    private boolean isTourism = false;
     private boolean isAtm = false;
     private boolean isOfInterest = false;
+    private boolean isDisused = false;
 
-    // values we are interested in
+    /**
+     * Keep track of values that we are interested in. Needs to be reset after hitting a
+     * closing Node or Way element.
+     */
     private String id = null;
     private String lat = null;
     private String lon = null;
@@ -535,8 +623,43 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
     private String operator = null;
     private String tag = null;
 
+    private String nodeRef = null;
+
+
     final private String uriBase = "mca://data/osm/node/";
-    final private String osmUriBase = "http://www.openstreetmap.org/api/0.6/node/";
-    final private String amenitiesOfInterest = "/osm/amenities_of_interest.txt";
+    final private String osmNodeUriBase = "http://www.openstreetmap.org/api/0.6/node/";
+    final private String osmWayUriBase = "http://www.openstreetmap.org/api/0.6/way/";
+    final private String amenitiesOfInterest = "/osm/items_of_interest.txt";
     final private String rulesFile = "/osm/rules/osmdata.rules";
+
+    private Map<String, Point> nodes = new HashMap<String, Point>();
+
+    // ---------- inner classes
+
+    /**
+     * Keep track of a point - something with a latitude and longitude. These objects are
+     * created when parsing the Node element, so we can find latitude and longitudes
+     * when processing Way elements (which refer back to Nodes). These are stored in-memory
+     * in a Map :-(.
+     */
+    private class Point {
+
+        private Point(String lat, String lon) {
+            this.lat = lat;
+            this.lon = lon;
+        }
+
+        public String getLat() {
+            return lat;
+        }
+
+        public String getLon() {
+            return lon;
+        }
+
+        private String lat;
+        private String lon;
+    }
+
 }
+

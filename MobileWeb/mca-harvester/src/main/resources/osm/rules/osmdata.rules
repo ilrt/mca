@@ -24,6 +24,8 @@
 (?a mcageo:hasTag 'fast_food') -> (?a rdf:type mcageo:fast_food),
                                   (?a rdf:type mcageo:eating_place) .
 (?a mcageo:hasTag 'fuel') -> (?a rdf:type mcageo:fuel) .
+(?a mcageo:hasTag 'gallery') -> (?a rdf:type mcageo:gallery) .
+(?a mcageo:hasTag 'museum') -> (?a rdf:type geonames:S.MUS) .
 (?a mcageo:hasTag 'nightclub') -> (?a rdf:type mcageo:nightclub) .
 (?a mcageo:hasTag 'pharmacy') -> (?a rdf:type mcageo:pharmacy) .
 (?a mcageo:hasTag 'police') -> (?a rdf:type geonames:S.PP) .
@@ -37,7 +39,7 @@
 (?a mcageo:hasTag 'telephone') -> (?a rdf:type mcageo:telephone) .
 (?a mcageo:hasTag 'theatre') -> (?a rdf:type geonames:S.THTR) .
 (?a mcageo:hasTag 'waste_basket') -> (?a rdf:type mcageo:waste_basket) .
-
+(?a mcageo:hasTag 'zoo') -> (?a rdf:type geonames:S.ZOO) .
 
 # these related to labels used to describe shops
 (?a mcageo:hasTag 'supermarket') -> (?a rdf:type mcageo:supermarket) .
