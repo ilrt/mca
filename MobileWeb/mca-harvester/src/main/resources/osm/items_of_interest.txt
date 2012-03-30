@@ -8,6 +8,8 @@ cafe
 cinema
 fast_food
 fuel
+gallery
+museum
 nightclub
 pharmacy
 police
@@ -19,3 +21,4 @@ restaurant
 telephone
 theatre
 waste_basket
+zoo
