@@ -90,6 +90,9 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
             System.exit(1);
         }
 
+        System.out.println("IN:  " + args[0]);
+        System.out.println("OUT: " + args[1]);
+
         // The data and output files
         FileInputStream fis = new FileInputStream(new File(args[0]));
         FileOutputStream fos = new FileOutputStream(new File(args[1]));
@@ -97,6 +100,7 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         // Process the xml and convert to RDF
         OpenStreetMapResponseHandlerImpl handler = new OpenStreetMapResponseHandlerImpl();
         Model m = handler.getModel(null, fis);
+        //m.write(System.out);
         fis.close();
         m.write(fos);
         fos.close();
@@ -372,7 +376,7 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
 
             // phone number
             if (attributes.getValue(keyAttr).equals(phoneAttrVal)) {
-                phone = attributes.getValue(valAttr);
+                phoneLabel = attributes.getValue(valAttr);
             }
 
             // website
@@ -447,18 +451,39 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
             resource.addProperty(RDFS.label, name, XSDDatatype.XSDstring);
         }
 
-        if (houseNo != null && street != null && postCode != null) {
-            StringBuilder builder = new StringBuilder(houseNo);
-            builder.append(", ").append(street).append(", ").append(postCode);
+        if (houseNo != null || street != null || postCode != null) {
+
+            StringBuilder builder = new StringBuilder();
+
+            if (houseNo != null) {
+                builder.append(houseNo);
+            }
+
+            if (street != null) {
+                if (builder.length() > 0) {
+                    builder.append(", ");
+                }
+                builder.append(street);
+            }
+
+            if (postCode != null) {
+                if (builder.length() > 0) {
+                    builder.append(", ");
+                }
+                builder.append(postCode);
+            }
+
             resource.addProperty(VCARD.ADR, builder.toString(), XSDDatatype.XSDstring);
         }
 
-        if (phone != null) {
-            phone = phone.replaceAll(" ", ""); // remove spaces
-            if (phone.startsWith("0")) {
-                phone = "+44" + phone.substring(1, phone.length());
+        if (phoneLabel != null) {
+            phoneUri = phoneLabel.replaceAll(" ", ""); // remove spaces
+            if (phoneUri.startsWith("0")) {
+                phoneUri = "+44" + phoneUri.substring(1, phoneUri.length());
             }
-            resource.addProperty(FOAF.phone, model.createResource("tel:" + phone));
+            Resource pu = model.createResource("tel:" + phoneUri);
+            pu.addProperty(RDFS.label, phoneLabel);
+            resource.addProperty(FOAF.phone, pu);
         }
 
         // does the node have a website?
@@ -470,7 +495,9 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
 
         // does the node have an email address?
         if (email != null) {
-            resource.addProperty(FOAF.mbox, model.createResource("mailto:" + email));
+            Resource eu = model.createResource("mailto:" + email);
+            eu.addProperty(RDFS.label, email);
+            resource.addProperty(FOAF.mbox, eu);
         }
 
         // we are interested in amenities
@@ -514,7 +541,8 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
         houseNo = null;
         street = null;
         postCode = null;
-        phone = null;
+        phoneLabel = null;
+        phoneUri = null;
         website = null;
         email = null;
         operator = null;
@@ -617,7 +645,8 @@ public class OpenStreetMapResponseHandlerImpl extends DefaultHandler implements 
     private String houseNo = null;
     private String street = null;
     private String postCode = null;
-    private String phone = null;
+    private String phoneLabel = null;
+    private String phoneUri = null;
     private String website = null;
     private String email = null;
     private String operator = null;

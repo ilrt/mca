@@ -32,6 +32,7 @@
 package org.ilrt.mca.harvester.geo;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.vocabulary.RDF;
 import org.ilrt.mca.harvester.AbstractTest;
 import org.ilrt.mca.harvester.HttpResolverImpl;
@@ -74,7 +75,8 @@ public class OpenStreetMapResponseHandlerImplTest extends AbstractTest {
         // check that are number of inferred types are available
         assertTrue(model.contains(null, RDF.type, MCA_GEO.Amenity));
         assertTrue(model.contains(null, RDF.type, MCA_GEO.ArtsCentre));
-        assertTrue(model.contains(null, RDF.type, MCA_GEO.Bank));
+        assertTrue(model.contains(null, RDF.type,
+                ResourceFactory.createResource("http://www.geonames.org/ontology#S.BANK")));
         assertTrue(model.contains(null, RDF.type, MCA_GEO.PostBox));
         assertTrue(model.contains(null, RDF.type, MCA_GEO.BicycleParking));
         assertTrue(model.contains(null, RDF.type, MCA_GEO.Pharmacy));
@@ -97,7 +99,7 @@ public class OpenStreetMapResponseHandlerImplTest extends AbstractTest {
 
         // check that are number of inferred types are available
         assertTrue(model.contains(null, RDF.type, MCA_GEO.Shop));
-        assertTrue(model.contains(null, RDF.type, MCA_GEO.Supermarket));
+//        assertTrue(model.contains(null, RDF.type, MCA_GEO.Supermarket));
         assertTrue(model.contains(null, RDF.type, MCA_GEO.BuildingWithCashPoint));
     }
 
