@@ -144,7 +144,7 @@ public class FreeMarkerTemplateProcessor implements ViewProcessor<Template> {
         googleAnalyticsKey = context.getInitParameter("googleAnalyticsKey");
         domain = context.getInitParameter("domain");
 
-        if (!domain.endsWith("/")) {
+        if (domain!= null && !domain.endsWith("/")) {
             domain += "/";
         }
 
