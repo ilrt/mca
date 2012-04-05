@@ -5,10 +5,19 @@ PREFIX mca:     <http://vocab.bris.ac.uk/mca/registry#>
 PREFIX dc:      <http://purl.org/dc/elements/1.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rss:     <http://purl.org/rss/1.0/>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
 CONSTRUCT {
     $s $p $o .
+    $s foaf:phone $phone .
+    $phone rdfs:label $label .
+    $s foaf:mbox $email .
+    $email rdfs:label $emailLabel .
 } WHERE {
     GRAPH $graph {
         $s $p $o .
-    }
+        OPTIONAL { $s foaf:phone $phone .
+                    $phone rdfs:label $label } .
+        OPTIONAL { $s foaf:mbox $email .
+                   $email rdfs:label $emailLabel } .
+     }
 }
