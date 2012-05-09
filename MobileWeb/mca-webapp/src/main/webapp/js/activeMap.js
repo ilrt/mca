@@ -72,11 +72,11 @@ var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, ma
         map = new google.maps.Map(document.getElementById(mapElementId), myOptions);
 
         // do the markers
-        getMarkerData(markerUrl);
+        getMarkerData(markerUrl, map);
 
         // we use the loading of viewable tiles to trigger the refreshing of the markers
         google.maps.event.addListener(map, 'tilesloaded', function() {
-            overlayMarkers();
+            overlayMarkers(map, markers);
         });
 
         // test - restrict zoom out
@@ -89,41 +89,6 @@ var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, ma
         findLocation();
 
     }
-
-    // refresh the markers display
-    var overlayMarkers = function() {
-
-        // calculate a bounding box slightly bigger
-        // than the existing viewport
-        var map_bounds = map.getBounds();
-
-        var sw = map_bounds.getSouthWest();
-        var ne = map_bounds.getNorthEast();
-
-        var new_sw = new google.maps.LatLng(sw.lat() - 0.002, sw.lng() - 0.002);
-        var new_ne = new google.maps.LatLng(ne.lat() + 0.002, ne.lng() + 0.002);
-
-        var sub_bounds = new google.maps.LatLngBounds(new_sw, new_ne);
-
-        // step through the markers showing and
-        // hiding as necessary
-        for (var j = 0; j < markers.length; ++j) {
-            if (sub_bounds.contains(markers[j].getPosition())) {
-
-                if (markers[j].getMap(map) == null) {
-                    markers[j].setMap(map);
-                }
-
-                if (!markers[j].getVisible()) { // only show if not already visible
-                    markers[j].setVisible(true);
-                }
-            } else {
-                markers[j].setMap(null); // removes from map
-                markers[j].setVisible(false);
-            }
-        }
-
-    };
 
     findLocation = function() {
 
@@ -229,6 +194,40 @@ var initializeMap = function(mapElementId, defaultLatitude, defaultLongitude, ma
         return d.toFixed(3) * 1000;
     }
 
+
+};
+
+var overlayMarkers = function(map, markers) {
+
+    // calculate a bounding box slightly bigger
+    // than the existing viewport
+    var map_bounds = map.getBounds();
+
+    var sw = map_bounds.getSouthWest();
+    var ne = map_bounds.getNorthEast();
+
+    var new_sw = new google.maps.LatLng(sw.lat() - 0.002, sw.lng() - 0.002);
+    var new_ne = new google.maps.LatLng(ne.lat() + 0.002, ne.lng() + 0.002);
+
+    var sub_bounds = new google.maps.LatLngBounds(new_sw, new_ne);
+
+    // step through the markers showing and
+    // hiding as necessary
+    for (var j = 0; j < markers.length; ++j) {
+        if (sub_bounds.contains(markers[j].getPosition())) {
+
+            if (markers[j].getMap(map) == null) {
+                markers[j].setMap(map);
+            }
+
+            if (!markers[j].getVisible()) { // only show if not already visible
+                markers[j].setVisible(true);
+            }
+        } else {
+            markers[j].setMap(null); // removes from map
+            markers[j].setVisible(false);
+        }
+    }
 
 };
 
@@ -380,7 +379,7 @@ var setInfoContent = function(infowindow, json) {
 }
 
 //ajax request for marker data
-var getMarkerData = function(url) {
+var getMarkerData = function(url, map) {
 
     var xmlhttp;
 
@@ -402,7 +401,7 @@ var getMarkerData = function(url) {
         if (xmlhttp.readyState == 4) {
 
             // populate the markers array
-            createMarkers(xmlhttp.responseText);
+            createMarkers(xmlhttp.responseText, map);
 
         }
 
@@ -418,7 +417,7 @@ var getMarkerData = function(url) {
 }
 
 // intialise the markers
-var createMarkers = function(markerJson) {
+var createMarkers = function(markerJson, map) {
 
     // slurp the incoming json
     var m = eval('(' + markerJson + ')');
@@ -466,6 +465,8 @@ var createMarkers = function(markerJson) {
         }
         markers[i] = marker;
     }
+
+    overlayMarkers(map, markers);
 };
 
 
