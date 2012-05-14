@@ -42,4 +42,6 @@ public interface ItemDao {
 
     Resource findResource(String id, MultivaluedMap<String, String> parameters);
 
+    Resource findResource(String id, MultivaluedMap<String, String> parameters, String domain);
+
 }

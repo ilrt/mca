@@ -83,6 +83,8 @@ public class MCA_REGISTRY {
 
     public static final Resource OSMGeoSource = model.createProperty(NS + "OSMGeoSource");
 
+    public static final Resource DynamicNavigation = model.createProperty(NS + "DynamicNavigation");
+
 
     // ----- Properties
 
@@ -127,4 +129,6 @@ public class MCA_REGISTRY {
     public static final Property groupType = model.createProperty(NS + "groupType");
 
     public static final Property shortLabel = model.createProperty(NS + "shortLabel");
+
+    public static final Property hasType = model.createProperty(NS + "hasType");
 }

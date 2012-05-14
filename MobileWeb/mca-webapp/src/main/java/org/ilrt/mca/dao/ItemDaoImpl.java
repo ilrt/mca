@@ -39,6 +39,7 @@ import org.ilrt.mca.dao.delegate.ActiveMapDelegateImpl;
 import org.ilrt.mca.dao.delegate.ContactsDelegateImpl;
 import org.ilrt.mca.dao.delegate.Delegate;
 import org.ilrt.mca.dao.delegate.DirectoryDelegateImpl;
+import org.ilrt.mca.dao.delegate.DynamicNavigationDelegateImpl;
 import org.ilrt.mca.dao.delegate.EventDelegateImpl;
 import org.ilrt.mca.dao.delegate.FeedDelegateImpl;
 import org.ilrt.mca.dao.delegate.HtmlFragmentDelegateImpl;
@@ -71,9 +72,6 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
             return null;
         }
 
-        //model.write(System.out);
-
-
         // hand work to a delegate if possible
         Resource resource = model.getResource(id);
         Delegate delegate = findDelegate(resource);
@@ -85,7 +83,27 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         return model.getResource(id);
     }
 
-    private Delegate findDelegate(Resource resource) {
+    @Override
+    public Resource findResource(String id, MultivaluedMap<String, String> parameters, String domain) {
+
+        Model model = queryManager.find("s", id, findItemsSparql);
+
+        if (model.isEmpty()) {
+            return null;
+        }
+
+        // hand work to a delegate if possible
+        Resource resource = model.getResource(id);
+        Delegate delegate = findDelegate(resource, domain);
+
+        if (delegate != null) {
+            return delegate.createResource(resource, parameters);
+        }
+
+        return model.getResource(id);
+    }
+
+    private Delegate findDelegate(Resource resource, String domain) {
 
         if (resource.hasProperty(RDF.type)) {
 
@@ -108,6 +126,8 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
                 return new DirectoryDelegateImpl(queryManager);
             } else if (type.equals(MCA_REGISTRY.EventCalendar.getURI())) {
                 return new EventDelegateImpl(queryManager);
+            } else if (type.equals(MCA_REGISTRY.DynamicNavigation.getURI())) {
+                return new DynamicNavigationDelegateImpl(queryManager, domain);
             }
 
             log.debug("Haven't found an appropriate delegate");
@@ -116,6 +136,9 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         return null; // 
     }
 
+    private Delegate findDelegate(Resource resource) {
+        return findDelegate(resource, null);
+    }
 
     private String findItemsSparql = null;
     private QueryManager queryManager;

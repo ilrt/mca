@@ -70,7 +70,7 @@ public class MobileCampusResource extends AbstractResource {
     @Produces(MediaType.TEXT_HTML)
     public Response getGroupsAsHtml(@PathParam("path") String path, @Context UriInfo ui) {
 
-        Resource resource = itemDao.findResource(getDomain("") + path, ui.getQueryParameters());
+        Resource resource = createResource(path, ui);
 
         if (resource == null || resource.getModel().size() == 0) {
             return Response.status(Response.Status.NOT_FOUND).entity(new Viewable("/404.ftl",
@@ -113,7 +113,7 @@ public class MobileCampusResource extends AbstractResource {
 
     private Resource createResource(@PathParam("path") String path, @Context UriInfo ui) {
 
-        return itemDao.findResource(getDomain("") + path, ui.getQueryParameters());
+        return itemDao.findResource(getDomain("") + path, ui.getQueryParameters(), getDomain(""));
     }
 
 
@@ -123,7 +123,7 @@ public class MobileCampusResource extends AbstractResource {
             return resource.getProperty(MCA_REGISTRY.template).getResource().getURI();
         } else {
             log.warn("Unable to find a template.");
-            return null;
+            return "template://fallback.ftl";
         }
     }
 
