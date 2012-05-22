@@ -1,10 +1,10 @@
 package org.ilrt.mca.rest.resources;
 
-import com.sun.jersey.spi.container.servlet.WebConfig;
 import org.ilrt.mca.rdf.ConnPoolStoreWrapperManagerImpl;
 import org.ilrt.mca.rdf.DataSourceManager;
 import org.ilrt.mca.rdf.StoreWrapperManager;
 
+import javax.servlet.ServletContext;
 import javax.ws.rs.core.Context;
 
 public abstract class AbstractResource {
@@ -25,7 +25,7 @@ public abstract class AbstractResource {
     protected String getDomain(String path) {
 
         if (domain == null) {
-            domain = config.getServletContext().getInitParameter("domain");
+            domain = config.getInitParameter("domain");
 
             if (domain != null) {
                 if (!domain.endsWith("/")) {
@@ -46,5 +46,5 @@ public abstract class AbstractResource {
 
     @Context
     private
-    WebConfig config;
+    ServletContext config;
 }
