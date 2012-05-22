@@ -89,7 +89,7 @@ public class DynamicNavigationDelegateImpl extends AbstractDao implements Delega
             resource.getModel().add(model);
         }
 
-        resource.getModel().write(System.out);
+        //resource.getModel().write(System.out);
 
         return resource;
     }
