@@ -15,6 +15,7 @@
     <name>mca-webapp (Web Application)</name>
     <url>http://maven.apache.org</url>
 
+
     <profiles>
         <profile>
             <id>dev</id>
@@ -28,9 +29,22 @@
                 <plugins>
                     <plugin>
                         <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>maven-jetty-plugin</artifactId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <version>8.1.3.v20120416</version>
                         <configuration>
-                            <jettyConfig>src/test/resources/jetty.xml</jettyConfig>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <webAppConfig>
+                                <contextPath>/</contextPath>
+                                <descriptor>${project.build.directory}/web.xml</descriptor>
+                                <jettyEnvXml>${basedir}/src/test/resources/jetty-env.xml
+                                </jettyEnvXml>
+                            </webAppConfig>
+                            <scanTargets>
+                                <scanTarget>${basedir}/src/main/webapp/images/</scanTarget>
+                                <scanTarget>${basedir}/src/main/webapp/js/</scanTarget>
+                                <scanTarget>${basedir}/src/main/webapp/style/</scanTarget>
+                                <scanTarget>${basedir}/src/main/webapp/WEB-INF/templates/</scanTarget>
+                            </scanTargets>
                             <systemProperties>
                                 <systemProperty>
                                     <name>net.sf.ehcache.disabled</name>
@@ -79,9 +93,15 @@
                 <plugins>
                     <plugin>
                         <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>maven-jetty-plugin</artifactId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <version>8.1.3.v20120416</version>
                         <configuration>
-                            <jettyConfig>src/test/resources/jetty.xml</jettyConfig>
+                            <webAppConfig>
+                                <contextPath>/</contextPath>
+                                <descriptor>${project.build.directory}/web.xml</descriptor>
+                                <jettyEnvXml>${basedir}/src/test/resources/jetty-env.xml
+                                </jettyEnvXml>
+                            </webAppConfig>
                             <systemProperties>
                                 <systemProperty>
                                     <name>net.sf.ehcache.disabled</name>
@@ -140,12 +160,14 @@
 
     <build>
         <finalName>${warName}</finalName>
+
         <filters>
             <filter>${filter.location}</filter>
         </filters>
+
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
             <resource>
@@ -168,13 +190,13 @@
         <plugins>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.26</version>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.3.v20120416</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/</contextPath>
+                        <descriptor>${project.build.directory}/web.xml</descriptor>
                     </webAppConfig>
-                    <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
             <plugin>
