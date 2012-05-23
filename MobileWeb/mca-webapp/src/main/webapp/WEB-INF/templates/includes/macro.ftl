@@ -146,6 +146,9 @@ ${temp?datetime("yyyy-MM-dd\'T\'HH:mm:ssZ")?string('d MMM yyyy')}&nbsp;<#if temp
     <#assign key>${resource['mca:hasParent']?first}?item=${resource}</#assign>
 <#elseif resource['rdf:type']?first == 'http://www.w3.org/2002/12/cal/ical#Vevent'>
     <#assign key>${resource['mca:hasParent']?first}?item=${resource['ical:uid']?first}</#assign>
+<#elseif resource['rdf:type']?first == 'http://vocab.bris.ac.uk/mca/geo#vcrooms'>
+    <#assign val>${resource?substring(domain?length, resource?length)}</#assign>
+    <#assign key>${resource['mca:hasParent']?first}?id=${val}</#assign>
 </#if>
 ${key?xml}
 </#if>

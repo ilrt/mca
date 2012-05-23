@@ -52,8 +52,8 @@ var Shortcuts =  {
                 for (var i = 0; i < localStorage.length; i++) {
                     var key = localStorage.key(i);
                     var value = localStorage[key];
-                    var url = this.contextPath + "/" + key.substr(15, key.length);
-                    shortcutHtml = shortcutHtml + '<li><a href="' + url + '">' + value + '</a></li>';
+                    //var url = this.contextPath + "/" + key.substr(15, key.length);
+                    shortcutHtml = shortcutHtml + '<li><a href="' + key + '">' + value + '</a></li>';
                 }
                 shortcutHtml = shortcutHtml + "</ul></nav>";
                 $('#shortcuts').append(shortcutHtml);
