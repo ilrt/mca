@@ -85,6 +85,8 @@ public class MCA_REGISTRY {
 
     public static final Resource DynamicNavigation = model.createProperty(NS + "DynamicNavigation");
 
+    public static final Resource DynamicNavigationItem = model.createProperty(NS + "DynamicNavigationItem");
+
 
     // ----- Properties
 

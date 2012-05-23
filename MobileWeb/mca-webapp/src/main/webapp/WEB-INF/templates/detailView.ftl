@@ -14,5 +14,6 @@
 <#if resource['vcard:ADR']??>
     <p class="contact-address">${resource['vcard:ADR']?first}</p>
 </#if>
+
 </div>
 <#include "includes/footer.ftl"/>

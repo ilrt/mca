@@ -19,6 +19,7 @@ import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import com.hp.hpl.jena.vocabulary.RDF;
 import org.ilrt.mca.dao.AbstractDao;
 import org.ilrt.mca.rdf.QueryManager;
 import org.ilrt.mca.vocab.MCA_REGISTRY;
@@ -34,7 +35,7 @@ public class DynamicNavigationDelegateImpl extends AbstractDao implements Delega
     public DynamicNavigationDelegateImpl(QueryManager queryManager, String domain) {
         try {
             this.queryManager = queryManager;
-            findTypeSparqlQuery = loadSparql("/sparql/findByType.rql");
+            findTypeSparqlQuery = loadSparql("/sparql/findByTypeForDynamicNavigation.rql");
             findDataSparqlQuery = loadSparql("/sparql/findData.rql");
             this.domain = domain;
         } catch (IOException ex) {
@@ -57,11 +58,11 @@ public class DynamicNavigationDelegateImpl extends AbstractDao implements Delega
 
 
             Model m = queryManager.find(bindings, findDataSparqlQuery);
-            m.add(m.createStatement(resource, MCA_REGISTRY.hasItem, r));
-            m.add(m.createStatement(r, MCA_REGISTRY.hasParent, resource));
-            m.add(m.createStatement(r, MCA_REGISTRY.template,
-                    ResourceFactory.createResource("template://detailView.ftl")));
-            m.add(m.createStatement(r, MCA_REGISTRY.shortLabel, "Details"));
+            m.add(resource, MCA_REGISTRY.hasItem, r);
+            m.add(r, MCA_REGISTRY.hasParent, resource);
+            m.add(r, MCA_REGISTRY.template, ResourceFactory.createResource("template://detailView.ftl"));
+            m.add(r, MCA_REGISTRY.shortLabel, "Details");
+            m.add(r, RDF.type, MCA_REGISTRY.DynamicNavigationItem);
 
             if (resource.hasProperty(MCA_REGISTRY.style)) {
                 m.add(m.createStatement(r, MCA_REGISTRY.style,
