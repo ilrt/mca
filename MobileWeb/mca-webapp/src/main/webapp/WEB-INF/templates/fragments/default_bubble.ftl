@@ -17,4 +17,4 @@
 <p>Sorry, there are no details.</p>
 </#if>
 
-<p>${resource}</p>
+<#--<p>${resource}</p>-->
