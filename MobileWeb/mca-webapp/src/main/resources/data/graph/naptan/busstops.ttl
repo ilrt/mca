@@ -10234,14 +10234,6 @@ geo:long "-2.58387"^^xsd:double ;
 .
 
 
-<mca://data/naptan/bustops/busstop/0100BRP90312> rdf:type geo:Point ;
-rdf:type <http://www.geonames.org/ontology#S.BUSTP> ;
-rdfs:label "Temple Meads" ;
-geo:lat "51.44929"^^xsd:double ;
-geo:long "-2.58227"^^xsd:double ;
-.
-
-
 <mca://data/naptan/bustops/busstop/0100BRP90313> rdf:type geo:Point ;
 rdf:type <http://www.geonames.org/ontology#S.BUSTP> ;
 rdfs:label "Temple Meads" ;
