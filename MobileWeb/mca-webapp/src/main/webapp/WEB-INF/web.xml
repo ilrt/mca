@@ -135,6 +135,38 @@
         <url-pattern>/today/</url-pattern>
         <url-pattern>/maps/</url-pattern>
         <url-pattern>/news/</url-pattern>
+        <url-pattern>/js/*</url-pattern>
+        <url-pattern>/style/*</url-pattern>
+        <url-pattern>/images/*</url-pattern>
+        <url-pattern>/geo/type/*</url-pattern>
+        <url-pattern>/data/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>MediumCacheLifeFilter</filter-name>
+        <url-pattern>/maps/precinct/*</url-pattern>
+        <url-pattern>/maps/wireless/*</url-pattern>
+        <url-pattern>/maps/busstops/*</url-pattern>
+        <url-pattern>/news/alerts/*</url-pattern>
+        <url-pattern>/news/main/*</url-pattern>
+        <url-pattern>/news/academic/*</url-pattern>
+        <url-pattern>/news/services/*</url-pattern>
+        <url-pattern>/news/ubu/*</url-pattern>
+        <url-pattern>/contacts/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>ShortCacheLifeFilter</filter-name>
+        <url-pattern>/today/news/*</url-pattern>
+        <url-pattern>/today/it/*</url-pattern>
+        <url-pattern>/today/events/*</url-pattern>
+        <url-pattern>/events/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
         <dispatcher>FORWARD</dispatcher>
