@@ -25,3 +25,6 @@ atlassian-ide-plugin.xml
 *.perspectivev3
 *.pyc
 *~.nib/
+build/*
+
+*.versionsBackup
