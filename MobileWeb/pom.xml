@@ -6,7 +6,7 @@
     <groupId>org.ilrt.mca</groupId>
     <artifactId>mca</artifactId>
     <packaging>pom</packaging>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <name>Mobile Campus Assistant</name>
     <url>http://maven.apache.org</url>
 
