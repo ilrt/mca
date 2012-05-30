@@ -243,6 +243,10 @@ public class RegistryInitServlet extends HttpServlet {
 
             String graph = "mca://";
 
+            if (domain != null) {
+                graph = domain;
+            }
+
             // limit the number of forward slashes at the start of the named graph
             graph += df.startsWith("/") ? df.substring(1) : df;
 
