@@ -288,14 +288,22 @@ public class RegistryInitServlet extends HttpServlet {
      */
     private Model createTransformModelFromFile(String file) {
 
+
+
         // setup graph and sink to replace placeholder with domain
         Graph g = GraphFactory.createDefaultGraph();
         Sink<Triple> sink = new ModifyUriSink(g);
         NodeTransform transform = new ModifyUriNodeTransform(prefix, domain);
 
+        try {
         // transform with the riot loader
         RiotLoader.readTriples(getClass().getResourceAsStream(file), langType(file), null,
                 new SinkTripleNodeTransform(sink, transform));
+
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to transform triples from file : file; "
+                    + e.getMessage());
+        }
 
         return ModelFactory.createModelForGraph(g);
     }
