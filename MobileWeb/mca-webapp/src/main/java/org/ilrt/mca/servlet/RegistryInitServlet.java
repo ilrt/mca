@@ -301,7 +301,7 @@ public class RegistryInitServlet extends HttpServlet {
                 new SinkTripleNodeTransform(sink, transform));
 
         } catch (Exception e) {
-            throw new RuntimeException("Unable to transform triples from file : file; "
+            throw new RuntimeException("Unable to transform triples from file :" + file + "; "
                     + e.getMessage());
         }
 
