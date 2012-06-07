@@ -7,7 +7,7 @@
     <parent>
         <artifactId>mca-maven-plugins</artifactId>
         <groupId>org.ilrt.mca.plugins</groupId>
-        <version>0.8</version>
+        <version>0.9-SNAPSHOT</version>
     </parent>
     <groupId>org.ilrt.mca.plugins</groupId>
     <artifactId>data-maven-plugin</artifactId>
