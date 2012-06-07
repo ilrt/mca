@@ -295,15 +295,9 @@ public class RegistryInitServlet extends HttpServlet {
         Sink<Triple> sink = new ModifyUriSink(g);
         NodeTransform transform = new ModifyUriNodeTransform(prefix, domain);
 
-        try {
         // transform with the riot loader
-        RiotLoader.readTriples(getClass().getResourceAsStream(file), langType(file), null,
+        RiotLoader.readTriples(getClass().getResourceAsStream(file), langType(file), "",
                 new SinkTripleNodeTransform(sink, transform));
-
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to transform triples from file :" + file + "; "
-                    + e.getMessage());
-        }
 
         return ModelFactory.createModelForGraph(g);
     }
