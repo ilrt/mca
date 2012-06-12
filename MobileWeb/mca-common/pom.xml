@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.15</version>
+            <version>2.3.17</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -76,13 +76,18 @@
             <artifactId>jena-sdb</artifactId>
             <version>${sdb.version}</version>
         </dependency>
-        <!--
+        <!-- needed to stop a "Could not load the translet class 'GregorSamsa'" error-->
         <dependency>
             <groupId>xalan</groupId>
             <artifactId>xalan</artifactId>
             <version>2.7.1</version>
         </dependency>
-        -->
+        <!-- needed to stop Jena moaning when we use xalan and xerces from above  -->
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
+        </dependency>
     </dependencies>
 
     <properties>
