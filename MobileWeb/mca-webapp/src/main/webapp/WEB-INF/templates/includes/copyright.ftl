@@ -1,1 +1,2 @@
-<p id="copyright">&copy; 2011 University of Bristol</p>
+<#assign aDateTime = .now>
+<p id="copyright">&copy; ${aDateTime?string("yyyy")} University of Bristol</p>

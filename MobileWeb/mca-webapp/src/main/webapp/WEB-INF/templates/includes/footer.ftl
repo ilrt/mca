@@ -4,7 +4,9 @@
 
 <footer>
 <p><a href="${contextPath}/">Mobile Bristol home</a> | <a href="http://www.bristol.ac.uk">main University website</a></p>
-<p class="legal">&#169;2011 University of Bristol</p>
+<p><a href="${contextPath}/cookies/">Privacy and cookie policy</a></p>
+<#assign aDateTime = .now>
+<p class="legal">&#169;${aDateTime?string("yyyy")} University of Bristol</p>
 </footer>
 </div>
 
