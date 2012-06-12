@@ -7,7 +7,7 @@
     <parent>
         <artifactId>mca</artifactId>
         <groupId>org.ilrt.mca</groupId>
-        <version>0.9-SNAPSHOT</version>
+        <version>0.9</version>
     </parent>
     <groupId>org.ilrt.mca</groupId>
     <artifactId>mca-jena-freemarker</artifactId>
