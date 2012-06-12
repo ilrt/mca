@@ -3,6 +3,9 @@
 <p><strong>${resource['rdfs:label']?first}</p>
 <#assign content = true>
 </#if>
+<#if resource['dc:description']??>
+<p><strong>${resource['dc:description']?first}</p>
+</#if>
 <#if resource['vcard:ADR']??>
 <p><strong>${resource['vcard:ADR']?first}</p>
 <#assign content = true>
