@@ -1,0 +1,147 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix mca:        <http://vocab.bris.ac.uk/mca/registry#> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix geo:        <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix mcageo:     <http://vocab.bris.ac.uk/mca/geo#> .
+@prefix gn:         <http://www.geonames.org/ontology#> .
+
+<mca://data/waypoints/bustation/precinct/1> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat " 51.458659"^^xsd:double ;
+geo:long " -2.593684"^^xsd:double ;
+mca:order "1"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/2> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.458359"^^xsd:double ;
+geo:long "-2.593845"^^xsd:double ;
+mca:order "2"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/3> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat " 51.458703"^^xsd:double ;
+geo:long "-2.594766"^^xsd:double ;
+mca:order "3"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/4> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.458908"^^xsd:double ;
+geo:long "-2.595485"^^xsd:double ;
+mca:order "4"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/5> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.458388"^^xsd:double ;
+geo:long "-2.596077"^^xsd:double ;
+mca:order "5"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/6> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.457179"^^xsd:double ;
+geo:long "-2.597233"^^xsd:double ;
+mca:order "6"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/7> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.456556"^^xsd:double ;
+geo:long "-2.597884"^^xsd:double ;
+mca:order "7"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/8> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.456156"^^xsd:double ;
+geo:long "-2.598386"^^xsd:double ;
+mca:order "8"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/9> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.455620"^^xsd:double ;
+geo:long "-2.599548"^^xsd:double ;
+mca:order "9"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/10> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.455498"^^xsd:double ;
+geo:long "-2.600039"^^xsd:double ;
+mca:order "10"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/11> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.455347"^^xsd:double ;
+geo:long "-2.601529"^^xsd:double ;
+mca:order "11"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/12> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.455713"^^xsd:double ;
+geo:long "-2.602286"^^xsd:double ;
+mca:order "12"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/13> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.456231"^^xsd:double ;
+geo:long "-2.603054"^^xsd:double ;
+mca:order "13"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/14> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.456721"^^xsd:double ;
+geo:long "-2.603489"^^xsd:double ;
+mca:order "14"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/15> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.457507"^^xsd:double ;
+geo:long "-2.603818"^^xsd:double ;
+mca:order "15"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/16> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.458046"^^xsd:double ;
+geo:long "-2.603890"^^xsd:double ;
+mca:order "16"^^xsd:integer ;
+.
+
+<mca://data/waypoints/bustation/precinct/17> rdf:type geo:Point ;
+rdf:type mcageo:BusStationWayPoint ;
+mcageo:hasTag "busstop_precinct"^^xsd:string ;
+geo:lat "51.458647"^^xsd:double ;
+geo:long "-2.603709"^^xsd:double ;
+mca:order "17"^^xsd:integer ;
+.
