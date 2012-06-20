@@ -56,6 +56,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -211,6 +212,8 @@ public class GeoResource extends AbstractResource {
      */
     private JSONObject jsonRepresentationOfModel(final Model m) {
 
+        boolean ordered = false;
+
         ResIterator iter = m.listResourcesWithProperty(RDF.type, WGS84.Point);
 
         JSONArray jsonArray = new JSONArray();
@@ -243,6 +246,17 @@ public class GeoResource extends AbstractResource {
             if (resource.hasProperty(MCA_REGISTRY.icon)) {
                 map.put("icon", resource.getProperty(MCA_REGISTRY.icon).getLiteral()
                         .getLexicalForm());
+            }
+
+            if (resource.hasProperty(MCA_REGISTRY.icon)) {
+                map.put("icon", resource.getProperty(MCA_REGISTRY.icon).getLiteral()
+                        .getLexicalForm());
+            }
+
+            if (resource.hasProperty(MCA_REGISTRY.order)) {
+                map.put("order", resource.getProperty(MCA_REGISTRY.order).getLiteral()
+                        .getLexicalForm());
+                ordered = true;
             }
 
             jsonArray.put(map);
