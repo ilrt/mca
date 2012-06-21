@@ -1,0 +1,275 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix mca:        <http://vocab.bris.ac.uk/mca/registry#> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix geo:        <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix mcageo:     <http://vocab.bris.ac.uk/mca/geo#> .
+@prefix gn:         <http://www.geonames.org/ontology#> .
+
+<mca://data/waypoints/btm/precinct/1> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449586"^^xsd:double ;
+geo:long "-2.581230"^^xsd:double ;
+mca:order "1"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/2> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448613"^^xsd:double ;
+geo:long "-2.583547"^^xsd:double ;
+mca:order "2"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/3> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448504"^^xsd:double ;
+geo:long "-2.583931"^^xsd:double ;
+mca:order "3"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/4> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448733"^^xsd:double ;
+geo:long "-2.584388"^^xsd:double ;
+mca:order "4"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/5> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448873"^^xsd:double ;
+geo:long "-2.585434"^^xsd:double ;
+mca:order "5"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/6> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448888"^^xsd:double ;
+geo:long "-2.586480"^^xsd:double ;
+mca:order "6"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/7> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448894"^^xsd:double ;
+geo:long "-2.586893"^^xsd:double ;
+mca:order "7"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/8> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448713"^^xsd:double ;
+geo:long "-2.589098"^^xsd:double ;
+mca:order "8"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/9> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448763"^^xsd:double ;
+geo:long "-2.589890"^^xsd:double ;
+mca:order "9"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/10> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448563"^^xsd:double ;
+geo:long "-2.590237"^^xsd:double ;
+mca:order "10"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/11> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448602"^^xsd:double ;
+geo:long "-2.590524"^^xsd:double ;
+mca:order "11"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/12> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.448850"^^xsd:double ;
+geo:long "-2.590723"^^xsd:double ;
+mca:order "12"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/13> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449192"^^xsd:double ;
+geo:long "-2.590935"^^xsd:double ;
+mca:order "13"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/14> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449371"^^xsd:double ;
+geo:long "-2.591552"^^xsd:double ;
+mca:order "14"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/15> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449510"^^xsd:double ;
+geo:long "-2.592588"^^xsd:double ;
+mca:order "15"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/16> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449579"^^xsd:double ;
+geo:long "-2.593086"^^xsd:double ;
+mca:order "16"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/17> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449785"^^xsd:double ;
+geo:long "-2.593740"^^xsd:double ;
+mca:order "17"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/18> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.449924"^^xsd:double ;
+geo:long "-2.596605"^^xsd:double ;
+mca:order "18"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/19> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.450014"^^xsd:double ;
+geo:long "-2.597603"^^xsd:double ;
+mca:order "19"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/20> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.450216"^^xsd:double ;
+geo:long "-2.598362"^^xsd:double ;
+mca:order "20"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/21> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.450285"^^xsd:double ;
+geo:long "-2.598997"^^xsd:double ;
+mca:order "21"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/22> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.450479"^^xsd:double ;
+geo:long "-2.599770"^^xsd:double ;
+mca:order "22"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/23> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.451045"^^xsd:double ;
+geo:long "-2.599778"^^xsd:double ;
+mca:order "23"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/24> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.452363"^^xsd:double ;
+geo:long "-2.600108"^^xsd:double ;
+mca:order "24"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/25> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.453030"^^xsd:double ;
+geo:long "-2.601058"^^xsd:double ;
+mca:order "25"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/26> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.455719"^^xsd:double ;
+geo:long "-2.604428"^^xsd:double ;
+mca:order "26"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/27> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.455894"^^xsd:double ;
+geo:long "-2.604335"^^xsd:double ;
+mca:order "27"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/28> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.456169"^^xsd:double ;
+geo:long "-2.605701"^^xsd:double ;
+mca:order "28"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/29> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.456304"^^xsd:double ;
+geo:long "-2.606054"^^xsd:double ;
+mca:order "29"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/30> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.457385"^^xsd:double ;
+geo:long "-2.604917"^^xsd:double ;
+mca:order "30"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/31> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.458004"^^xsd:double ;
+geo:long "-2.603948"^^xsd:double ;
+mca:order "31"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/32> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.458346"^^xsd:double ;
+geo:long "-2.603648"^^xsd:double ;
+mca:order "32"^^xsd:integer ;
+.
+
+<mca://data/waypoints/btm/precinct/33> rdf:type geo:Point ;
+rdf:type mcageo:BTMWayPoint ;
+mcageo:hasTag "btm_precinct"^^xsd:string ;
+geo:lat "51.458561"^^xsd:double ;
+geo:long "-2.603644"^^xsd:double ;
+mca:order "33"^^xsd:integer ;
+.
