@@ -7,7 +7,7 @@
     <parent>
         <artifactId>mca</artifactId>
         <groupId>org.ilrt.mca</groupId>
-        <version>0.10</version>
+        <version>0.11-GITHUB-SNAPSHOT</version>
     </parent>
     <groupId>org.ilrt.mca</groupId>
     <artifactId>mca-test-support</artifactId>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>com.sun.jersey.jersey-test-framework</groupId>
             <artifactId>jersey-test-framework-grizzly</artifactId>
-            <version>1.4</version>
+            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.grizzly</groupId>
