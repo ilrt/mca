@@ -8,25 +8,27 @@
 @prefix foaf:       <http://xmlns.com/foaf/0.1/> .
 
 
-<mca://registry/>  rdf:type mca:Registry ;
+<mca://>  rdf:type mca:Registry ;
     rdfs:label "Home" ;
+    mca:shortLabel "Home" ;
     dc:description "Registry for the Mobile Campus Assistant" ;
-    mca:hasItem <mca://registry/today/> ;
-    mca:hasItem <mca://registry/maps/> ;
-    mca:hasItem <mca://registry/news/> ;
+    mca:hasItem <mca://today/> ;
+    mca:hasItem <mca://maps/> ;
+    mca:hasItem <mca://news/> ;
     mca:template <template://homepage.ftl> ;
+    mca:style "home"^^xsd:string ;
     .
 
-<mca://registry/today/> rdf:type mca:Group ;
+<mca://today/> rdf:type mca:Group ;
     rdfs:label "Today" ;
     dc:description "Information for today" ;
-    mca:hasItem <mca://registry/today/news/> ;
+    mca:hasItem <mca://today/news/> ;
     mca:order "1"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "today"^^xsd:string ;
     .
 
-<mca://registry/today/news/> rdf:type mca:News ;
+<mca://today/news/> rdf:type mca:News ;
     rdfs:label "Today's News" ;
     dc:description "Today's News in the University of Bristol" ;
     mca:order "2"^^xsd:integer ;
@@ -34,16 +36,16 @@
     mca:style "news"^^xsd:string ;
     .
 
-<mca://registry/maps/> rdf:type mca:Group ;
+<mca://maps/> rdf:type mca:Group ;
     rdfs:label "Maps" ;
     dc:description "Useful maps of the campus" ;
-    mca:hasItem <mca://registry/maps/wireless/> ;
+    mca:hasItem <mca://maps/wireless/> ;
     mca:order "2"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "map"^^xsd:string ;
     .
 
-<mca://registry/maps/wireless/> rdf:type mca:KmlMapSource ;
+<mca://maps/wireless/> rdf:type mca:KmlMapSource ;
     rdfs:label "Wireless Hotspots" ;
     dc:description "The location of wireless hotspots across the campus." ;
     rdfs:seeAlso <http://wireless.bris.ac.uk/maps/wireless-core.kml> ;
@@ -54,17 +56,17 @@
     mca:style "map"^^xsd:string ;
     .
 
-<mca://registry/news/> rdf:type mca:Group ;
+<mca://news/> rdf:type mca:Group ;
     rdfs:label "News" ;
     dc:description "University news items" ;
-    mca:hasItem <mca://registry/news/main/> ;
-    mca:hasItem <mca://registry/news/services/> ;
+    mca:hasItem <mca://news/main/> ;
+    mca:hasItem <mca://news/services/> ;
     mca:order "4"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "news"^^xsd:string ;
     .
 
-<mca://registry/news/main/> rdf:type mca:News ;
+<mca://news/main/> rdf:type mca:News ;
     rdfs:label "Main Headlines" ;
     dc:description "Main headlines from the University of Bristol" ;
     rdfs:seeAlso <http://www.bris.ac.uk/news/news-feed.rss> ;
@@ -73,7 +75,7 @@
     mca:style "news"^^xsd:string ;
     .
 
-<mca://registry/news/services/is/> rdf:type mca:News ;
+<mca://news/services/is/> rdf:type mca:News ;
     rdfs:label "Information Services" ;
     dc:description "News from Information Services" ;
     rdfs:seeAlso <http://www.bristol.ac.uk/is/news/news.rss> ;
@@ -82,10 +84,10 @@
     mca:style "news"^^xsd:string ;
     .
 
-<mca://registry/news/services/> rdf:type mca:Group ;
+<mca://news/services/> rdf:type mca:Group ;
     rdfs:label "Support Services" ;
     dc:description "Latest news from the support services" ;
-    mca:hasItem <mca://registry/news/services/is/> ;
+    mca:hasItem <mca://news/services/is/> ;
     mca:order "4"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "news"^^xsd:string ;
