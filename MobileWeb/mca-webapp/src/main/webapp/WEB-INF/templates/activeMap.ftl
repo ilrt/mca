@@ -25,7 +25,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.4&amp;sensor=true"></script>
 <script type="text/javascript" src="${contextPath}/js/activeMap.js"></script>
 <script type="text/javascript">
-initializeMap("map", ${resource['geo:lat']?first?string.computer}, ${resource['geo:long']?first?string.computer}, 10, 200, 1000, 3000, ${mapZoom}, "${urlStem}", "${mcaIcon}", "${contextPath}/${resource['mca:markers']?first}", "${contextPath}/");
+    initializeMap("map", ${resource['geo:lat']?first?string.computer}, ${resource['geo:long']?first?string.computer}, 10, 200, 1000, 3000, ${mapZoom}, "${urlStem}", "${mcaIcon}", "${contextPath}/geo/type?uri=${resource['mca:markers']?first?url('UTF-8')}", "${contextPath}/");
 </script>
 
 <div id="searching">Searching for location ...</div>
