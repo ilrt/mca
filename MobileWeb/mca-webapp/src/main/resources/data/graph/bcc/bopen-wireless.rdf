@@ -1,0 +1,465 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:mcageo="http://vocab.bris.ac.uk/mca/geo#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" > 
+  <rdf:Description rdf:about="mca://bcc/wireless/3707ea8bf52637fd62c5a9b23cc7d072">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Phoenix House, Bethel Road, BS5 7NN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.537763</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460795</geo:lat>
+    <rdfs:label>Phoenix House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/8364c62a9867a3115bb50f821b09f06f">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Wildcroft House Sheltered Housing, Wildcroft Road, BS9 4JG</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.610047</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.480870</geo:lat>
+    <rdfs:label>Wildcroft House Sheltered Housing</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/49d89caa19a67b3dba637f04fef51e14">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Butler House, Summerhill Road, BS5 8HQ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.538580</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460458</geo:lat>
+    <rdfs:label>Butler House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/5c7b1d6d5c4ef596af7395c17cf85898">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Knowle West Health Park, Downton Road, BS4 1WH</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.596263</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.428754</geo:lat>
+    <rdfs:label>Knowle West Health Park</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/22183dd3ce58b276b5616a69bb3674af">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Southmead Library, Greystoke Avenue, BS106AS</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602925</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.503269</geo:lat>
+    <rdfs:label>Southmead Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/a5f1a2bd091ac39c3ee13c9c87e550d8">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Hartcliffe Library, Peterson Square, BS130BE</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.598149</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.404862</geo:lat>
+    <rdfs:label>Hartcliffe Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/0e4d32ec39d650804b9b64549289f3f3">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Henbury Library, Crow Lane, BS107DR</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.620471</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.509436</geo:lat>
+    <rdfs:label>Henbury Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/16404f04a9563502175e9e70b2bf746a">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Centre for Deaf People, 16-18 King Square, BS2 8JL</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.592117</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.461999</geo:lat>
+    <rdfs:label>Centre for Deaf People</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/a02ad1f6d15f37c37d2328bcd88495b4">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>City Docks - Cumberland Basin, Underfall Yard, BS1 6XG</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.615867</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.446905</geo:lat>
+    <rdfs:label>City Docks - Cumberland Basin</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/1f70541794ad1b62bc0da0422086043a">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Brislington Depot, Sandy Park Road, BS4 3NZ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.557799</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.441729</geo:lat>
+    <rdfs:label>Brislington Depot</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/3c3ecd2e7900d5a33b9815f25dab4e34">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Knowle Library, Redcatch Road, BS4 2EP</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.568622</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.435032</geo:lat>
+    <rdfs:label>Knowle Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/f7bda392ada971ce2d9de0b24f0d4345">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Whitchurch District Centre, Oatlands Avenue, BS140SX</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.571524</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.414085</geo:lat>
+    <rdfs:label>Whitchurch District Centre</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/d0b4bf04ae0a0758f0e9b5c1d1ac1a1e">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Aston Court Estate, Ashton Court, BS419JN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.638141</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.443701</geo:lat>
+    <rdfs:label>Aston Court Estate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/f984f9ff4ed307eae4300088429c45af">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Occupational Health (CSS), 8 Portland Square, BS2 8ST</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.585159</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460442</geo:lat>
+    <rdfs:label>Occupational Health (CSS)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/922908e9902b59ca9238262dc2febe70">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Westbury-On-Trym Library, Falcondale Road, BS9 3JZ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.622075</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.491759</geo:lat>
+    <rdfs:label>Westbury-On-Trym Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/fb41b92665e357bfa0d334fcdc7596fa">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Redland Library, Whiteladies Road, BS8 2PY</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.610733</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.465428</geo:lat>
+    <rdfs:label>Redland Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/db37f1eaef1ccb3d915a49b94efe8820">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>St Nicholas Church, St Nicholas Street, BS1 1UE</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.593077</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.453811</geo:lat>
+    <rdfs:label>St Nicholas Church</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/8dd977ba002c556784cd6effa4cd3622">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Fishponds Library, Fishponds Road, BS163UH</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.531404</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.479589</geo:lat>
+    <rdfs:label>Fishponds Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/efe19b6f51666ddad91209f40d654f0e">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Stoke Lodge Adult Education, Shirehampton Road, BS9 1BN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.636639</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.485602</geo:lat>
+    <rdfs:label>Stoke Lodge Adult Education</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/fe63d06fd409b73668d6c7cbc3d0aebf">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Coroners Court &amp; Office, Old Weston Road, BS481UL</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.692785</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.423411</geo:lat>
+    <rdfs:label>Coroners Court &amp; Office</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/21a257e397fa193d4ce49973419713a8">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>St George Library, Church Road, BS5 8AL</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.545154</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460140</geo:lat>
+    <rdfs:label>St George Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/e4dc1cc0a522b341d7b6edbc06f330ea">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Mansion House, Canynge Road, BS8 3LJ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.625354</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460837</geo:lat>
+    <rdfs:label>Mansion House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/bfe2e7f75f54fa34467f35966a08d8f9">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>B Bond, Smeaton Road, BS1 6XN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.622258</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.447060</geo:lat>
+    <rdfs:label>B Bond</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/c9cb2f1e581a51e4a130e8fc277e9f55">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>B Bond Warehouse, Smeaton Road, BS1 6XN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.622258</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.447060</geo:lat>
+    <rdfs:label>B Bond Warehouse</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/361a81047e4071b47ed4a5db7a5a75ff">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Henleaze Library, Northumbria Drive, BS9 4HP</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.612346</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.481587</geo:lat>
+    <rdfs:label>Henleaze Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/8a3bc2960aff3a63e756b8164d6580b7">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Trinity Road Library, Trinity Road, BS2 0NW</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.576400</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.458642</geo:lat>
+    <rdfs:label>Trinity Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/b18218903f59892844bb3e2df83500df">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Colston Hall, Colston Street, BS1 5AR</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.598256</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.454783</geo:lat>
+    <rdfs:label>Colston Hall</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/14bdb5d150bee8d043fd92b055b151ae">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Roegate House, Whitefield Avenue, BS5 7TT</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.533674</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.466820</geo:lat>
+    <rdfs:label>Roegate House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/096e26a37323150bf00528747b29f780">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Romney House, Romney Avenue, BS7 9TB</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.560122</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.494004</geo:lat>
+    <rdfs:label>Romney House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/dc4abaa074dc7a06b0fc4e1a73d235e4">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>St Pauls Library, Grosvenor Road, BS2 8XJ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.582845</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.464060</geo:lat>
+    <rdfs:label>St Pauls Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/4492b80b888dde84e332941c522b7fab">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Bishopsworth Library, Bishopsworth Road, BS137LN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.616521</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.420574</geo:lat>
+    <rdfs:label>Bishopsworth Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/f70ef3d587b20579e6b3694e58727920">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Horfield Library, Filton Avenue, BS7 0BD</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.573791</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.495089</geo:lat>
+    <rdfs:label>Horfield Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/aed2c07ae8a3a855de1ab1a0d7c6e1d0">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Marksbury Road Library, Marksbury Road, BS3 5LG</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602152</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.433579</geo:lat>
+    <rdfs:label>Marksbury Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/098fb6b12e2713ec597e3e72a0e94c3b">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Bedminster Library, East Street, BS3 4HY</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.593032</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.444757</geo:lat>
+    <rdfs:label>Bedminster Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/8933a085652b3a562ca691c3ef9a9156">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>City Museum &amp; Art Gallery, Queens Road, BS8 1RL</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.605002</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.456646</geo:lat>
+    <rdfs:label>City Museum &amp; Art Gallery</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/1e0575570af7e23fc4cc03035395aef3">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>33 Colston Ave, Colston Ave, BS1 4UA</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.597023</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.455176</geo:lat>
+    <rdfs:label>33 Colston Ave</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/b66a821c5be1d2a5359bd79259931795">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Lockleaze Adventure Playgrnd, Romney Avenue, BS7 9TD</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.560620</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.491205</geo:lat>
+    <rdfs:label>Lockleaze Adventure Playgrnd</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/e049d1c083b3098d838f3f92a0cded9d">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Bristol Industrial Museum, Princes Wharf, BS1 4RN</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.599883</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.447122</geo:lat>
+    <rdfs:label>Bristol Industrial Museum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/9116faf5f2507e3d0f760117eb5ab9fd">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Council House, College Green, BS1 5TR</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.601984</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.452606</geo:lat>
+    <rdfs:label>Council House</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/19c754b605496f89c493e9e96efe6cab">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Central Library, Deanery Road, BS1 5TZ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <rdfs:label>Central Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/fe6ae0eac0f8abd10d85747fc2942e3d">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Westleigh Day Centre/EPH, 17 Summerhill Terrace, BS5 8HX</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.536241</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.458626</geo:lat>
+    <rdfs:label>Westleigh Day Centre/EPH</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/711bd68ac8bfd964662283a0198feccd">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Eastville Library, Muller Road, BS5 6XP</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.567679</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.476228</geo:lat>
+    <rdfs:label>Eastville Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/0ecd937f274bde1d1343b61a230161ad">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Amelia Court, Pipe Lane, BS1 5AJ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.598883</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.454267</geo:lat>
+    <rdfs:label>Amelia Court</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/14a9aafa929930ed69cc1172b4adb90a">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>"2nd Floor, Somerfield House", BS140TJ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.588979</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.410627</geo:lat>
+    <rdfs:label>"2nd Floor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/fb9d147def5b048a349754e5ca93db01">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>"Transitions Team, The Park", BS4 1DQ</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.581354</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.430537</geo:lat>
+    <rdfs:label>"Transitions Team</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/wireless/26d0df9903e0009f520c680cc620019f">
+    <mcageo:hasTag>bopen_wireless</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bopen_wireless"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Clifton Library, Princess Victoria Street, BS8 4BX</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.620272</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.454426</geo:lat>
+    <rdfs:label>Clifton Library</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

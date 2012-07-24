@@ -13,24 +13,30 @@
     mca:shortLabel "Home" ;
     dc:description "Registry for the Mobile Campus Assistant" ;
     mca:hasItem <mca://today/> ;
-    mca:hasItem <mca://maps/> ;
-    mca:hasItem <mca://news/> ;
+    mca:hasItem <mca://places/> ;
     mca:template <template://homepage.ftl> ;
     mca:style "home"^^xsd:string ;
     .
 
 <mca://today/> rdf:type mca:Group ;
     rdfs:label "Today" ;
-    dc:description "Information for today" ;
+    mca:hasItem <mca://today/weather/> ;
     mca:hasItem <mca://today/news/> ;
     mca:order "1"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "today"^^xsd:string ;
     .
 
+<mca://today/weather/> rdf:type mca:HtmlFragment ;
+    rdfs:label "Weather" ;
+    rdfs:seeAlso <http://newsrss.bbc.co.uk/weather/forecast/3/ObservationsRSS.xml> ;
+    mca:order "1"^^xsd:integer ;
+    mca:template <template://htmlFragment.ftl> ;
+    mca:style "today"^^xsd:string ;
+    .
+
 <mca://today/news/> rdf:type mca:News ;
     rdfs:label "Today's News" ;
-    dc:description "Today's News in the University of Bristol" ;
     mca:order "2"^^xsd:integer ;
     mca:template <template://newsList.ftl> ;
     mca:style "news"^^xsd:string ;
@@ -95,6 +101,10 @@
 
 
 # Below are URLs that will be harvested
+
+<http://newsrss.bbc.co.uk/weather/forecast/3/ObservationsRSS.xml> rdf:type mca:XmlSource ;
+    mca:hasXslSource <xsl://xsl/bbc_weather.xsl>
+    .
 
 <http://www.bris.ac.uk/news/news-feed.rss> rdf:type mca:FeedSource .
 

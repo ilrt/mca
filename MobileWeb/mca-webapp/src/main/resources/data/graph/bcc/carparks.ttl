@@ -1,0 +1,956 @@
+
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix mca:        <http://vocab.bris.ac.uk/mca/registry#> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .	
+@prefix geo:        <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix mcageo:     <http://vocab.bris.ac.uk/mca/geo#> .
+@prefix gn:         <http://www.geonames.org/ontology#> .
+
+	
+	
+		
+<mca://data/bcc/parkingdata/carpark/22> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Alexandra Park, Fishponds, BS16 2BG" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.478349"^^xsd:double ;
+geo:long "-2.536601"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "24"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Alexandra Park, Fishponds, Bristol, BS16 2BG" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/4> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Bedminster, BS3 4" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.4416770073455"^^xsd:double ;
+geo:long "-2.59466171264648"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "170"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Dalby Avenue, Bedminster, Bristol, BS3 4" ;
+mcageo:hasOperatingHours "0630-1900 Mon-Sat"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/23> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Beechwood Road, Fishponds, BS16 3TD" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.479635"^^xsd:double ;
+geo:long "-2.526593"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "96"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Beechwood Road, Fishponds, Bristol, BS16 3TD" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/34> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Bristol 1st Hotel, BS1 6BQ" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.451519"^^xsd:double ;
+geo:long "-2.585188"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "40"^^xsd:integer ;
+mcageo:hasDisabledBays "No"^^xsd:string ;
+vcard:ADR "Temple Rose Street, Bristol, BS1 6BQ" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/5> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Broadmead, BS1 3AF" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.456703"^^xsd:double ;
+geo:long "-2.585256"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "468"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Lower Castle St, Bristol, BS1 3AF" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/25> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Brunel Lock, Hotwells, BS1 6XL" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.4476"^^xsd:double ;
+geo:long "-2.618206"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "45"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Brunel Lock Road, Hotwells, Bristol, BS1 6XL" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/26> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Brunswick Square, BS2 8PE" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.46057"^^xsd:double ;
+geo:long "-2.587722"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "44"^^xsd:integer ;
+mcageo:hasDisabledBays "No"^^xsd:string ;
+vcard:ADR "Brunswick Square, Bristol, BS2 8PE" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/78> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Cabot Circus, BS2 9AB" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.4595"^^xsd:double ;
+geo:long "-2.582259"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/PRI> ;
+mcageo:hasSpaces "2500"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Cabot Circus, Off Newfoundland Road, Bristol, BS2 9AB" ;
+mcageo:hasOperatingHours "24 hours"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/27> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Callington Road, BS4 5BE" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.433567"^^xsd:double ;
+geo:long "-2.547067"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "25"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Callington Road, Brislington, Bristol, BS4 5BE" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/32> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Chalks Road, Redfield, BS5 9EP" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.461081"^^xsd:double ;
+geo:long "-2.552923"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "120"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Chalks Road, St George, Bristol, BS5 9EP" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/33> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Charles Place, Hotwells, BS8 4QW" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.450334"^^xsd:double ;
+geo:long "-2.619769"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "10"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Charles Place, Hotwells, Bristol, BS8 4QW" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/35> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Clayton Street, Avonmouth, BS11 9AH" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.500471"^^xsd:double ;
+geo:long "-2.701444"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "50"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Clayton Street, Avonmouth, Bristol, BS11 9AH" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/6> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Clifton Down Shopping Centre, BS8 2NN" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.463959"^^xsd:double ;
+geo:long "-2.610769"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/PRI> ;
+mcageo:hasSpaces "339"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Clifton Down Shopping Centre, Whiteladies Road, Bristol, BS8 2NN" ;
+mcageo:hasOperatingHours "07.00-22.30 - Monday to Sunday"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/79> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "College Street, BS1 5UY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.4521081614692"^^xsd:double ;
+geo:long "-2.60363101959229"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "248"^^xsd:integer ;
+mcageo:hasDisabledBays "yes"^^xsd:string ;
+vcard:ADR "College Street, Bristol, BS1 5UY" ;
+mcageo:hasOperatingHours "24 hours 7 days"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/37> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Cottage Inn, Hotwells, BS1 6YG" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.446395"^^xsd:double ;
+geo:long "-2.616154"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "100"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Baltic Wharf, Cumberland Road, Bristol, BS1 6YG" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/38> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Derby Street, Redfield, BS5 9PH" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.458906"^^xsd:double ;
+geo:long "-2.552695"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "48"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Derby Street, St George, Bristol, BS5 9PH" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/39> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Diamond Street, Bedminster, BS3 3LF" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.439962"^^xsd:double ;
+geo:long "-2.601601"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "50"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Diamond Street, Bedminster, Bristol, BS3 3LF" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/40> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Dowling Road, Hartcliffe, BS13 0HA" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.404198"^^xsd:double ;
+geo:long "-2.59712"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "100"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Dowling Road, Hartcliffe, Bristol, BS13 0HA" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/41> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Ducie Road, Lawrence Hill, BS5 0AT" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.457055"^^xsd:double ;
+geo:long "-2.565526"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "50"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Ducie Road, Lawrence Hill, Bristol, BS5 0AT" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/42> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Frog Lane, BS1 5UY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.452832"^^xsd:double ;
+geo:long "-2.602892"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "11"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Frog Lane, Bristol, BS1 5UY" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/8> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Gardiner Haskins Home Centre, BS2 0JP" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.454049"^^xsd:double ;
+geo:long "-2.582759"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/PRI> ;
+mcageo:hasSpaces "300"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Broad Plain Retail Centre, Off Temple Way, Bristol, BS2 0JP" ;
+ 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/77> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Gloucester Road, BS7 8BN" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.474397"^^xsd:double ;
+geo:long "-2.591845"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "20"^^xsd:integer ;
+
+vcard:ADR "Gloucester Road, Bishopston, Bristol, BS7 8BN" ;
+mcageo:hasOperatingHours "24 Hours"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/43> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Harden Road, Stockwood, BS14 8PS" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.413407"^^xsd:double ;
+geo:long "-2.545"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "36"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Harden Road, Stockwood, Bristol, BS14 8PS" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/44> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Hereford Street, Bedminster, BS3 4NA" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.440145"^^xsd:double ;
+geo:long "-2.595819"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "52"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Hereford Street, Bedminster, Bristol, BS3 4NA" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/45> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Little Paradise, Bedminster, BS3 4DY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.442715"^^xsd:double ;
+geo:long "-2.594313"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "56"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Little Paradise, Bedminster, Bristol, BS3 4DY" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/47> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Machin Road, Henbury, BS10 7HQ" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.510029"^^xsd:double ;
+geo:long "-2.621847"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "34"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Machin Road, Henbury, Bristol, BS10 7HQ" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/49> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Maritime Heritage Centre, BS1 6JL" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.447299"^^xsd:double ;
+geo:long "-2.603568"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "150"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Gas Ferry Road, Bristol, BS1 6JL" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/50> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "McCadam Way, BS1 6XL" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.4476"^^xsd:double ;
+geo:long "-2.618206"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "15"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "McAdam Way, Hotwells, Bristol, BS1 6XL" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/31> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Millennium Square Car Park (@Bristol), B" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.450648"^^xsd:double ;
+geo:long "-2.59928"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/ATB> ;
+mcageo:hasSpaces "524"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Canons Way, Off Anchor Road, Bristol, BS1 5DB" ;
+mcageo:hasOperatingHours "24 hours, 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/11> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Nelson Street, BS1 3DB" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.456282"^^xsd:double ;
+geo:long "-2.592594"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "295"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Nelson Street, Bristol, BS1 3DB" ;
+mcageo:hasOperatingHours "24hrs Mon-Sat"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/53> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Oldfield Place, Hotwells, BS8 4QJ" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.44901"^^xsd:double ;
+geo:long "-2.620139"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "15"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Oldfield Place, Hotwells, Bristol, BS8 4QJ" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/12> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Prince Street, BS1 4QF" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.45047"^^xsd:double ;
+geo:long "-2.597018"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "311"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Jurys Bristol Hotel, Prince Street, Bristol, BS1 4QF" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/13> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Queen Charlotte Street, BS1 4ES" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.452873"^^xsd:double ;
+geo:long "-2.59315"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "282"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Queen Charlotte Street, Bristol, BS1 4ES" ;
+mcageo:hasOperatingHours "24hrs Mon-Sun"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/60> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Ridingleaze, Lawrence Weston, BS11 0NT" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.503156"^^xsd:double ;
+geo:long "-2.657124"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "50"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Broadlands Drive, Lawrence Weston, Bristol, BS11 0NT" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/14> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Rupert Street, BS1 2PY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.457237"^^xsd:double ;
+geo:long "-2.594243"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "503"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Rupert Street, Bristol, BS1 2PY" ;
+mcageo:hasOperatingHours "24hrs Mon-Sat"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/62> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Sandy Park, Brislington, BS4 3PH" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.44055"^^xsd:double ;
+geo:long "-2.555438"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "15"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Sandy Park Road, Brislington, Bristol, BS4 3PH" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/63> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Sheene Road, Bedminster, BS3 4JJ" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.439688"^^xsd:double ;
+geo:long "-2.598907"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "36"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Wesley Street, Bedminster, Bristol, BS3 4JJ" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/15> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "St James Barton, BS1 3" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.459822"^^xsd:double ;
+geo:long "-2.588857"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/NCP> ;
+mcageo:hasSpaces "340"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "St. James Barton, Bond Street, BS1 3" ;
+mcageo:hasOperatingHours "07.00-21.00 Mon-Sat"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/64> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Stoke View, Fishponds, BS16 3AU" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.477367"^^xsd:double ;
+geo:long "-2.538429"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "40"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Stoke View Road, Stoke View, Bristol, BS16 3AU" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/17> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Temple Meads, BS1 6QF" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.448938"^^xsd:double ;
+geo:long "-2.583515"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BR> ;
+mcageo:hasSpaces "366"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Bristol Temple Meads Station, Temple Way, Bristol, BS1 6QF" ;
+ 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/19> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "The Mall Galleries, BS1 3XD" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.456702"^^xsd:double ;
+geo:long "-2.589889"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/PRI> ;
+mcageo:hasSpaces "959"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "The Mall Galleries, Newgate, Bristol, BS1 3XD" ;
+mcageo:hasOperatingHours "08.00-19.00 Mon, Tues, Weds, Fri, Sat. 08.00-20.00 Thurs. 10.30-18.00 Sun. 09.30-1800 Bank Holidays"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/68> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Trenchard Street, BS1 5AN" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.45472"^^xsd:double ;
+geo:long "-2.599682"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "950"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Trenchard Street, Bristol, BS1 5AN" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/20> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Wapping Wharf, BS1 6UD" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "-2.597306"^^xsd:double ;
+geo:long "51.447087"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/EURO> ;
+mcageo:hasSpaces "600"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Wapping Road, Bristol, BS1 6UD" ;
+ 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/70> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Waverly Road, Shirehampton, BS11 9SB" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.489088"^^xsd:double ;
+geo:long "-2.676798"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "40"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Waverley Road, Shirehampton, Bristol, BS11 9SB" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/71> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Welsh Back (Various Areas), BS1" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.454813"^^xsd:double ;
+geo:long "-2.59874"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "30"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Welsh Back, Bristol, BS1" ;
+mcageo:hasOperatingHours "Permit Holders Only"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/73> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Westbury Hill, Westbury-onTrym, BS9 3JY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.489919"^^xsd:double ;
+geo:long "-2.620997"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "106"^^xsd:integer ;
+mcageo:hasDisabledBays "n/a"^^xsd:string ;
+vcard:ADR "Westbury Hill, Westbury-on-Trym, Bristol, BS9 3JY" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/72> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "West End (Berkeley Place), BS8 1EH" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.455517"^^xsd:double ;
+geo:long "-2.608872"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "750"^^xsd:integer ;
+mcageo:hasDisabledBays "Adj"^^xsd:string ;
+vcard:ADR "Berkeley Place, Bristol, BS8 1EH" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/58> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Queens Road, Withywood, BS13 8PJ" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.40877"^^xsd:double ;
+geo:long "-2.620386"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "22"^^xsd:integer ;
+mcageo:hasDisabledBays "No"^^xsd:string ;
+vcard:ADR "Queens Road, Withywood, Bristol, BS13 8PJ" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/48> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Mardyke Wharf, BS8 4UR" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.450117"^^xsd:double ;
+geo:long "-2.616542"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "28"^^xsd:integer ;
+mcageo:hasDisabledBays "No"^^xsd:string ;
+vcard:ADR "Mardyke Wharf, Hotwells Road, Bristol, BS8 4UR" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/67> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "The Grove, BS1 4RB" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.448975"^^xsd:double ;
+geo:long "-2.59402"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "113"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "The Grove, Bristol, BS1 4RB" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/66> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Temple Gate, BS1 6PL" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.448288"^^xsd:double ;
+geo:long "-2.58401"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "425"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Off Temple Gate, Opposite Temple Meads Station, Bristol, BS1 6PL" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/59> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Redcliffe Parade, BS1 6SW" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.448311"^^xsd:double ;
+geo:long "-2.59117"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "35"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Redcliffe Parade East, Redcliffe, Bristol, BS1 6SW" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/57> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Queen Square, BS1 4NT" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.450561"^^xsd:double ;
+geo:long "-2.593292"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "159"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Queen Square, Bristol, BS1 4NT" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/56> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Portwall Lane, BS1 6NB" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.449424"^^xsd:double ;
+geo:long "-2.588788"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "170"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "Portwall Lane, Redcliffe, Bristol, BS1 6NB" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/46> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Lower Guinea Street, BS1 6SY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.446423"^^xsd:double ;
+geo:long "-2.593613"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/BCC> ;
+mcageo:hasSpaces "22"^^xsd:integer ;
+mcageo:hasDisabledBays "No"^^xsd:string ;
+vcard:ADR "Lower Guinea Street, Redcliffe, BS1 6SY" ;
+mcageo:hasOperatingHours "24hrs 7 days a week"^^xsd:string ; 
+.
+
+		
+<mca://data/bcc/parkingdata/carpark/1> rdf:type geo:Point ;
+rdf:type <http://www.geonames.org/ontology#S.PKLT> ;
+rdf:type mcageo:Amenity ;
+rdfs:label "Asda, Bedminster, BS3 4JY" ;
+mcageo:hasTag "bcc_carpark"^^xsd:string ;
+geo:lat "51.443493"^^xsd:double ;
+geo:long "-2.594471"^^xsd:double ;
+mcageo:hasOperator <mca://data/bcc/parkingdata/operator/PRI> ;
+mcageo:hasSpaces "700"^^xsd:integer ;
+mcageo:hasDisabledBays "Yes"^^xsd:string ;
+vcard:ADR "East Street, Bedminster, Bristol, BS3 4JY" ;
+ 
+.
+
+	
+	
+	
+		
+<mca://data/bcc/parkingdata/operator/ATB> rdf:type mcageo:CarParkOperator;
+rdfs:label "At Bristol" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/BADG> rdf:type mcageo:CarParkOperator;
+rdfs:label "Badgerline" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/BCC> rdf:type mcageo:CarParkOperator;
+rdfs:label "Bristol City Council" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/BRI> rdf:type mcageo:CarParkOperator;
+rdfs:label "Britannia" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/BR> rdf:type mcageo:CarParkOperator;
+rdfs:label "British Rail" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/EURO> rdf:type mcageo:CarParkOperator;
+rdfs:label "Euro Car Parks" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/NCP> rdf:type mcageo:CarParkOperator;
+rdfs:label "National Car Parks Ltd" ;
+.
+
+		
+<mca://data/bcc/parkingdata/operator/PRI> rdf:type mcageo:CarParkOperator;
+rdfs:label "Other Private Operators" ;
+.
+
+	
+	
+		
+<mca://data/bcc/parkingdata/type/K> rdf:type mcageo:carpark_type;
+rdfs:label "Free" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/A> rdf:type mcageo:carpark_type;
+rdfs:label "Free" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/E> rdf:type mcageo:carpark_type;
+rdfs:label "Free to Shoppers at adjacent shop" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/I> rdf:type mcageo:carpark_type;
+rdfs:label "Park and Ride" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/F> rdf:type mcageo:carpark_type;
+rdfs:label "Parking Meters" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/B> rdf:type mcageo:carpark_type;
+rdfs:label "Pay and Display" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/G> rdf:type mcageo:carpark_type;
+rdfs:label "Pay on Entry" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/D> rdf:type mcageo:carpark_type;
+rdfs:label "Pay on Exit" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/C> rdf:type mcageo:carpark_type;
+rdfs:label "Pay on Foot" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/J> rdf:type mcageo:carpark_type;
+rdfs:label "Permit Holder's Only" ;
+.
+
+		
+<mca://data/bcc/parkingdata/type/H> rdf:type mcageo:carpark_type;
+rdfs:label "Reserved Only" ;
+.
+
+	

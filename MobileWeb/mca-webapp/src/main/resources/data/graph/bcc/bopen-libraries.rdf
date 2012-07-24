@@ -1,0 +1,318 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:mcageo="http://vocab.bris.ac.uk/mca/geo#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" > 
+  <rdf:Description rdf:about="mca://bcc/library/5c4749a97768a371059831504abf6963">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Avonmouth Road, Bristol, BS11 9EN.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.698591</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.500319</geo:lat>
+    <rdfs:label>Avonmouth Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/96fbb05083a0cc3ab83b5b24921abfa1">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Whiteladies Road, Redland, Bristol, BS8 2PY.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.610733</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.465428</geo:lat>
+    <rdfs:label>Redland Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/753bbc10956c58f116a7133c9a3e4e6d">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>1st Floor, Broadwalk Shopping Centre, Wells Road, Knowle, Bristol, BS4 2QU.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.568010</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.434424</geo:lat>
+    <rdfs:label>Knowle Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/ea2c3dff4d9cb0d96b827501719765aa">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Cheltenham Rd, Bristol, BS6 5QX.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.592660</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.468317</geo:lat>
+    <rdfs:label>Cheltenham Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/329d9dd5045ff5ba830dbd878f91e7ad">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Fishponds Road, Bristol, BS16 3UH.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.531404</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.479589</geo:lat>
+    <rdfs:label>Fishponds Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/90b6e1f7f7ec786d9e5e113906d36758">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Northumbria Drive, Henleaze, Bristol, BS9 4HP.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.612346</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.481587</geo:lat>
+    <rdfs:label>Henleaze Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/083cc65198daaa52b7246249c014191f">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Ridingleaze House, Ridingleaze, Lawrence Weston, Bristol, BS11 0QE.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.658656</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.501360</geo:lat>
+    <rdfs:label>Lawrence Weston Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/ac538eb4fae9d59b30c625d520014372">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Stockwood Road, Bristol, BS14 8PL.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.547275</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.412384</geo:lat>
+    <rdfs:label>Stockwood Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/ba4663aa9c08312c1cd8186143bcd018">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Sylvan Way, Sea Mills, Bristol, BS9 2NA.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.648218</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.491707</geo:lat>
+    <rdfs:label>Sea Mills Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/479f96681359678dbcb91aeeb4d4fa47">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>College Green, Bristol, BS1 5TL.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602386</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.451453</geo:lat>
+    <rdfs:label>Bristol Central Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/3f59578b0f77568374778ab7b369c9c7">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Greystoke Avenue, Southmead, Bristol, BS10 6AS.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602925</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.503269</geo:lat>
+    <rdfs:label>Southmead Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/861cc7e298d857d460de5dbe14931226">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Crow Lane, Henbury, Bristol, BS10 7DR.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.620471</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.509436</geo:lat>
+    <rdfs:label>Henbury Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/5b2fbcd6a6a72a10b4429d61d1bc0c35">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Whitchurch District Centre, Oatlands Avenue, Whitchurch, Bristol, BS14 0SX.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.571524</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.414085</geo:lat>
+    <rdfs:label>Whitchurch Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/06395f2103fa63c97d3e2c8825d1c687">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Unit 1, Bristol Vale Trading Estate, Hartcliffe Way, Bedminster, Bristol, BS3 5RJ.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.606228</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.429539</geo:lat>
+    <rdfs:label>School Library Service</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/deedf6f9bf140e681e6f5501b669c8dc">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Central Library, College Green, Bristol, BS1 5TL.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602386</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.451453</geo:lat>
+    <rdfs:label>Reference Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/dd7095863f6dce56db822dfd1e8bfdda">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Princess Victoria Street, Clifton, Bristol, BS8 4BX.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.620272</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.454426</geo:lat>
+    <rdfs:label>Clifton Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/b4cf9d524894869a4fb843a9902f813e">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Station Road, Shirehampton, Bristol, BS11 9TU.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.675923</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.487324</geo:lat>
+    <rdfs:label>Shirehampton Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/9265a567c0b2f837d6a9f1e560decb10">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>4 St Peter's Court, Bedminster Parade, Bristol, BS3 4AQ.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.593843</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.444069</geo:lat>
+    <rdfs:label>Bedminster Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/fdee110b6de5678649fde78a1aa3f30d">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Hartcliffe Library@Symes, Symes District Centre, Peterson Avenue, Hartcliffe, Bristol, BS13 0BE.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.598149</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.404862</geo:lat>
+    <rdfs:label>Hartcliffe Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/507f789c74afbe7331855cd4eed1f96b">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Muller Road, Eastville, Bristol, BS5 6XP.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.567679</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.476228</geo:lat>
+    <rdfs:label>Eastville Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/347799e5cd0110abfea28949d829d77d">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Trinity Road, St Phillips, Bristol, BS2 0NW.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.576400</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.458642</geo:lat>
+    <rdfs:label>Trinity Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/b38a1eebbefef89a5f9a0b91b2eca1c4">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Church Road, St George, Bristol, BS5 8AL.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.545154</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.460140</geo:lat>
+    <rdfs:label>St George Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/4f8bb517ebff0cf9439b766e080ee4d7">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Filton Avenue, Horfield, Bristol, BS7 0BD.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.573791</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.495089</geo:lat>
+    <rdfs:label>Horfield Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/b80b385cec1044496f15665da7fb0da7">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Grosvenor Road, St Pauls, Bristol, BS2 8XJ.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.582845</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.464060</geo:lat>
+    <rdfs:label>St Pauls Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/c3e3f6d626211c2e1aec159745caf29a">
+    <rdfs:label>Residential Library Services</rdfs:label>
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Outreach Services, Unit 2, Bristol Vale Trading Estate, Hartcliffe Way, Bristol, BS3 5RJ.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.606228</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.429539</geo:lat>
+    <rdfs:label>Mobile Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/5d1535baea003fe5b98aa7de32596a7d">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Wick Road, Brislington, Bristol, BS4 4HE.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.551645</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.438539</geo:lat>
+    <rdfs:label>Wick Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/f7125f3ded2eff64e8177e8a218d4c5d">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Falcondale Rd, Westbury-on-Trym, Bristol, BS9 3JZ.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.622075</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.491759</geo:lat>
+    <rdfs:label>Westbury Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/6164bca30622985c84bc1682452feabc">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Bishopsworth Road, Bristol, BS13 7LN.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.616521</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.420574</geo:lat>
+    <rdfs:label>Bishopsworth Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/85e96cb77f7c7a669efc44a38aa73116">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Summerleaze, Hillfields, Bristol, BS16 4HL.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.517139</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.474906</geo:lat>
+    <rdfs:label>Hillfields Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/07a5285daac53eec5dbe55990be1eed7">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Marksbury Road, Bedminster, Bristol, BS3 5LG.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.602152</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.433579</geo:lat>
+    <rdfs:label>Marksbury Road Library</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mca://bcc/library/84c0608fe644a562fe80f1e69e882483">
+    <mcageo:hasTag>bcc_library</mcageo:hasTag>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#bcc_library"/>
+    <rdf:type rdf:resource="http://vocab.bris.ac.uk/mca/geo#amenity"/>
+    <vcard:ADR>Filwood Broadway, Bristol, BS4 1JN.</vcard:ADR>
+    <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.585998</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51.424777</geo:lat>
+    <rdfs:label>Filwood Library</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>
