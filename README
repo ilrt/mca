@@ -7,9 +7,9 @@ INTRODUCTION
 "Mobile Campus Assistant" is software that was developed during a 
 JISC funded rapid innovation project of the same name. The software
 has continued to be developed through the JISC funded  MyMobileBristol
-(http://mymobilebristol.com) project. The work was undertaken by the 
-Institute for Learning and Research Technology (ILRT) at the University
-of Bristol.
+(http://mymobilebristol.com) and Greening Events 2 
+(http://greeningevents.ilrt.bris.ac.uk/) projects. The work was undertaken
+by the R&D/ILRT team of IT Services,  University of Bristol.
 
 COMPILING
 ---------
@@ -42,21 +42,27 @@ distributed with the source code.
 To run the application via maven you can run:
 
 cd mca-webapp/
-mvn jetty:run-war
+mvn jetty:run
 
+The website will be available at <http://localhost:8080/>.
 
 FURTHER INFORMATION
 -------------------
 
-Project Website:
-<http://mymobilebristol.com/>
+Project Wiki:
+<https://wikis.bris.ac.uk/display/mca/Home>
 
 Demonstrator
 <http://m.bristol.ac.uk/>
 
 
-For general queries about the project please contact Simon Price
-(s.price@bristol.ac.uk). For technical queries please contact 
+For general queries about MyMobileBristol, contact
+Simon Price (s.price@bristol.ac.uk). 
+
+For general querues about Greening Events 2, contact
+Debra Hiom (D.Hiom@bristol.ac.uk).
+
+For technical queries please contact 
 Mike Jones (mike.a.jones@bristol.ac.uk).
 
 (c) 2009-2012, University of Bristol
