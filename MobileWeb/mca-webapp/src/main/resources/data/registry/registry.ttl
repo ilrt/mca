@@ -14,6 +14,9 @@
     dc:description "Registry for the Mobile Campus Assistant" ;
     mca:hasItem <mca://today/> ;
     mca:hasItem <mca://places/> ;
+    mca:hasItem <mca://transport/> ;
+    mca:hasItem <mca://news/> ;
+    mca:hasItem <mca://about/> ;
     mca:template <template://homepage.ftl> ;
     mca:style "home"^^xsd:string ;
     .
@@ -64,7 +67,6 @@
 
 <mca://news/> rdf:type mca:Group ;
     rdfs:label "News" ;
-    dc:description "University news items" ;
     mca:hasItem <mca://news/main/> ;
     mca:hasItem <mca://news/services/> ;
     mca:order "4"^^xsd:integer ;
@@ -74,29 +76,133 @@
 
 <mca://news/main/> rdf:type mca:News ;
     rdfs:label "Main Headlines" ;
-    dc:description "Main headlines from the University of Bristol" ;
     rdfs:seeAlso <http://www.bris.ac.uk/news/news-feed.rss> ;
     mca:order "2"^^xsd:integer ;
     mca:template <template://newsList.ftl> ;
     mca:style "news"^^xsd:string ;
     .
 
-<mca://news/services/is/> rdf:type mca:News ;
-    rdfs:label "Information Services" ;
-    dc:description "News from Information Services" ;
-    rdfs:seeAlso <http://www.bristol.ac.uk/is/news/news.rss> ;
+<mca://news/services/library/> rdf:type mca:News ;
+    rdfs:label "Library" ;
+    rdfs:seeAlso <http://www.bristol.ac.uk/library/news/news.rss> ;
     mca:order "1"^^xsd:integer ;
+    mca:template <template://newsList.ftl> ;
+    mca:style "news"^^xsd:string ;
+    .
+
+<mca://news/services/it/> rdf:type mca:News ;
+    rdfs:label "IT Services" ;
+    rdfs:seeAlso <http://www.bristol.ac.uk/it-services/news/news.rss> ;
+    mca:order "2"^^xsd:integer ;
+    mca:template <template://newsList.ftl> ;
+    mca:style "news"^^xsd:string ;
+    .
+
+<mca://news/services/sports/> rdf:type mca:News ;
+    rdfs:label "Sport, Exercise and Health" ;
+    rdfs:seeAlso <http://www.bristol.ac.uk/sport/news/news-feed.rss> ;
+    mca:order "3"^^xsd:integer ;
+    mca:template <template://newsList.ftl> ;
+    mca:style "news"^^xsd:string ;
+    .
+
+<mca://news/services/health/> rdf:type mca:News ;
+    rdfs:label "Students' Health Service" ;
+    rdfs:seeAlso <http://www.bristol.ac.uk/students-health/news/news-feed.rss> ;
+    mca:order "4"^^xsd:integer ;
     mca:template <template://newsList.ftl> ;
     mca:style "news"^^xsd:string ;
     .
 
 <mca://news/services/> rdf:type mca:Group ;
     rdfs:label "Support Services" ;
-    dc:description "Latest news from the support services" ;
-    mca:hasItem <mca://news/services/is/> ;
+    mca:hasItem <mca://news/services/library/> ;
+    mca:hasItem <mca://news/services/it/> ;
+    mca:hasItem <mca://news/services/sports/> ;
+    mca:hasItem <mca://news/services/health/> ;
     mca:order "4"^^xsd:integer ;
     mca:template <template://navigation.ftl> ;
     mca:style "news"^^xsd:string ;
+    .
+
+<mca://transport/> rdf:type mca:Group ;
+    rdfs:label "Transport" ;
+    dc:description "bus, cycling, walking" ;
+    mca:hasItem <mca://transport/public_bicycle_parking/> ;
+    mca:hasItem <mca://transport/carparks/> ;
+    mca:hasItem <mca://transport/walking/> ;
+    mca:order "3"^^xsd:integer ;
+    mca:template <template://navigation.ftl> ;
+    mca:style "transport"^^xsd:string ;
+    .
+
+ <mca://transport/public_bicycle_parking/> rdf:type mca:ActiveMapSource ;
+     rdfs:label "Public bicycle parking" ;
+     mca:markers <http://vocab.bris.ac.uk/mca/geo#bicycle_parking> ;
+     mca:template <template://activeMap.ftl> ;
+     mca:order "1"^^xsd:integer ;
+     mca:icon "images/bicycleparking.png" ;
+     geo:lat "51.4585695818037"^^xsd:double ;
+     geo:long "-2.60187349563486"^^xsd:double ;
+     mca:style "transport"^^xsd:string ;
+     .
+
+<mca://transport/carparks/> rdf:type mca:ActiveMapSource ;
+    rdfs:label "City Car Parks" ;
+    mca:markers <http://www.geonames.org/ontology#S.PKLT> ;
+    mca:template <template://activeMap.ftl> ;
+    mca:order "3"^^xsd:integer ;
+    mca:icon "images/car.png" ;
+    geo:lat "51.4585695818037"^^xsd:double ;
+    geo:long "-2.60187349563486"^^xsd:double ;
+    mca:style "transport"^^xsd:string ;
+    mca:mapZoom "14"^^xsd:string ;
+    .
+
+<mca://transport/walking/> rdf:type mca:Group ;
+    rdfs:label "Walking" ;
+    mca:hasItem <mca://transport/walking/busstation/> ;
+    mca:hasItem <mca://transport/walking/btm/> ;
+    mca:order "5"^^xsd:integer ;
+    mca:template <template://navigation.ftl> ;
+    mca:style "transport"^^xsd:string ;
+    .
+
+<mca://transport/walking/busstation/> rdf:type mca:ActiveMapSource ;
+    rdfs:label "From the Bus Station" ;
+     mca:markers <http://vocab.bris.ac.uk/mca/geo#BusStationWayPoint> ;
+     mca:template <template://waypointMap.ftl> ;
+     mca:order "3"^^xsd:integer ;
+     geo:lat "51.458769"^^xsd:double ;
+     geo:long "-2.593768"^^xsd:double ;
+     mca:style "transport"^^xsd:string ;
+     mca:mapZoom "16"^^xsd:string ;
+     .
+
+<mca://transport/walking/btm/> rdf:type mca:ActiveMapSource ;
+    rdfs:label "From Temple Meads" ;
+     mca:markers <http://vocab.bris.ac.uk/mca/geo#BTMWayPoint> ;
+     mca:template <template://waypointMap.ftl> ;
+     mca:order "4"^^xsd:integer ;
+     geo:lat "51.449586"^^xsd:double ;
+     geo:long "-2.581230"^^xsd:double ;
+     mca:style "transport"^^xsd:string ;
+     mca:mapZoom "16"^^xsd:string ;
+     .
+
+<mca://about/> rdf:type mca:Group ;
+    rdfs:label "About" ;
+    mca:template <template://about.ftl> ;
+    mca:order "9"^^xsd:integer ;
+    mca:style "about"^^xsd:string ;
+    .
+
+<mca://cookies/> rdf:type mca:Group ;
+    rdfs:label "Privacy and cookie policy" ;
+    mca:template <template://cookies.ftl> ;
+    mca:order "9"^^xsd:integer ;
+    mca:style "about"^^xsd:string ;
+    mca:hasParent <mca://> ;
     .
 
 
@@ -108,8 +214,12 @@
 
 <http://www.bris.ac.uk/news/news-feed.rss> rdf:type mca:FeedSource .
 
-<http://www.bristol.ac.uk/is/news/news.rss> rdf:type mca:FeedSource .
+<http://www.bristol.ac.uk/library/news/news.rss> rdf:type mca:FeedSource .
 
-<http://www.informationfreeway.org/api/0.6/node%5Bbbox=-2.614,51.453,-2.595,51.462%5D%5Bamenity=*%5D> rdf:type mca:OSMGeoSource .
+<http://www.bristol.ac.uk/it-services/news/news.rss> rdf:type mca:FeedSource .
 
-<http://www.informationfreeway.org/api/0.6/node%5Bbbox=-2.614,51.453,-2.595,51.462%5D%5Bshop=*%5D> rdf:type mca:OSMGeoSource .
+<http://www.bristol.ac.uk/sport/news/news-feed.rss> rdf:type mca:FeedSource .
+
+<http://www.ubu.org.uk/rss.xml> rdf:type mca:FeedSource .
+
+<http://www.ubu.org.uk/feed/events/rss.xml> rdf:type mca:FeedSource .
